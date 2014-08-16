@@ -1,0 +1,63 @@
+<?php echo $header; ?>
+<div id="content">
+  <?php if ($error_warning) { ?>
+  <div class="warning"><?php echo $error_warning; ?></div>
+  <?php } ?>
+  <div class="box">
+    <div class="heading">
+      <h1><img src="<?php echo $res; ?>image/user_page.png" alt="" /> <?php echo $heading_title; ?></h1>
+      <div class="buttons"><a onclick="$('#form').submit();" class="button"><?php echo $button_save; ?></a><a href="<?php echo $cancel; ?>" class="button"><?php echo $button_cancel; ?></a></div>
+    </div>
+    <div class="content">
+      <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form">
+        <table class="form">
+        <tr style="display:none;">
+            <td></td>
+            <td><input type="hidden" name="newsletter_id" value="<?php echo $newsletter_id; ?>" /></td>
+          </tr>
+          <tr>
+            <td><span class="required">*</span> <?php echo $entry_newsletter_subject; ?></td>
+            <td><input type="text" name="newsletter_subject" value="<?php echo $newsletter_subject; ?>" /></td>
+          </tr>
+          <tr>
+            <td><span class="required">*</span> <?php echo $entry_newsletter_text; ?></td>
+            <td><input type="text" name="newsletter_text" value="<?php echo $newsletter_text; ?>" /></td>
+          </tr>
+          <tr>
+            <td><?php echo $entry_newsletter_html; ?></td>
+            <td><input type="text" name="newsletter_html" value="<?php echo $newsletter_html; ?>" /></td>
+          </tr>
+          <tr>
+            <td><?php echo $entry_newsletter_module; ?></td>
+            <td><input type="text" name="newsletter_module" value="<?php echo $newsletter_module; ?>" /></td>
+          </tr>
+          <tr>
+            <td><?php echo $entry_date_sent; ?></td>
+            <td><input type="text" name="date_sent" value="<?php echo $date_sent; ?>" /></td>
+          </tr>
+          <tr>
+            <td><?php echo $entry_date_start; ?></td>
+            <td><input type="text" name="date_start" value="<?php echo $date_start; ?>" /></td>
+          </tr>
+          <tr>
+            <td><?php echo $entry_date_end; ?></td>
+            <td><input type="text" name="date_end" value="<?php echo $date_end; ?>" /></td>
+          </tr>
+          <tr>
+            <td><?php echo $entry_locked; ?></td>
+            <td><input type="text" name="locked" value="<?php echo $locked; ?>" /></td>
+          </tr>
+          <tr>
+            <td><?php echo $entry_sort_order; ?></td>
+           <td><input type="text" name="sort_order" value="<?php echo $sort_order; ?>" /></td>
+          </tr>
+          <tr>
+            <td><?php echo $entry_status; ?></td>
+           <td><input type="text" name="status" value="<?php echo $status; ?>" /></td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </div>
+</div>
+<?php echo $footer; ?> 

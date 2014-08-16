@@ -1,0 +1,102 @@
+<?php echo $header; ?>
+
+<div id="breadcrumb" class="widget ctr-info ctr-track-a">
+	<ul class="breadcrumb clearfix">
+		<?php foreach ($breadcrumbs as $breadcrumb) { ?>
+		<?php if($breadcrumb['text'] == "Home") {?>
+		<li class="home"><a href="<?php echo $breadcrumb['href']; ?>"
+			title="<?php echo $breadcrumb['text']; ?>"></a></li>
+		<?php } else if($breadcrumb == end($breadcrumbs)) {?>
+		<li class="curr-category"><a
+			href="<?php echo $breadcrumb['href']; ?>">
+				<?php echo $breadcrumb['text']; ?>
+		</a></li>
+		<?php } else {?>
+		<li>
+			<dl class="box-product" style="width: auto; height: auto;">
+				<dt style="width: auto;">
+					<a href="<?php echo $breadcrumb['href']; ?>"> <?php echo $breadcrumb['text']; ?>
+					</a>
+				</dt>
+			</dl>
+		</li>
+		<?php }?>
+		<?php } ?>
+	</ul>
+</div>
+
+<div class="container page-product-category-107">
+	<div class="clearfix">
+	
+	<?php echo $column_left; ?>
+		
+		<div class="pull-right litb-span47">
+			<div class="widget title-bar">
+				<h1 class="title"><?php echo $heading_title; ?></h1>
+			</div>
+			
+	<?php echo $content_top; ?>
+
+
+
+<?php if($products) {?>
+<div class="pagelet">
+	<div class="title-bar clearfix"><h2 class="title title-border">Products</h2></div>
+	<div id="recProds">
+		<div class="widget w-mini-cateEntryProdList">
+			<div
+				class="widget w-productList w-grid w-grid-752-5cols w-mini-productList w-mini-reletedProdGrid">
+
+				<?php foreach($products as $product) {?>
+				<dl>
+					<dt>
+						<a href="<?php echo $product['href']; ?>"> 
+						  <img height="128"	width="128" alt="<?php echo $product['name']; ?>" src="<?php echo $product['thumb']; ?>" /> 
+						  <img height="128" width="128" class="imageHover" src="<?php echo $res; ?>image/imageHover128.png" />		
+						</a>
+					</dt>
+					<dd class="prodName"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></dd>
+					<?php if ($product['price']) { ?>
+					  <dd class="prodPrice">
+						<?php if($product['special']) {?>
+						  <span class="oldPrice"><?php echo $product['price']; ?></span>
+						  <a class="price" href="<?php echo $product['href']; ?>"><?php echo $product['special']; ?></a>
+						<?php } else { ?>
+						  <a href="<?php echo $product['href']; ?>" class="price" rel="nofollow"><?php echo $product['price']; ?></a>
+						  <span class="oldPrice"></span>
+						<?php }?>
+					  </dd>
+					<?php } ?>					
+					<?php if ($product['rating']) { ?>
+                      <dd class="prodReview">
+					    <span class="star starS<?php echo $product['rating']; ?>"> <em><?php echo $product['rating']; ?> stars of 5</em></span>
+				      </dd>          
+                    <?php } ?>				                
+                    <a onclick="addToCart('<?php echo $product['product_id']; ?>');" class="button"><?php echo $button_cart; ?></a>
+				</dl>
+				<?php }?>
+			</div>
+		</div>
+	</div>
+</div>
+<?php }?>
+
+
+<?php if($description) {?>
+<div class="widget featured-categories ctr-track-a ctr-info ctr-track-show">
+  <div class="title-bar clearfix">
+    <h2 class="title title-border">Category Description</h2>
+  </div>
+  <div>
+    <?php echo $description; ?>
+  </div>
+</div>
+<?php } ?>
+
+
+</div>
+</div>
+</div>
+</div>
+
+<?php echo $footer; ?>

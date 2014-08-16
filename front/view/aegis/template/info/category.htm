@@ -1,0 +1,130 @@
+<?php echo $header; ?>
+
+<div id="breadcrumbs">
+  <div class="row">
+    <div class="gutter-03 gutter-01">
+      <div class="col-24">
+        <div class="page-title">
+          <h1>Careers</h1>
+        </div>
+        <div class="crumbs"> <a href="#">Home</a> / <a href="#">Our Story</a> / <a href="#" class="title">Careers</a> </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="content-inner">
+  <div class="content-box tertiary auxiliary">
+    <div class="row">
+      <div class="gutter-01">
+        <div class="col-06">
+          <div id="region_left-menu">
+            <div class="midas-snippet" data-snippet="snippet-1" id="midas_snippet_1" style="position: relative; "></div>
+            <div class="midas-snippet" data-snippet="snippet-3" id="midas_snippet_3" style="position: relative; ">
+              <div class="gutter-01">
+                <div class="col-06">
+                  <h2 class="title"> ABOUT US </h2>
+                  <?php if($menu_list) {?>
+                  <ul class="nav">
+                  <?php foreach($menu_list as $item){?>
+                    <li> <a href="<?php echo $item['href']; ?>"><span class="inner-bg"></span><?php echo $item['name']; ?></a> </li>
+                    <?php foreach($item['item'] as $tmp) {?>
+          <li> <a href="<?php echo $tmp['href']; ?>"><?php echo $tmp['name']; ?></a> </li> 
+          <?php } ?>
+                  <?php } ?> 
+                  
+                  </ul>
+                  <?php } ?> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="gutter-01">
+        <div class="col-18">
+          <div class="stamp-media rounded">
+            <div id="region_header">
+              <div class="midas-snippet" data-snippet="snippet-2" id="midas_snippet_2" style="position: relative; ">
+                <div class="gutter-03 gutter-01"> <img alt="the north face careers" height="412" src="http://images.thenorthface.com/is/image/TheNorthFaceBrand/390-north-face-careers?scl=2.6666666666666665&amp;crop=5,91,1909,1099&amp;qlt=95&amp;resMode=sharp2" width="716">
+                  <div class="stamp-tr"></div>
+                  <div class="stamp-tl"></div>
+                  <div class="stamp-br"></div>
+                  <div class="stamp-bl"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="region_content-main">
+            <h2 class="title alt">The North Face® is growing and we want you to grow with us</h2>
+            <p></p>
+            <p>With 40 years in the outdoor industry, The North Face® is the premier supplier of authentic, innovative and technologically advanced&nbsp;exploration apparel, footwear, equipment and accessories. We look for employees who help us stay on the cutting edge with their&nbsp;creativity and innovation.&nbsp;</p>
+            <p>If this sounds like you, take a look through our open opportunities here. We are an Equal Opportunity&nbsp;Employer. Please click&nbsp;<a target="_blank" href="#">here</a>&nbsp;to visit our new and improved Careers page.&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="content-box secondary news-box">
+    <div class="row">
+      <div class="gutter-01">
+        <div class="col-06">
+          <div class="news">
+            <h4>The North Face<sup>®</sup> News</h4>
+            <a href="#" class="item first">
+            <div class="inner-bg"></div>
+            <div class="title">Endurance Challenge 2011</div>
+            <div class="date">March 10 2011</div>
+            </a><a href="#" class="item ">
+            <div class="inner-bg"></div>
+            <div class="title">Action For Healthy Kids</div>
+            <div class="date">February 26 2011</div>
+            </a><a href="#" class="item ">
+            <div class="inner-bg"></div>
+            <div class="title">Animagi Jacket Wins Award</div>
+            <div class="date">January 4 2010</div>
+            </a>
+            <div class="item more"> <a href="#">More News</a> </div>
+          </div>
+        </div>
+      </div>
+      <div class="gutter-01">
+        <div class="col-06">
+          <div class="events">
+            <h4>The North Face<sup>®</sup> Events</h4>
+            <a href="#" class="item first">
+            <div class="inner-bg"></div>
+            <div class="title">Bear Mountain, NY Race</div>
+            <div class="date">May 04 2013</div>
+            </a><a href="#" class="item">
+            <div class="inner-bg"></div>
+            <div class="title">Washington, DC Race</div>
+            <div class="date">June 01 2013</div>
+            </a><a href="#" class="item">
+            <div class="inner-bg"></div>
+            <div class="title">Madison, WI Race</div>
+            <div class="date">September 15 2013</div>
+            </a>
+            <div class="item more"> <a href="#">Events Calendar</a> </div>
+          </div>
+        </div>
+      </div>
+      <div class="gutter-03 gutter-01">
+        <div class="col-12">
+          <div class="blog">
+            <h4>The North Face<sup>®</sup> Blog</h4>
+            <div class="teaser">
+              <div class="image small"> <img alt="2581-nikki_kimball?scl=1" src="http://images.thenorthface.com/is/image/TheNorthFaceBrand/2581-nikki_kimball?scl=1.8018018018018016&amp;crop=88,14,360,254&amp;qlt=95&amp;resMode=sharp2"> </div>
+              <div class="title">Nikki Kimball Completes Historic 273-Mile Long Trail in Record Time</div>
+              <div class="date">August 20 2012</div>
+              <p>Nikki Kimball completed the iconic Long Trail in just 5 days, 7 hours and 42 minutes, setting the women's supported speed record.</p>
+            </div>
+            <div class="more"> <a href="#" target="_blank">View the blog</a> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<?php echo $footer; ?>

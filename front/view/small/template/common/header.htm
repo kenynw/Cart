@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html dir="<?php echo $direction; ?>" lang="<?php echo $lang; ?>">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title><?php echo $title; ?></title>
+<?php if ($meta_keywords) { ?>
+<meta name="keywords" content="<?php echo $meta_keywords; ?>" />
+<?php } ?>
+<?php if ($meta_description) { ?>
+<meta name="description" content="<?php echo $meta_description; ?>" />
+<?php } ?>
+<link rel="stylesheet" type="text/css" href="<?php echo $res; ?>stylesheet/style.css" />
+<script type="text/javascript" src="<?php echo $res; ?>javascript/jquery.min.js"></script>
+<?php if ($stores) { ?>
+<script type="text/javascript"><!--
+$(document).ready(function() {
+<?php foreach ($stores as $store) { ?>
+$('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></iframe>');
+<?php } ?>
+});
+//--></script>
+<?php } ?>
+</head>
+<body>
+<div id="wrapper">
+<div id="header"> <a id="brand-link" href="<?php echo $home; ?>" title="<?php echo $name; ?>"><img src="<?php echo $res; ?>image/logo.png" width="198" height="115" alt="<?php echo $name; ?>" title="<?php echo $name; ?>" border="0" /></a>
+  <div class="auxNavigation">
+    <ul class="findNavi">
+      <li><a title="Find a Store" href="/">Find a Store</a></li>
+      <li><a title="Weekly Circular" href="/">Weekly Circular</a></li>
+      <li class="last ffffff">ORDER BY PHONE: 1-877-846-9997</li>
+    </ul>
+    <ul class="helpNavi">
+      <li><a title="Help" href="/">Help</a></li>
+      <li class="last"><a title="My Account" rel="nofollow" href="<?php echo $account; ?>">My Account</a> </li>
+    </ul>
+  </div>
+  <?php if ($categories) { $k = 0; ?>
+  <div class="mainNavigation" id="mainNav">
+    <ul>
+    <?php foreach($categories as $category){ $k++; ?>
+    <li id="mainNav<?php echo $k; ?>" onMouseOver="showNav.call(this, 'comboHide<?php echo $k; ?>', event)" onMouseOut="hideNav.call(this, 'comboHide<?php echo $k; ?>', event)" class=""> <a class="mainNavLink" href="<?php echo $category['href']; ?>" title="<?php echo $category['name']; ?>"> <?php echo $category['name']; ?> <span></span> </a>
+    	<?php if ($category['item']) { ?>
+        <ul id="comboHide<?php echo $k; ?>" class="comboHide shadow" style="visibility: visible; display: none; overflow: hidden; opacity: 1;">
+          <?php for ($i = 0; $i < count($category['item']);) { ?>
+          <li class="column">
+            <div class="super-sub-nav">
+              <ul>
+                <?php $j = $i + ceil(count($category['item']) / $category['column']); ?>
+          		<?php for (; $i < $j; $i++) { ?>
+          		<?php if (isset($category['item'][$i])) { ?>
+                <li><a href="<?php echo $category['item'][$i]['href']; ?>"><?php echo $category['item'][$i]['name']; ?></a></li> 
+                <?php } ?>
+          		<?php } ?>
+              </ul>
+            </div>
+          </li>
+          <?php } ?> 
+        </ul>
+       <?php } ?> 
+      </li>
+      <?php } ?> 
+          
+    </ul>
+  </div>
+  <?php } ?>
+  <form id="search" name="search" action="#" method="post">
+    <input name="kw" type="text" id="search-box" maxlength="150" value="Start your search here..." onFocus="this.value=''" onBlur="if(this.value=='') { this.value = 'Start your search here...'; }">
+    <input name="search-button" type="submit" id="search-button" class="input-button" value="Search" title="Search">
+  </form>
+  <a rel="nofollow" id="hdr_cart" href="<?php echo $shopping_cart; ?>" title="Shopping Cart"><span id="cartItemCount">(0)</span></a> </div>
+<div><img src="<?php echo $res; ?>image/freeshipping.jpg" title="Free Shipping" alt="Free Shipping"></div>

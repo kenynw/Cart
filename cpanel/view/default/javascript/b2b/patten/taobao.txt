@@ -1,0 +1,31 @@
+
+item_detail {
+	DIV[id="detail"] {
+		H3 { "%s"=>$name }
+		EM SPAN[class="tm-price"]{"%s"=>$price}
+		DD[id="J_Amount"] {
+			EM { "¿â´æ%s¼þ"=>$quantity }
+		}
+	}
+}
+
+item {
+ LI[class="item"] {
+	  DIV[class="img"]
+	  DIV[class="info"]/UL {
+			LI[class="title"]/A[href=>$url] { "%s" =>$name }
+	  }
+ }
+}
+
+items {
+ DIV[class="m-items"] {
+  item =>$items[]
+ }
+}
+
+nextpage {
+ DIV[class="m-pagination"] {
+	A[class="J_Ajax btn next"] =>$nextpage
+ }
+}

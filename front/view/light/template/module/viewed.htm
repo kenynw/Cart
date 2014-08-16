@@ -1,0 +1,25 @@
+<?php if (count($products) > 0) { ?>
+<div class="pagelet prod_description clearfix">
+  <div class="title-bar clearfix"><h2 class="title title-border"><?php echo $heading_title; ?></h2></div>
+    <div id="recProds">
+	  <div class="widget w-mini-cateEntryProdList">
+		<div class="widget w-productList w-grid w-grid-752-5cols w-mini-productList w-mini-reletedProdGrid">
+		  <?php foreach ($products as $product) { ?>
+		    <dl>
+		      <?php if ($product['thumb']) { ?>
+			    <dt>
+				  <a href="<?php echo $product['href']; ?>"> 
+				    <img height="128" width="128" alt="<?php echo $product['name']; ?>" src="<?php echo $product['thumb']; ?>" />
+				    <img height="128" width="128" class="imageHover" src="<?php echo $res; ?>image/imageHover128.png" />
+				  </a>
+			    </dt>
+			  <?php } ?>			  
+			  <dd class="prodName"><a title="<?php echo $product['name']; ?>" href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></dd>
+			</dl>
+		  <?php } ?>
+
+			</div>
+		</div>
+	</div>
+</div>
+<?php } ?>

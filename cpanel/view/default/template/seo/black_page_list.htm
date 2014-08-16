@@ -1,0 +1,84 @@
+<?php echo $header; ?>
+
+<div id="content">
+  <?php if ($error_warning) { ?>
+  <div class="warning"><?php echo $error_warning; ?></div>
+  <?php } ?>
+  <?php if ($success) { ?>
+  <div class="success"><?php echo $success; ?></div>
+  <?php } ?>
+  <div class="box">
+    <div class="heading">
+      <h1><img src="<?php echo $res; ?>image/user_page.png" alt="" /> <?php echo $heading_title; ?></h1>
+      <div class="buttons"><a href="<?php echo $insert; ?>" class="button"><?php echo $button_insert; ?></a><a onclick="$('form').submit();" class="button"><?php echo $button_delete; ?></a></div>
+    </div>
+    <div class="content">
+      <form action="<?php echo $delete; ?>" method="post" enctype="multipart/form-data" id="form">
+        <table class="list">
+          <thead>
+            <tr>
+               <td width="1" style="text-align: center;"><input type="checkbox" onclick="$('input[name*=\'selected\']').attr('checked', this.checked);" /></td>
+               <td class="left"><?php if ($sort == 'shell_domain') { ?>
+                <a href="<?php echo $sort_shell_domain; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_shell_domain; ?></a>
+                <?php } else { ?>
+                <a href="<?php echo $sort_shell_domain; ?>"><?php echo $column_shell_domain; ?></a>
+                <?php } ?></td>
+               <td class="left"><?php if ($sort == 'page_code') { ?>
+                <a href="<?php echo $sort_page_code; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_page_code; ?></a>
+                <?php } else { ?>
+                <a href="<?php echo $sort_page_code; ?>"><?php echo $column_page_code; ?></a>
+                <?php } ?></td>
+               <td class="left"><?php if ($sort == 'page_url') { ?>
+                <a href="<?php echo $sort_page_url; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_page_url; ?></a>
+                <?php } else { ?>
+                <a href="<?php echo $sort_page_url; ?>"><?php echo $column_page_url; ?></a>
+                <?php } ?></td>
+               <td class="left"><?php if ($sort == 'url_type') { ?>
+                <a href="<?php echo $sort_url_type; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_url_type; ?></a>
+                <?php } else { ?>
+                <a href="<?php echo $sort_url_type; ?>"><?php echo $column_url_type; ?></a>
+                <?php } ?></td>
+               <td class="left"><?php echo $column_frame_url; ?></td>
+               <td class="right"><?php echo $column_action; ?></td>                                                     
+            </tr>
+          </thead>
+          <tbody>
+            <?php if ($list) { ?>
+            <?php foreach ($list as $item) { ?>
+            <tr> 
+              <td style="text-align: center;"><?php if ($item['selected']) { ?>
+                <input type="checkbox" name="selected[]" value="<?php echo $item['page_id']; ?>" checked="checked" />
+                <?php } else { ?>
+                <input type="checkbox" name="selected[]" value="<?php echo $item['page_id']; ?>" />
+                <?php } ?></td>
+              <td class="left"><?php echo $item['shell_domain']; ?></td>
+              <td class="left"><?php echo $item['page_code']; ?></td>
+              <td class="left"><?php echo $item['page_url']; ?></td>
+              <td class="left"><?php echo $item['url_type']; ?></td>
+              <td class="left"><?php echo $item['frame_url']; ?></td>
+              <td class="right">
+              	<?php if ($item['build']) { ?>
+                [ <a href="<?php echo $item['build']['href']; ?>" target="_blank"><?php echo $item['build']['text']; ?></a> ]
+                <?php } ?>
+                <?php if ($item['view']) { ?>
+                [ <a href="<?php echo $item['view']['href']; ?>" target="_blank"><?php echo $item['view']['text']; ?></a> ]
+                <?php } ?>
+              	<?php foreach ($item['action'] as $action) { ?>
+                [ <a href="<?php echo $action['href']; ?>"><?php echo $action['text']; ?></a> ]
+                <?php } ?>
+              </td>
+            </tr>
+            <?php } ?>
+            <?php } else { ?>
+            <tr>
+              <td class="center" colspan="7"><?php echo $text_no_results; ?></td>
+            </tr>
+            <?php } ?>
+          </tbody>
+        </table>
+      </form>
+      <div class="pagination"><?php echo $pagination; ?></div>
+    </div>
+  </div>
+</div>
+<?php echo $footer; ?> 

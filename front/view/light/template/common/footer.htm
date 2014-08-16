@@ -1,0 +1,25 @@
+<div class="widget" id="customerHelp">
+  <?php if($menu_list) {?>
+    <?php foreach($menu_list as $children) {?>
+      <dl>
+        <dt><?php echo $children['name']?></dt>
+        <?php if($children['item']) {?>
+          <?php foreach($children['item'] as $item) {?>
+            <dd><a href="<?php echo $item['href']?>" rel="nofollow" target="_top"><?php echo $item['name'];?></a></dd>
+          <?php }?>
+        <?php }?>
+      </dl>
+    <?php }?>
+  <?php }?>
+</div>
+
+<div class="widget w-litbFooter">
+  <div id="partners" class="widget w-partners"> <span class="banks">visa, master card, maestro, carte blue</span> 
+  <a href="#" target="_top" onclick=" " class="paypal">paypal</a> 
+  <a href="#" onclick="" title="wholesale PaypalVerify " class="paypalVerified">paypal verified</a> 
+  <span class="boleto-logo-footer"></span>
+  <span class="westernUnion">western union</span>
+  <span class="norton-logo"></span><span class="delivery">dhl ups ems</span> </div>
+  <div id="copyright"> Copyright ©2014 <?php echo $company; ?>. All Rights Reserved. </div>
+</div>
+</body></html>

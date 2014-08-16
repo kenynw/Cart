@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" rel="stylesheet" href="/cpanel/view/default/stylesheet/silver.css" />
+<script src="/cpanel/view/default/javascript/frame/func.js"></script>
+</head>
+<script src="/cpanel/view/default/javascript/frame/tab.js"></script>
+<script>
+if(parent._IECTagLoad)
+{
+	var IECTabObject = new IECTab();
+	window.onload = function()
+	{
+		// 窗口重新加载时执行
+		if (parent.IECMainObject.IECLoadComplete)
+		{
+			parent.IECMainObject.IECContentRun();
+			parent.IECMainObject.IECTagRun();
+		}
+
+		parent._IECLeftLoad = true;
+		parent.G("IECLeft").src = parent._LeftUrl;
+
+		
+	}
+}
+else
+{
+	parent.G("IECContent").src = parent._ContentUrl;
+}
+</script>
+<body id="navigation_body">
+<div id="navigation" class="Normal">
+<span id="Blank" class="Normal" style="padding:0px 4px;"></span>
+</div>
+</body>
+</html>

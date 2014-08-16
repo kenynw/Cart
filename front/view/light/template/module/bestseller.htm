@@ -1,0 +1,18 @@
+<div id="hotsNow" class="widget w-hotsNow" style="margin-top: 346px;">
+  <section class="widget-dfp widget">
+    <h3><a class="red" href="#">What's Hot!</a></h3>
+    <div class="latest"> <a href="#"><img width="240" height="128" src="<?php echo $res; ?>image/en32.jpg" alt=""></a></div>
+	<?php foreach($products as $product) {?>
+	  <dl>
+	    <?php if ($product['thumb']) { ?>
+	      <dt><a href="<?php echo $product['href']; ?>"><img width="50" height="50" alt="<?php echo $product['name']; ?>" src="<?php echo $product['thumb']; ?>"></a></dt>
+	    <?php } ?>
+	    <dd>
+	      <h4><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h4>
+	      <span><?php echo $product['description']; ?></span>
+	    </dd>	      
+	  </dl>
+	  <p><a href="#" class="clear more right">See More »</a></p>
+	<?php } ?>
+  </section>
+</div>

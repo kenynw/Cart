@@ -1,0 +1,58 @@
+<div class="footer">
+  <div class="link_list">
+    <div class="wrap">
+      <div class="l">
+        <?php if($menu_list){?>
+        <?php foreach($menu_list as $list){?>
+        <dl>
+          <dt><?php echo $list['name']; ?></dt>
+          <dd> 
+          <?php if ($list['item']) {?>
+          <?php foreach($list['item'] as $item){?>
+          <a href="<?php echo $item['href']; ?>"><?php echo $item['name']; ?></a> 
+          <?php } ?>
+          <?php } ?>
+          </dd>
+        </dl>
+        <?php } ?>
+        <?php } ?>        
+      </div>
+      <div class="r">
+        <ul>
+          <li class="mail"><a href="mailto:<?php echo $mail; ?>"></a><span style="display: none;"><?php echo $mail; ?></span></li>
+          <li class="weibo"><a href="#" target="_blank"></a><span style="display: none;">@TOP1</span></li>
+          <li class="phone"><a></a><span style="display: none;"><?php echo $phone; ?></span></li>
+          <li class="weixin"><a></a><span style="display: none;"> <img src="<?php echo $res; ?>image/weixin.jpg"></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="info">
+    <div class="wrap">
+      <div class="l"> </div>
+      <div class="r">
+        <p> 版权所有&nbsp;&nbsp;&nbsp;&nbsp;2014&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $company; ?>&nbsp;&nbsp;&nbsp;&nbsp; </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="service_online">
+  <div class="l"> <a class="btn"></a> </div>
+  <div class="r">
+    <div class="title"></div>
+    <div class="content">
+      <div> <strong>QQ客服在线</strong> <a class="qqclass" href="tencent://message/?uin=486670936&Site=top1&Menu=yes" rel="nofollow"><img alt="QQ" style="border:0px;" src="<?php echo $res; ?>image/qq.png">&nbsp;全国客服</a><br>
+        <a class="qqclass" href="tencent://message/?uin=1558415596&Site=top1&Menu=yes" rel="nofollow"><img alt="QQ" style="border:0px;" src="<?php echo $res; ?>image/qq.png">&nbsp;橙&nbsp;&nbsp;就&nbsp;&nbsp;营</a><br>
+        <a class="qqclass" href="tencent://message/?uin=1300240503&Site=top1&Menu=yes" rel="nofollow"><img alt="QQ" style="border:0px;" src="<?php echo $res; ?>image/qq.png">&nbsp;人才输出</a> <br>
+        <a class="qqclass" href="tencent://message/?uin=2085817602&Site=top1&Menu=yes" rel="nofollow"><img alt="QQ" style="border:0px;" src="<?php echo $res; ?>image/qq.png">B2B代运营</a>
+      </div>
+      <div> <a href="#" target="_blank" class="weibo">关注TOP1</a> </div>
+      <div>
+        <p>免费电话咨询</p>
+        <p><?php echo $phone; ?></p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

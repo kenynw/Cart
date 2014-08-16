@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html dir="<?php echo $direction; ?>" lang="<?php echo $lang; ?>">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title><?php echo $title; ?></title>
+<?php if ($meta_keywords) { ?>
+<meta name="keywords" content="<?php echo $meta_keywords; ?>" />
+<?php } ?>
+<?php if ($meta_description) { ?>
+<meta name="description" content="<?php echo $meta_description; ?>" />
+<?php } ?>
+<link rel="stylesheet" type="text/css" href="<?php echo $res; ?>stylesheet/default.css" />
+<script type="text/javascript" src="<?php echo $res; ?>javascript/jquery/jquery-1.6.4.min.js"></script>
+<script type="text/javascript" src="<?php echo $res; ?>javascript/js.js"></script>
+<script type="text/javascript" src="<?php echo $res; ?>javascript/swfobject.js"></script>
+<?php if ($stores) { ?>
+<script type="text/javascript"><!--
+$(document).ready(function() {
+<?php foreach ($stores as $store) { ?>
+$('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></iframe>');
+<?php } ?>
+});
+//--></script>
+<?php } ?>
+</head>
+
+<body>
+<div class="top">
+  <div class="wrap">
+    <div class="logo"><a href="/" title="top1"><h1>top1</h1></a></div>
+    <div class="info">
+      <div class="links">
+        <div class="search"> </div>
+      </div>
+      <div class="main_head">
+        <div class="nav">
+          <ul>
+            <li class="navOne"> <a class="title" href="/" >首页</a> </li>
+          <?php if($menu_list){ ?>
+            <?php foreach($menu_list as $item) { ?>
+            <li class="navOne"> <a class="title" href="<?php echo $item['href']; ?>" ><?php echo $item['name']; ?></a> </li>
+            <?php } ?>
+          <?php }?>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="flash">
+  <ul>
+    <li style="display: block;">
+      <div style=" background-color:#f4f4f4"><a href="#" title=""><img src="/image/data/top1/banner1.jpg" alt=""></a></div>
+    </li>
+    <li style="display: none;">
+      <div style=" background-color:#f4f4f4"><a href="#" title=""><img src="/image/data/top1/banner2.jpg" alt=""></a></div>
+    </li>
+    <li style="display: none;">
+      <div style=" background-color:#f4f4f4"><a href="#" title=""><img src="/image/data/top1/banner3.jpg" alt=""></a></div>
+    </li>
+    <li style="display: none;">
+      <div style=" background-color:#f4f4f4"><a href="#" title=""><img src="/image/data/top1/banner4.jpg" alt=""></a></div>
+    </li>
+  </ul>
+  <div class="num"> <a href="#" title="" class="cur"><img src="/image/data/top1/banner1.jpg" alt="" width="68px" height="28px"></a> <a href="#" title="" class=""><img src="/image/data/top1/banner2.jpg" alt="" width="68px" height="28px"></a> <a href="#" title="" class=""><img src="/image/data/top1/banner3.jpg" alt="" width="68px" height="28px"></a> <a href="#" title="" class=""><img src="/image/data/top1/banner4.jpg" alt="" width="68px" height="28px"></a> </div>
+</div>

@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title><?php echo $heading_title; ?></title>
+<link rel="stylesheet" type="text/css" href="<?php echo $res; ?>stylesheet/default.css" />
+</head>
+<body>
+<div>
+  <div id="signin">
+    <div id="s-head">
+      <h1><a href="#" title="<?php echo $heading_title; ?>"><?php echo $heading_title; ?></a></h1>
+    </div>    
+    <div id="s-cnt">
+      <div id="sform">
+        <fieldset class="sfieldset">
+          <legend> <?php echo $text_heading; ?> </legend>
+        </fieldset>
+        <div class="snewuser">
+          <div>
+            <div class="default">
+              <form name="loginForm" id="loginForm" action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
+                <div class="fm-item ui-form-item sl-account">
+                  <label class="fm-label ui-form-label"><?php echo $entry_username; ?></label>
+                  <input id="username" name="username" value="<?php echo $username; ?>" class="i-text ui-input" tabindex="1" type="text" maxlength="100" />
+                  <div class="ui-form-explain"></div>
+                </div>
+                <div class="fm-item ui-form-item sl-aliedit">
+                  <label class="fm-label pwd-label ui-form-label"><?php echo $entry_password; ?></label>                  
+                  <span class="standardPwdContainer" style="display: inline-block;">
+                  <input id="userpass" name="userpass" type="password" value="<?php echo $userpass; ?>" tabindex="2" class="ui-input" />
+                  </span>
+                </div>
+                <div class="fm-item ui-form-item sl-checkcode" style="display: block;">
+                  <label class="fm-label ui-form-label"><?php echo $entry_captcha; ?></label>
+                  <div class="fn-clear sl-checkcode-content">
+                    <input id="captcha" name="captcha" type="text" value="" class="i-text i-text-authcode ui-input sl-checkcode-input" tabindex="3" /><img src="index.php?route=common/login/captcha"/> </div>
+                  <div class="ui-form-explain"></div>
+                </div>
+                <div class="fm-item ui-form-item sl-button"> <span class="btn btn-ok ui-button ui-button-ok">
+                  <input type="submit" name="submit_btn" tabindex="4" value="<?php echo $button_login; ?>" class="ui-button-text">
+                  </span> 
+                </div>
+              </form>
+            </div>
+          </div>
+          <?php if ($warning) { ?>
+          <div class="warning"><?php echo $warning; ?></div>
+       	  <?php } ?>
+          <p> <?php echo $text_copy_right; ?> </p>
+        </div>
+      </div>
+    </div>
+  </div>  
+</div>
+<script type="text/javascript"><!--
+$('#loginForm input').keydown(function(e) {
+	if (e.keyCode == 13) {
+		$('#loginForm').submit();
+	}
+});
+//--></script> 
+</body>
+</html>

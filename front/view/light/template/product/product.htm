@@ -1,0 +1,403 @@
+<?php echo $header; ?>
+<script type="text/javascript">
+$(document).ready(function () {
+  //点击小图切换大图
+  $("#thumbnail li a").click(function(){
+    $(".zoompic img").hide().attr({ "src": $(this).attr("href"), "title": $("img", this).attr("alt") });
+    $("#thumbnail li.current").removeClass("current");
+    $(this).parents("li").addClass("current");
+    return false;
+  });
+  $(".zoompic img").load(function(){
+    $(".zoompic img:hidden").show();
+  });
+  
+  //小图片左右滚动
+  var $slider = $('.slider ul');
+  var $slider_child_l = $('.slider ul li').length;
+  var $slider_width = $('.slider ul li').width();
+  $slider.width(($slider_child_l + 2) * $slider_width);
+  
+  var slider_count = 0;
+  
+  if ($slider_child_l < 4) {
+    $('#btn-right').css({cursor: 'auto'});
+    $('#btn-right').removeClass("dasabled");
+  }
+  
+  $('#btn-right').click(function() {
+    if ($slider_child_l < 4 || slider_count >= $slider_child_l - 4) {
+      return false;
+    }
+    
+    slider_count++;
+    $slider.animate({left: '-=' + ($slider_width+28) + 'px'}, 'fast');
+    slider_pic();
+  });
+  
+  $('#btn-left').click(function() {
+    if (slider_count <= 0) {
+      return false;
+    }
+    slider_count--;
+    $slider.animate({left: '+=' + ($slider_width+28) + 'px'}, 'fast');
+    slider_pic();
+  });
+  
+  function slider_pic() {
+    if (slider_count >= $slider_child_l - 4) {
+      $('#btn-right').css({cursor: 'auto'});
+      $('#btn-right').addClass("dasabled");
+    }
+    else if (slider_count > 0 && slider_count <= $slider_child_l - 4) {
+      $('#btn-left').css({cursor: 'pointer'});
+      $('#btn-left').removeClass("dasabled");
+      $('#btn-right').css({cursor: 'pointer'});
+      $('#btn-right').removeClass("dasabled");
+    }
+    else if (slider_count <= 0) {
+      $('#btn-left').css({cursor: 'auto'});
+      $('#btn-left').addClass("dasabled");
+    }
+  }
+  
+});
+</script>
+<style>
+/* zoombox */
+.zoombox{width:686px;margin:20px auto 0 auto;}
+.zoompic{width:684px;height:394px;background:url(images/loading.gif) no-repeat 50% 50%;}
+
+/* sliderbox */
+.sliderbox{height:60px;overflow:hidden;margin:6px 0 0 0;}
+.sliderbox .arrow-btn{width:38px;height:60px;background:url(<?php echo $res; ?>image/arrow-btn.png) no-repeat;cursor:pointer;}
+.sliderbox #btn-left{float:left;background-position:0 -8;}
+.sliderbox #btn-left.dasabled{background-position:0 -84px;}
+.sliderbox #btn-right{float:right;background-position:-38px -8;}
+.sliderbox #btn-right.dasabled{background-position:-38px -84px;}
+.sliderbox .slider{float:left;height:60px;width:260px;position:relative;overflow:hidden;margin:0 0 0 28px;display:inline;}
+.sliderbox .slider ul{position:absolute;left:0;height:60px;}
+.sliderbox .slider li{float:left;margin:0 5px;width:54px;height:54px;padding-top:6px;position:relative;}
+.sliderbox .slider li a{display:block;}
+.sliderbox .slider li img{border:solid 1px #dfdfdf;}
+.sliderbox .slider li img:hover{border:1px solid #ad3231;}
+.sliderbox .slider li.current{border:0px;padding-top:5px;}
+.sliderbox .slider li.current a{padding: 2px;width: 50px;height: 50px;background-color: #ad3231;}
+.sliderbox .slider li.current img{border:0px;}
+</style>
+
+<div id="breadcrumb" class="widget ctr-info ctr-track-a" >
+  <ul class="breadcrumb clearfix">
+    <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+    <?php if($breadcrumb['text'] == "Home") {?>
+    <li class="home"> <a href="<?php echo $breadcrumb['href']; ?>" title="<?php echo $breadcrumb['text']; ?>"></a> </li>
+    <?php } else if($breadcrumb == end($breadcrumbs)) {?>
+      <li class="curr-category"><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+    <?php } else {?>
+      <li>
+        <dl class="box-product" style="width: auto; height: auto;">
+          <dt style="width: auto;"> <a href="<?php echo $breadcrumb['href']; ?>"> <?php echo $breadcrumb['text']; ?> </a> </dt>
+        </dl>
+      </li>
+    <?php }?>
+    <?php } ?>
+  </ul>
+</div>
+
+<div class="container">
+  <div class="clearfix">
+  
+    <div class="pull-left">
+      <div class="pagelet prod-gallery-h" >
+        <?php if ($thumb) { ?>
+          <div class="zoompic">
+            <a target="_blank" href="<?php echo $popup; ?>">
+              <img class="normal" src="<?php echo $thumb; ?>" alt="<?php echo $heading_title; ?>" width="374" height="374" id="image" />
+            </a>
+          </div>
+        <?php }?>       
+        
+        <div class="sliderbox">
+        <div id="btn-left" class="arrow-btn dasabled"></div>
+        <div class="slider" id="thumbnail">
+          <ul>
+            <li>
+              <a href="<?php echo $popup; ?>" target="_blank"><img src="<?php echo $thumb; ?>" width="50" height="50" alt="<?php echo $heading_title; ?>" /></a>
+              <em class="arrow"></em>
+            </li>
+            <?php foreach ($images as $image) { ?>
+              <li>
+                <a href="<?php echo $image['popup']; ?>" target="_blank"><img src="<?php echo $image['thumb']; ?>" width="50" height="50" alt="<?php echo $heading_title; ?>" /></a>
+                <em class="arrow"></em>
+              </li>
+            <?php } ?>
+          </ul>
+        </div>
+        
+        <div id="btn-right" class="arrow-btn"></div>
+      </div>
+        
+      </div>
+    </div>
+
+    <div class="pull-right litb-span36">
+      <div class="pagelet product-info clearfix">
+        <div class="widget prod-info-title">
+          <h1><?php echo $heading_title; ?><span class="item-id">#<?php echo $model; ?></span> </h1>
+        </div><br/>
+        <div class="widget prod-info-price">
+          <div class="price-left">
+            <div class="current-price clearfix">              
+              <div class="left">
+                <dl class="widget prod_info_currency_selector">
+                  <dt> <a href="#" rel="nofollow">USD<div class="stroked-arrow"><em></em><i></i></div></a></dt>
+                  <dd>
+                    <ul class="ctr-track-a">
+                      <li><a rel="nofollow"  href="#">USD</a></li>
+                      <li><a rel="nofollow"  href="#">EUR</a></li>
+                      <li><a rel="nofollow"  href="#">GBP</a></li>
+                      <li><a rel="nofollow"  href="#">CAD</a></li>
+                      <li><a rel="nofollow"  href="#">AUD</a></li>
+                    </ul>
+                  </dd>
+                </dl>
+                <?php if ($price) { ?>
+                  <?php if ($special) { ?>
+                    <strong class="sale-price"><?php echo $special; ?></strong>
+                    <div class="list-price"> <del id="delPrice_431608">USD<?php echo $price; ?></del></div>
+                  <?php } else { ?>
+                    <strong class="sale-price"><?php echo $price; ?></strong>
+                  <?php } ?>
+                <?php } ?>
+                
+                <?php if ($discounts) { ?>
+		          <br/>
+		          <div class="discount">
+		            <?php foreach ($discounts as $discount) { ?>
+		            <?php echo sprintf($text_discount, $discount['quantity'], $discount['price']); ?><br />
+		            <?php } ?>
+		          </div>
+		        <?php } ?>
+		        
+		      </div>
+		    </div>
+		  </div>
+          
+          <?php if ($reward) { ?>
+            <div id="pro-reward-credit" class="prod-info-rewards">
+              <strong><?php echo $text_reward; ?><span class="iconQuestion iconQuestionDuty litb-icon-question-sign"></span></strong>
+              Earn<span id="reward_value">USD <b>$0.<sup><?php echo $reward/100; ?></sup><sup></sup></b></span> 
+            </div>
+          <?php } ?>          
+        </div>
+        
+        <form id="prod-info-order" data-id="431608" action="" class="widget prod-info-order ctr-info" method="post"  name="cart_quantity_frm" enctype="multipart/form-data" onsubmit="_gaq.push([&#39;_trackPageview&#39;, &#39;/action/add-to-cart/item/c5331/431608&#39;]);">
+          <input type="hidden" name="products_id" value="431608">
+          <input type="hidden" name="check_slave" value="1">
+          <div class="prod-info-form-right">
+            <div class="icon100 litb-icon-percent">Satisfaction Guaranteed</div>
+          </div>
+          <?php foreach ($options as $option) { ?>
+          <?php if ($option['type'] == 'radio') { ?>
+            <ul class="widget attributes ">
+              <li>
+                <select name="id[2]" id="attr_431608_2">
+                  <option value="">Select  Size</option>
+                    <?php foreach ($option['option_value'] as $option_value) { ?>
+                    <option value="<?php echo $option_value['product_option_value_id']; ?>"><?php echo $option_value['name']; ?></option>
+                  <?php } ?>
+                </select>
+              </li>
+            </ul>
+          <?php } ?>
+          <?php } ?>
+                  
+          <div class="order-quantity">
+            <label for="quantity_431608"><?php echo $text_qty; ?></label>
+            <input type="text" name="quantity" size="2" value="<?php echo $minimum; ?>" />
+            <input type="hidden" name="product_id" size="2" value="<?php echo $product_id; ?>" />
+          </div>
+          <div id="prodLadderDiscount" class="widget prod-ladder-discount" style="display: none;"></div>
+          <div class="order-actions">
+            <input type="button" value="<?php echo $button_cart; ?>" id="button-cart" class="litb-btn add-to-cart-pending" />
+          </div>
+        </form>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ultimately-buy">
+  <?php if ($products) { ?>
+  <div class="pagelet bought-ultimately ctr-track-show clearfix ctr-info" >
+    <div class="title-bar clearfix"><h2 class="title title-border"><?php echo $tab_related; ?></h2></div>
+    
+    <ul class="product-list clearfix" style="height: 213px;">
+      <?php foreach ($products as $product) { ?>
+      <li class="item">
+        <?php if ($product['thumb']) { ?>
+          <a href="<?php echo $product['href']; ?>" class="img-box">
+            <img width="128" height="128" title="<?php echo $product['name']; ?>" alt="<?php echo $product['name']; ?>" src="<?php echo $product['thumb']; ?>">
+            <em class="iconDiscount">20</em> 
+          </a>
+        <?php } ?>
+        <div class="prodName"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></div>
+        
+        <?php if ($product['price']) { ?>
+          <?php if (!$product['special']) { ?>
+            <p> <a href="<?php echo $product['href']; ?>" class="price"><?php echo $product['price']; ?> </a> </p>
+          <?php } else {?>
+            <p class="list-price"><?php echo $product['price']; ?></p>
+            <p> <a href="<?php echo $product['href']; ?>" class="price"><?php echo $product['special']; ?> </a> </p>
+          <?php } ?>
+        <?php } ?>
+        <a onclick="addToCart('<?php echo $product['product_id']; ?>');" class="button"><?php echo $button_cart; ?></a>
+      </li>      
+
+      <?php } ?>
+    </ul>
+    
+  </div>
+  <?php } ?>
+</div>
+
+<div class="pagelet prod_description mini-text clearfix" id="prod_description">
+  <div class="title-bar clearfix"><h2 class="title title-border">Product Details</h2></div>
+  <div class="pull-left">
+    <?php echo $description; ?>
+  </div>
+</div>
+<!-- 
+<div class="pagelet same-supplier ctr-track-show clearfix ctr-info" >
+  <div class="title-bar clearfix">
+    <h2 class="title title-border">Other Products From This Category</h2>
+    <a class="see-all" href="#">See All &gt;&gt; </a> </div>
+  <ul class="product-list clearfix">
+    <li class="item"><a class="img-box"  title="" href="#"> <img width="128" height="128" title=" " alt="" data-lazy="" src="<?php echo $res; ?>image/orsswv1382431066392.jpg"> <img class="image-hover" src="<?php echo $res; ?>image/imageHover128.png" title=""></a>
+      <p class="list-price"> </p>
+      <p> <a  class="price" title="" href="" rel="nofollow"> <em>USD </em>$69.99 </a> </p>
+    </li>
+    <li class="item"><a class="img-box"  title="" href="#"> <img width="128" height="128" title=" " alt=" " data-lazy="" src="<?php echo $res; ?>image/vccazb1364543224383.jpg"> <img class="image-hover" src="<?php echo $res; ?>image/imageHover128.png" title=""></a>
+      <p class="list-price"> </p>
+      <p> <a  class="price" title="" href="" rel="nofollow"> <em>USD </em>$54.99 </a> </p>
+    </li>
+  </ul>
+</div>
+ -->
+<div class="container">
+  <div class="pagelet prod_reviews clearfix" id="have_reviews">
+    <div class="widget prod_write_review">
+      <div class=" title-bar clearfix ctr-info ctr-track-a" > <a href="#">See all <?php echo $reviews; ?> &nbsp;▶</a>
+        <h2 class="title title-border">User Photos and Reviews</h2>
+      </div>
+      <div class="average_rating ctr-info ctr-track-a" >
+        <h6>Average rating:</h6>
+        <p> <span title="Average rating <?php echo $rating; ?>" class="star star-b<?php echo $rating; ?>"></span> <strong><?php echo $rating; ?></strong> <a class="review-nums" href="#" > (based on <span><?php echo $reviews; ?></span>) </a> </p>
+        <div> <a href="#" target="_self" class="litb-flat-btn btn-success ctr-track sign-to-redirect" srcname="writeReview" rel="nofollow" > <?php echo $text_write; ?> </a> </div>
+      </div>
+    </div>      
+    <div id="review"></div>
+    <div class="widget view-sell-all"> <a href="#">See all <?php echo $reviews; ?> &nbsp;▶ </a></div>      
+  </div>
+</div>
+
+<?php echo $content_bottom; ?>
+
+<script>
+$('input[name="quantity"]').change(function(){
+    $.ajax({
+		url: 'index.php?route=product/product/getRecurringDescription',
+		type: 'post',
+		data: $('input[name="product_id"], input[name="quantity"]'),
+		dataType: 'json',
+        beforeSend: function() {
+            $('#profile-description').html('');
+        },
+		success: function(json) {
+			$('.success, .warning, .attention, information, .error').remove();
+            
+			if (json['success']) {
+                $('#profile-description').html(json['success']);
+			}	
+		}
+	});
+});
+$('#button-cart').bind('click', function() {
+	$.ajax({
+		url: 'index.php?route=checkout/cart/add',
+		type: 'post',
+		data: $('.product-info input[type=\'hidden\'], .product-info input[type=\'radio\']:checked'),
+		dataType: 'json',
+		success: function(json) {
+			$('.success, .warning, .attention, information, .error').remove();
+			
+			if (json['error']) {
+				if (json['error']['option']) {
+					for (i in json['error']['option']) {
+						$('#option-' + i).after('<span class="error">' + json['error']['option'][i] + '</span>');
+					}
+				}               
+               
+			}
+			
+			if (json['success']) {
+				$('#notification').html('<div class="success" style="display: none;">' + json['success'] + '<img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>');
+					
+				$('.success').fadeIn('slow');
+					
+				$('#cart-total').html(json['total']);
+				
+				$('html, body').animate({ scrollTop: 0 }, 'slow'); 
+			}	
+		}
+	});
+});
+</script>
+
+<script type="text/javascript"><!--
+$('#review .pagination a').live('click', function() {
+  $('#review').fadeOut('slow');
+    
+  $('#review').load(this.href);
+  
+  $('#review').fadeIn('slow');
+  
+  return false;
+});     
+
+$('#review').load('index.php?route=product/product/review&product_id=<?php echo $product_id; ?>');
+
+$('#button-review').bind('click', function() {
+  $.ajax({
+    url: 'index.php?route=product/product/write&product_id=<?php echo $product_id; ?>',
+    type: 'post',
+    dataType: 'json',
+    data: 'name=' + encodeURIComponent($('input[name=\'name\']').val()) + '&text=' + encodeURIComponent($('textarea[name=\'text\']').val()) + '&rating=' + encodeURIComponent($('input[name=\'rating\']:checked').val() ? $('input[name=\'rating\']:checked').val() : '') + '&captcha=' + encodeURIComponent($('input[name=\'captcha\']').val()),
+    beforeSend: function() {
+      $('.success, .warning').remove();
+      $('#button-review').attr('disabled', true);
+      $('#review-title').after('<div class="attention"><img src="catalog/view/theme/default/image/loading.gif" alt="" /> <?php echo $text_wait; ?></div>');
+    },
+    complete: function() {
+      $('#button-review').attr('disabled', false);
+      $('.attention').remove();
+    },
+    success: function(data) {
+      if (data['error']) {
+        $('#review-title').after('<div class="warning">' + data['error'] + '</div>');
+      }
+      
+      if (data['success']) {
+        $('#review-title').after('<div class="success">' + data['success'] + '</div>');
+                
+        $('input[name=\'name\']').val('');
+        $('textarea[name=\'text\']').val('');
+        $('input[name=\'rating\']:checked').attr('checked', '');
+        $('input[name=\'captcha\']').val('');
+      }
+    }
+  });
+});
+</script> 
+<?php echo $footer; ?>

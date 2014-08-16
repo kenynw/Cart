@@ -1,0 +1,261 @@
+<?php echo $header; ?>
+<style>
+#wrapper, .wrapper {
+  width:992px;
+  margin:0 auto;
+  padding:0 23px;
+}
+#wrapper-r {
+  float:none;
+  width:448px;  
+  margin-left: auto; 
+  margin-right: auto;  
+}
+#wrapper .login-sign-tips {
+  margin-left:32px;
+}
+.login-sign-tips {
+  font:18px Georgia;
+  color:#333;
+  margin:20px 0;
+}
+
+.w-signInGuide .mainboxV2 {
+  font:12px Verdana;
+  color:#000;
+}
+.w-signInGuide table {
+  width:100%;
+}
+.w-signInGuide th {
+  line-height:150%;
+}
+.w-signInGuide td, .w-signInGuide th {
+  padding:8px 5px;
+  vertical-align:top;
+}
+.w-signInGuide .inputcol {
+  width:220px;
+}
+.w-signInGuide .inputcol a {
+  padding-top:5px;
+  display:inline-block;
+}
+.w-signInGuide .inputcol input.text {
+  width:260px;
+  padding:1px;
+  height:20px;
+  font:bold 13px arial;
+}
+.w-signInGuide form p a {
+  margin-top:15px;
+}
+.w-signInGuide .fb-sep {
+  margin:20px -10px 20px -10px;
+  position:relative;
+  background-color:#cccccc;
+  height:1px;
+}
+
+.w-signInGuide .fb-sep span {
+  background-color:#EEEEEE;
+  position: absolute;
+  top:-7px;
+  right:13px;
+  padding: 0 8px;
+  font-weight:bold;
+  color:#333;
+  font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.w-scCreatNewAccount .mainbox {
+  position:relative;
+  padding:10px;
+  font:12px Verdana;
+  color:#333;
+}
+.w-scCreatNewAccount .mainbox .indicates {
+  color:#666;
+  font-size:10px;
+}
+
+.w-scCreatNewAccount table {
+  width:100%;
+}
+.w-scCreatNewAccount th {
+  width:45%;
+  line-height:150%;
+}
+.w-scCreatNewAccount td, .w-scCreatNewAccount th {
+  padding:8px 5px;
+  vertical-align:top;
+}
+.w-scCreatNewAccount .inputcol {
+  width:220px;
+}
+.w-scCreatNewAccount .inputcol .lightGray {
+  font-size:10px;
+  margin-top:5px;
+  color:#999;
+}
+.w-scCreatNewAccount .inputcol input.text {
+  width:216px;
+  padding:1px;
+  height:20px;
+  font:bold 13px arial;
+  color:#333;
+}
+.w-scCreatNewAccount .inputcol select {
+  width:220px;
+  border:1px solid #ccc;
+  height:20px;
+}
+.errorInfo, .errorInfo a:link {
+  color:#990000;
+  margin-top:5px;
+}
+.required {
+  color:#990000;
+}
+.w-scCreatNewAccount table .required {
+  float:left;
+  width:6px;
+  margin:0 5px 0 -7px;
+}
+.w-scCreatNewAccount p .required {
+  color:#990000;
+  margin-left:-2px;
+}
+.w-scCreatNewAccount form p a {
+  margin-top:15px;
+}
+</style>
+  <div id="wrapper-r">     
+    <!-- widget-sign-up -->
+    <div class="widget w-scCreatNewAccount">
+      <div class="w-rHeadingV2">
+        <h2><span><?php echo $heading_title; ?></span></h2>
+      </div>
+      <div class="mainbox">
+        <p><span class="required">*</span> <span class="indicates">Indicates required fields.</span></p>
+        <form name="newAccountForm" action="<?php echo $action; ?>" method="post">
+          <table cellspacing="0">
+            <tbody>
+              <tr>
+                <th><span class="required">*</span><?php echo $entry_firstname; ?></th>
+                <td class="inputcol">
+                  <input type="text" name="firstname" value="<?php echo $firstname; ?>" class="text elmbBlur" maxlength="96" autocomplete="off">                                       
+                  <span id="regEmailValWait" class="waiting"> </span>
+                  <?php if ($error_firstname) { ?> 
+                    <p class="errorInfo"><?php echo $error_firstname; ?></p>
+                  <?php } ?>
+                </td>
+              </tr>
+              <tr>
+                <th><span class="required">*</span><?php echo $entry_lastname; ?></th>
+                <td class="inputcol">
+                  <input type="text" name="firstname" value="<?php echo $lastname; ?>" class="text elmbBlur" maxlength="96" autocomplete="off">                                       
+                  <span id="regEmailValWait" class="waiting"> </span>
+                  <?php if ($error_lastname) { ?> 
+                    <p class="errorInfo"><?php echo $error_lastname; ?></p>
+                  <?php } ?>
+                </td>
+              </tr>
+              <tr>
+                <th><span class="required">*</span>Email Address:</th>
+                <td class="inputcol">
+                  <input type="text" name="register_email_address" class="text elmbBlur" id="registerEmail" maxlength="96" autocomplete="off">
+                  <span id="regEmailValWait" class="waiting"> </span>
+                  <p class="errorInfo"></p>
+                </td>
+              </tr>
+              <tr>
+                <th><span class="required">*</span>Confirm Email Address:</th>
+                <td class="inputcol">
+                  <input type="text" name="register_confirm_email_address" class="text elmbBlur" id="registerConfirmEmail" maxlength="96" autocomplete="off">
+                  <input type="text" style="display:none">
+                  <p class="errorInfo"></p>
+                </td>
+              </tr>
+              <tr>
+                <th><span class="required">*</span>Password:</th>
+                <td class="inputcol"><input type="password" name="register_password" class="text elmbBlur" id="registerPassword" maxlength="40">
+                  <p class="lightGray">This should be at least 5 characters long and will be case sensitive.</p>
+                  <p class="errorInfo"></p></td>
+              </tr>
+              <tr>
+                <th><span class="required">*</span>Confirm Password:</th>
+                <td class="inputcol"><input type="password" name="register_confirmation" class="text elmbBlur" id="registerConfirmation" maxlength="40">
+                  <p class="errorInfo"></p></td>
+              </tr>
+              <tr>
+                <th><span class="required">*</span>Default Shipping Country/Region:</th>
+                <td class="inputcol"><select name="register_country_id" id="country" placeholder="Please Choose Your Country" class="chzn-done" style="display: none;">
+                    <option value="-1"></option>
+                    <optgroup label="---------">
+                    <option value="13">Australia</option>
+                    <option value="30">Brazil</option>
+                    <option value="38">Canada</option>
+                    <option value="73">France</option>
+                    <option value="81">Germany</option>
+                    <option value="105">Italy</option>
+                    <option value="195">Spain</option>
+                    <option value="204">Switzerland</option>
+                    <option value="222">United Kingdom</option>
+                    <option value="223" selected="selected">United States</option>
+                    </optgroup>
+                    <optgroup label="---------">
+                    <option value="1">Afghanistan</option>
+                    <option value="2">Albania</option>
+                    <option value="3">Algeria</option>
+                    <option value="4">American Samoa</option>
+                    <option value="5">Andorra</option>                   
+                    </optgroup>
+                  </select>
+                  <div id="country_chzn" class="chzn-container chzn-container-single" style="width:220px"><a href="javascript:void(0)" class="chzn-single"><span>United States</span>
+                    <div><b></b></div>
+                    </a>
+                    <div class="chzn-drop" style="left: -9000px; width: 218px;">
+                      <div class="chzn-search clearfix">
+                        <input type="text" autocomplete="off" class="">
+                      </div>
+                      <ul class="chzn-results">
+                        <li id="country_chzn_g_1" class="group-result">---------</li>
+                        <li id="country_chzn_o_2" class="active-result group-option" style="">Australia</li>
+                        <li id="country_chzn_o_3" class="active-result group-option" style="">Brazil</li>
+                        <li id="country_chzn_o_4" class="active-result group-option" style="">Canada</li>
+                        <li id="country_chzn_o_5" class="active-result group-option" style="">France</li>
+                        <li id="country_chzn_o_6" class="active-result group-option" style="">Germany</li>
+                        <li id="country_chzn_o_7" class="active-result group-option" style="">Italy</li>
+                        <li id="country_chzn_o_8" class="active-result group-option" style="">Spain</li>
+                        <li id="country_chzn_o_9" class="active-result group-option" style="">Switzerland</li>
+                        <li id="country_chzn_o_10" class="active-result group-option" style="">United Kingdom</li>
+                        <li id="country_chzn_o_11" class="active-result result-selected group-option" style="">United States</li>
+                        <li id="country_chzn_g_12" class="group-result">---------</li>
+                        <li id="country_chzn_o_13" class="active-result group-option" style="">Afghanistan</li>
+                        <li id="country_chzn_o_14" class="active-result group-option" style="">Albania</li>
+                        <li id="country_chzn_o_15" class="active-result group-option" style="">Algeria</li>
+                        <li id="country_chzn_o_16" class="active-result group-option" style="">American Samoa</li>
+                        <li id="country_chzn_o_17" class="active-result group-option" style="">Andorra</li>                       
+                      </ul>
+                    </div>
+                  </div>
+                  <p class="errorInfo"></p></td>
+              </tr>
+              <tr>
+                <td colspan="2"><span class="required">*</span>
+                  <input type="checkbox" name="register_privacy_conditions" value="1" id="registerPrivacyConditions">
+                  <label for="registerPrivacyConditions">I agree to LightintheBox.com </label>
+                  <a href="" class="u">Terms and Conditions</a>.
+                  <p class="errorInfo"></p></td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="clearfix"> <a href="javascript:void(0);" class="right" tabindex="4">
+            <input type="image" alt="Register" title="Register" src="<?php echo $res; ?>image/transparent.gif" class="litb-btn signUpBtn">
+            </a> </p>
+        </form>
+      </div>
+    </div>
+  </div>
+<?php echo $footer; ?>

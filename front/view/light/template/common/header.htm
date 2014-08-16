@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xht>
+<html dir="<?php echo $direction; ?>" lang="<?php echo $lang; ?>">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title><?php echo $title; ?></title>
+<?php if ($meta_keywords) { ?>
+<meta name="keywords" content="<?php echo $meta_keywords; ?>" />
+<?php } ?>
+<?php if ($meta_description) { ?>
+<meta name="description" content="<?php echo $meta_description; ?>" />
+<?php } ?>
+<link rel="stylesheet" type="text/css" href="<?php echo $res; ?>stylesheet/default.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $res; ?>stylesheet/style_en_default.css" />
+<script type="text/javascript" src="<?php echo $res; ?>javascript/jquery/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="<?php echo $res; ?>javascript/common.js"></script>
+<script type="text/javascript" id="_GlobalConfig_">
+    var litb = {};
+    litb.startTime = (new Date()).getTime();
+    $.sandbox = function(func){
+        try{
+           func.call(); 
+        }catch(err){
+            if(window.console && window.console.error){
+                window.console.error(err.name + ':' + err.message);
+            }
+        }
+    };
+</script>
+</head>
+
+<body id="indexBody">
+<header>
+  <div class="pagelet nav-header">
+    <div class="widget nav-cross-shop">
+      <div class="litb-logo">
+        <?php if ($logo) { ?>
+          <a href="<?php echo $home; ?>" title="<?php echo $title; ?>">
+            <img src="<?php echo $logo; ?>" width="240" height="62" alt="<?php echo $title; ?>"><span><?php echo $text_home; ?></span> 
+          </a>
+        <?php } ?>
+      </div>
+      <p class="slogan"> <a href="#">Shopping Global</a> <br>One World One Price </p>
+      <ul class="nav-cross-shop-links">
+        <li>
+          <?php if ($logged) { ?>
+            <?php echo $text_welcome; ?>
+          <?php } else { ?>
+            <a class="sign" href="<?php echo $login; ?>"><?php echo $text_login; ?></a> Or
+            <a class="sign" href="<?php echo $register; ?>"><?php echo $text_register; ?></a>
+          <?php } ?>
+        </li>
+        <li>
+          <dl>
+            <dt><a href="<?php echo $account; ?>" rel="nofollow"><?php echo $text_account; ?></a><span class="caret"></span></dt>
+            <dd>
+              <ul>
+                <li><a href="#"rel="nofollow">Knowledgebase</a></li>
+                <li><a href="#"rel="nofollow">Contact us</a></li>
+              </ul>
+            </dd>
+          </dl>
+        </li>
+        
+        <li>
+          <div class="live-chat"> 
+            <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#"> 
+            <span>Live Chat</span> <span class="caret"></span> </a>
+            <ul class="dropdown-menu pull-right">
+              <li> <span class="litb-icon-request-help"></span>
+                <h5><a rel="nofollow" href="#" class="u_">If you have already made a purchase</a></h5>
+                Log in to <a href="#" rel="nofollow">My Orders</a> to track progress or request help through the order details page.<br>
+              </li>
+              <li>
+                <h5><a class="u_" href="#">If you are considering a purchase</a></h5>
+                Chat with Online Sales for more information before you purchase!<br>
+                <a class="ctr-track"  href="#" rel="nofollow" onclick="#">Start Online Chat </a> <br>
+                (Online sales does not have access to order information.) </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+    
+    <ul class="nav-selectors"><a href="/" class="home"></a>
+      <li>
+        <div class="widget helv-11  ctr-info" > <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#"><span class="cur-currency">United States</span> <span class="caret"></span> </a>
+          <div class="dropdown-menu">
+            <ul class="currency-list">
+              <?php if($languages) { ?>
+                <?php foreach($languages as $item) { ?>
+                  <li><a><span><?php echo $item['name'];?></span></a></li>
+                <?php } ?>
+              <?php }?>            
+            </ul>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="widget currency-selector helv-11  ctr-info" > <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#"> <em>$</em> <span class="cur-currency">USD</span> <span class="caret"></span> </a>
+          <div class="dropdown-menu">
+            <ul class="currency-list">
+              <?php if($currencies) { ?>
+                <?php foreach($currencies as $item) { ?>
+                  <li><a  href="#"><em><?php echo $item['symbol_left']?></em><span><?php echo $item['code']?></span></a></li>
+                <?php } ?>
+              <?php }?>            
+            </ul>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <!-------下拉菜单----->
+  <div class="widget nav-bar ">
+    <dl class="nav-shop-all nav-menu hover-show">
+      <dt class="nav-button"><a>SHOP ALL CATEGORIES</a></dt>
+      <dd class="nav-categories ctr-info ctr-track-a"  page="index" style="display: none; height: 335px; overflow: hidden; width: 236px;">
+        <ul>
+          <?php if($categories) { ?>
+            <?php foreach($categories as $category) { ?>              
+              <li data-left="{}, " style="width: 988px;">          
+                <h2><a  href="<?php echo $category['href']?>"><?php echo $category['name']?><em class="solid-color-arrow" style="display: none;"></em></a></h2>
+                <div class="nav-sub-categories" style="width: 717px; min-height: 335px; display: none;">
+                  <div class="cate-menu-sub">
+                    <?php if($category['item']) { $i=0;?>
+                      <?php foreach($category['item'] as $child) {?>
+                        <?php if($i%4 == 0) {?>
+                          <br class="clear">
+                        <?php }?>
+                        <dl>
+                          <dt><h3><a href="<?php echo $child['href'];?>"><?php echo $child['name']; ?></a></h3></dt>
+                          <?php if($child['item']) {?>
+                            <?php foreach($child['item'] as $item) {?>
+                              <dd><a href="<?php echo $item['href']?>"><?php echo $item['name']; ?></a></dd>
+                            <?php }?>
+                          <?php }?>
+                        </dl>
+                      <?php $i=$i+1;}?>
+                    <?php }?>
+                  </div>                  
+                </div>
+              </li>              
+            <?php } ?>
+          <?php } ?>
+        </ul>
+      </dd>
+    </dl>
+    <!-------下拉菜单----->
+    <form action="#" method="get" target="_parent" class="search-form">
+      <input type="hidden" name="main_page" value="advanced_search_result">
+      <input type="hidden" name="inc_subcat" value="1">
+      <input type="hidden" name="search_in_description" value="0">
+      <input class="search-input" type="search" name="keyword" alue="" tabindex="1" id="keywords" qs_url="/query_suggestion/qs_server.b" autocomplete="off" lang="1">
+      <button class="search-button" type="submit"><?php echo $text_search; ?></button>
+    </form>
+    
+    <dl class="nav-cart nav-cart-with-list nav-menu">
+        <dt class="nav-button"><a href="http://www.lightinthebox.com/index.php?main_page=shopping_cart"><span><em id="navCartCount">1</em>Cart<i></i></span></a></dt>
+        <dd id="navCartInfoNote" class="nav-cart-desc" style="display: none;">        
+          <div id="navCartProductList"><dl class="clearfix "><dt><a title="Glamour Girl Sexy Printing Bikini Swimsuit" href="http://www.lightinthebox.com/glamour-girl-sexy-printing-bikini-swimsuit_p1490838.html"><img alt="Glamour Girl Sexy Printing Bikini Swimsuit" width="50" height="50" src="http://litbimg.rightinthebox.com/images/p/201406/awvvwo1402648240112.jpg"></a></dt><dd><h4><a title="Glamour Girl Sexy Printing Bikini Swimsuit" href="http://www.lightinthebox.com/glamour-girl-sexy-printing-bikini-swimsuit_p1490838.html">Glamour Girl Sexy Printing Bikini Swimsuit</a></h4><p class="pr-attr">Color: Screen Color</p><p class="pr-attr">Size: L</p></dd></dl></div>
+          <div id="navCartMoreItems" class="nav-cart-more-items"><em></em> more items in the cart...</div>
+          <div class="nav-cart-bottom clearfix">
+              <p class="nav-cart-total">Cart Total:&nbsp;<strong class="price" id="navCartTotal">USD $ 9.99</strong> <br>
+                  <a rel="nofollow" href="https://www.lightinthebox.com/index.php?main_page=checkout_login" class="litb-btn ir checkout2Btn">Proceed to Checkout</a><br>
+              </p>
+              <a class="nav-cart-view" rel="nofollow" href="http://www.lightinthebox.com/index.php?main_page=shopping_cart">View My Cart&nbsp;»</a>
+          </div>
+        </dd>
+    </dl>
+
+    
+  </div>  
+<script type= "text/javascript"src="<?php echo $res; ?>javascript/main_684f06b2d3f5e1c9.js" ></script>
+</header>

@@ -1,0 +1,2132 @@
+/* ==========================================================================
+ 	TNF SFR ecomSFR.css	  
+ 	The new style for TNF SFR (Shop Flow Redesign) Project. 
+==========================================================================*/
+/*$font-primary: "HelveticaNeueBoldCondensed", "HelveticaNeue-Bold-Condensed", "Helvetica Neue Bold Condensed", "HelveticaNeue-CondensedBold", "Helvetica Neue", "Arial Narrow", "Arial-Narrow", "ArialNarrow", Helvetica, Arial, sans-serif;
+$font-secondary: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Helvetica Neue Condensed", "HelveticaNeue-Condensed", "Helvetica Neue", "Arial Narrow", "Arial-Narrow", "ArialNarrow", Helvetica, Arial, sans-serif;*/
+/* line 8, ../../sass/common/_globalOverrideSFR.scss */
+list.sfr #content {
+  background: url("../image/content-box-sfr.png") no-repeat scroll center top transparent;
+  /*#toolbar .row, #footer .row{
+  	width: $content-width;
+  	margin: 0 auto;
+  }
+  #footer .row .row{
+  	width: auto;
+  	margin: 0 -2px;
+  }*/ }
+  /* line 10, ../../sass/common/_globalOverrideSFR.scss */
+  list.sfr #content .content-box {
+    padding: 0 0 40px 0; }
+  /* line 11, ../../sass/common/_globalOverrideSFR.scss */
+  list.sfr #content .content-box.tertiary {
+    background: none transparent;
+    overflow: visible; }
+  /* line 13, ../../sass/common/_globalOverrideSFR.scss */
+  list.sfr #content #content-inner {
+    width: 994px !important;
+    position: relative; }
+  /* line 17, ../../sass/common/_globalOverrideSFR.scss */
+  list.sfr #content #grid, list.sfr #content .col-24, list.sfr #content .row {
+    text-align:center;
+margin:0 auto: text-align:left; width:1000px; }
+  /* line 242, ../../sass/common/_variablesSFR.scss */
+  list.sfr #content .row:before, list.sfr #content .row:after {
+    content: "";
+    display: table; }
+  /* line 247, ../../sass/common/_variablesSFR.scss */
+  list.sfr #content .row:after {
+    clear: both; }
+  /* line 252, ../../sass/common/_variablesSFR.scss */
+  list.sfr #content .row {
+    zoom: 1; }
+  /* line 24, ../../sass/common/_globalOverrideSFR.scss */
+  list.sfr #content .content-box.tertiary.all, list.sfr #content .col-06, list.sfr #content .productBlock {
+    width: 100%;
+    margin: 0;
+    padding: 0; }
+
+/* ==========================================================================
+* TNF SFR globalSFR.scss
+* 
+* This style is global for the SFR project; however, this will not break
+* old style code since the override is only applied when the sfr class is
+* present in the list.
+============================================================================= */
+/* line 8, ../../sass/common/_globalSFR.scss */
+list.sfr {
+  font-family: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Helvetica Neue Condensed", "HelveticaNeue-Condensed", "Arial Narrow", "Arial-Narrow", "ArialNarrow", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+  font-stretch: condensed;
+  background-color: #f3f3f3;
+  min-width: 1024px;
+  position: relative; }
+  /* line 15, ../../sass/common/_globalSFR.scss */
+  list.sfr :focus {
+    outline: none; }
+  /* line 25, ../../sass/common/_globalSFR.scss */
+  list.sfr ::selection,
+  list.sfr img::selection,
+  list.sfr a::selection,
+  list.sfr :selection,
+  list.sfr img:selection,
+  list.sfr a:selection,
+  list.sfr a:link,
+  list.sfr a:hover,
+  list.sfr a {
+    -webkit-tap-highlight-color: none; }
+  /* line 30, ../../sass/common/_globalSFR.scss */
+  list.sfr .productBlock img,
+  list.sfr a:link,
+  list.sfr a {
+    -webkit-tap-highlight-color: none;
+    -webkit-touch-callout: none; }
+  /* line 35, ../../sass/common/_globalSFR.scss */
+  list.sfr .productBlock {
+    -webkit-user-select: none; }
+  /* line 39, ../../sass/common/_globalSFR.scss */
+  list.sfr .productBlock img {
+    -webkit-user-select: none; }
+  /* line 44, ../../sass/common/_globalSFR.scss */
+  list.sfr #breadcrumbs {
+    height: 67px; }
+    /* line 46, ../../sass/common/_globalSFR.scss */
+    list.sfr #breadcrumbs .gutter-01 {
+      width: 100%;
+      padding: 0 !important; }
+      /* line 48, ../../sass/common/_globalSFR.scss */
+      list.sfr #breadcrumbs .gutter-01 > div {
+        position: relative; }
+    /* line 52, ../../sass/common/_globalSFR.scss */
+    list.sfr #breadcrumbs h1, list.sfr #breadcrumbs h3 {
+      font-size: 2em;
+      font-weight: bold;
+      font-stretch: condensed;
+      color: #333333;
+      text-shadow: 1px 1px 1px white;
+      color: #333333;
+      position: absolute;
+      top: 35px;
+      margin: 0 12px; }
+    /* line 59, ../../sass/common/_globalSFR.scss */
+    list.sfr #breadcrumbs h2 {
+      font-size: 1.2em;
+      font-weight: bold;
+      font-stretch: condensed;
+      color: #333333;
+      text-shadow: 1px 1px 1px white;
+      color: #666666;
+      position: absolute;
+      top: 17px;
+      margin: 0 12px; }
+    /* line 66, ../../sass/common/_globalSFR.scss */
+    list.sfr #breadcrumbs .chat-now {
+      margin: 18px 12px 0 7px; }
+    /* line 69, ../../sass/common/_globalSFR.scss */
+    list.sfr #breadcrumbs .crumbs {
+      line-height: normal;
+      margin-top: 41px;
+      /*font-size: 0.9em;*/
+      font-size: 12px;
+      font-stretch: normal; }
+  /* line 79, ../../sass/common/_globalSFR.scss */
+  list.sfr #page-banner {
+    position: relative;
+    display: block;
+    overflow: hidden; }
+  /* line 84, ../../sass/common/_globalSFR.scss */
+  list.sfr #promoImageSFR {
+    padding-top: 9px; }
+  /* line 87, ../../sass/common/_globalSFR.scss */
+  list.sfr .top-shadow-wrapper {
+    background: url("../image/section-drop-shadow-top.png") no-repeat center top !important;
+    background-position: center -9px !important;
+    height: 9px;
+    margin-top: -9px; }
+  /* line 95, ../../sass/common/_globalSFR.scss */
+  list.sfr#category-top-sfr #page-banner h1 {
+    text-shadow: 1px 1px 4px #666666 !important;
+    filter: progid:DXImageTransform.Microsoft.Shadow(direction=135,strength=3,color=666666); }
+  /* line 101, ../../sass/common/_globalSFR.scss */
+  list.sfr #nav-sub-category {
+    background: none;
+    margin: 0 0 -3px 0;
+    padding: 0;
+    width: 100%;
+    height: 101px; }
+    /* line 107, ../../sass/common/_globalSFR.scss */
+    list.sfr #nav-sub-category nav {
+      display: table;
+      table-layout: fixed;
+      width: 100%;
+      margin: 0;
+      background: url("../image/nav-sub-category-bgimg.png") repeat-x scroll left top #f3f3f3; }
+      /* line 114, ../../sass/common/_globalSFR.scss */
+      list.sfr #nav-sub-category nav div {
+        display: table-cell;
+        text-align: center;
+        width: auto;
+        height: 101px;
+        border-left: solid 1px #BBBBBB;
+        border-top: 3px solid #f3f3f3; }
+        /* line 122, ../../sass/common/_globalSFR.scss */
+        list.sfr #nav-sub-category nav div:hover, list.sfr #nav-sub-category nav div.selected {
+          border-top: 3px solid #ee3124;
+          background: url("../image/nav-sub-category-bgimg.png") repeat-x scroll left top #f3f3f3 !important;
+          background-position: left bottom !important; }
+        /* line 128, ../../sass/common/_globalSFR.scss */
+        list.sfr #nav-sub-category nav div:first-child, list.sfr #nav-sub-category nav div:first-child a {
+          border-left: none 0px; }
+        /* line 131, ../../sass/common/_globalSFR.scss */
+        list.sfr #nav-sub-category nav div:first-child {
+          background: url("../image/nav-sub-category-bgimg-right.png") no-repeat scroll left bottom transparent; }
+        /* line 134, ../../sass/common/_globalSFR.scss */
+        list.sfr #nav-sub-category nav div:last-child {
+          background: url("../image/nav-sub-category-bgimg-left.png") no-repeat scroll right bottom transparent; }
+      /* line 139, ../../sass/common/_globalSFR.scss */
+      list.sfr #nav-sub-category nav a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-left: 1px solid #FFFFFF; }
+        /* line 144, ../../sass/common/_globalSFR.scss */
+        list.sfr #nav-sub-category nav a img {
+          margin-top: 12px; }
+        /* line 147, ../../sass/common/_globalSFR.scss */
+        list.sfr #nav-sub-category nav a h6 {
+          /*@include text-heading(0.8em);*/
+          font-size: 11px;
+          font-weight: bold;
+          font-stretch: condensed;
+          color: #333333;
+          text-shadow: 1px 1px 1px white;
+          margin-top: 10px; }
+    /* line 154, ../../sass/common/_globalSFR.scss */
+    list.sfr #nav-sub-category nav.ie7 {
+      display: inline-block;
+      table-layout: auto;
+      padding: 0;
+      margin: 0; }
+      /* line 159, ../../sass/common/_globalSFR.scss */
+      list.sfr #nav-sub-category nav.ie7 div {
+        display: inline-block;
+        zoom: 1;
+        *display: inline;
+        float: left; }
+  /* line 169, ../../sass/common/_globalSFR.scss */
+  list.sfr#category-top-sfr #nav-sub-category {
+    background: url("../image/section-drop-shadow.png") no-repeat scroll 0 100% #f3f3f3;
+    padding-bottom: 22px;
+    margin-bottom: 2px; }
+  /* line 176, ../../sass/common/_globalSFR.scss */
+  list.sfr .product-block-review {
+    width: 100%;
+    height: 100%;
+    font-family: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Helvetica Neue Condensed", "HelveticaNeue-Condensed", "Arial Narrow", "Arial-Narrow", "ArialNarrow", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+    position: relative; }
+    /* line 182, ../../sass/common/_globalSFR.scss */
+    list.sfr .product-block-review .review-callout {
+      background: url("../image/top-review-callout.png") no-repeat scroll left top transparent;
+      position: absolute;
+      left: -32px;
+      top: 124px;
+      width: 19px;
+      height: 39px;
+      z-index: 30; }
+    /* line 191, ../../sass/common/_globalSFR.scss */
+    list.sfr .product-block-review .review-block {
+      border: 1px solid #c3c3c3;
+      background: url("../image/top-rated-review-background.jpg") repeat scroll left top transparent;
+      text-align: center;
+      height: 418px;
+      position: absolute;
+      top: -15px;
+      left: -15px;
+      right: -15px;
+      z-index: 0;
+      padding: 0 20px 0 20px;
+      /*-webkit-box-shadow: $product-review-block-border 2px 3px 3px;
+      -moz-box-shadow: $product-review-block-border 2px 3px 3px;
+      box-shadow: $product-review-block-border 2px 3px 3px;*/
+      behavior: url(/global/js/PIE.htc); }
+      /* line 207, ../../sass/common/_globalSFR.scss */
+      list.sfr .product-block-review .review-block h6 {
+        /*@include text-heading(1.2em);*/
+        font-size: 14px;
+        font-weight: bold;
+        font-stretch: condensed;
+        color: #333333;
+        text-shadow: 1px 1px 1px white;
+        text-transform: uppercase;
+        margin: 43px 0 14px 0; }
+      /* line 213, ../../sass/common/_globalSFR.scss */
+      list.sfr .product-block-review .review-block dl {
+        margin: 17px 0px 20px 0; }
+        /* line 215, ../../sass/common/_globalSFR.scss */
+        list.sfr .product-block-review .review-block dl dt {
+          display: block;
+          width: 100%;
+          color: #666666;
+          /*font-size: 0.87em;*/
+          font-size: 12px;
+          text-transform: uppercase; }
+          /* line 216, ../../sass/common/_globalSFR.scss */
+          list.sfr .product-block-review .review-block dl dt b {
+            /*@include text-heading(1.2em);*/
+            font-size: 16px;
+            font-weight: bold;
+            font-stretch: condensed;
+            color: #333333;
+            text-shadow: 1px 1px 1px white;
+            text-transform: none;
+            color: #636363; }
+      /* line 230, ../../sass/common/_globalSFR.scss */
+      list.sfr .product-block-review .review-block blockquote {
+        background: url("../image/top-rated-quotes.png") no-repeat scroll top center;
+        color: #666666;
+        line-height: 1.3em;
+        /*font-size: 1.1em;*/
+        font-size: 15px;
+        padding: 37px 20px 24px 20px;
+        quotes: none; }
+      /* line 240, ../../sass/common/_globalSFR.scss */
+      list.sfr .product-block-review .review-block .review-btn {
+        text-align: center;
+        margin-bottom: 20px; }
+        /* line 243, ../../sass/common/_globalSFR.scss */
+        list.sfr .product-block-review .review-block .review-btn a {
+          text-transform: uppercase;
+          text-decoration: none;
+          color: #FFFFFF;
+          background-color: #999999;
+          border: none;
+          cursor: pointer;
+          /*font-size: 0.95em;*/
+          font-size: 11px;
+          font-weight: bold;
+          letter-spacing: 1px;
+          padding: 5px 15px 5px 15px; }
+          /* line 256, ../../sass/common/_globalSFR.scss */
+          list.sfr .product-block-review .review-block .review-btn a:hover {
+            background-color: #ee3124; }
+  /* line 264, ../../sass/common/_globalSFR.scss */
+  list.sfr #back-to-top {
+    font-family: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Helvetica Neue Condensed", "HelveticaNeue-Condensed", "Arial Narrow", "Arial-Narrow", "ArialNarrow", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+    width: 77px;
+    height: 78px;
+    background: url("../image/back-to-top-bgimg.png") no-repeat top left scroll transparent;
+    text-align: center;
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    margin-left: 42%;
+    z-index: 999; }
+    /* line 277, ../../sass/common/_globalSFR.scss */
+    list.sfr #back-to-top a {
+      font-weight: bold;
+      font-size: 1.2em;
+      /*font-size: $back-to-top-font-size;*/
+      color: #333333;
+      text-transform: uppercase;
+      text-decoration: none;
+      background: url("../image/back-to-top-up-arrow-normal.png") no-repeat scroll center 13px transparent;
+      display: block;
+      width: 69px;
+      border: 2px solid #FFFFFF;
+      margin: 2px;
+      padding: 39px 0 12px 0; }
+      /* line 290, ../../sass/common/_globalSFR.scss */
+      list.sfr #back-to-top a:hover {
+        background: url("../image/back-to-top-up-arrow-hover.png") no-repeat scroll center 13px transparent;
+        /*font-size: 1.2em;*/
+        color: #ee3124; }
+    /* line 297, ../../sass/common/_globalSFR.scss */
+    list.sfr #back-to-top img {
+      display: block;
+      margin: 0 auto; }
+  /* line 303, ../../sass/common/_globalSFR.scss */
+  list.sfr #endless-scroll {
+    font-weight: bold;
+    text-align: center;
+    background: url("../image/view-more-line.png") no-repeat scroll center 19px;
+    margin: 0 0 0 0; }
+    /* line 308, ../../sass/common/_globalSFR.scss */
+    list.sfr #endless-scroll .view-more-products {
+      cursor: pointer;
+      margin: 0 auto;
+      width: 200px;
+      background-color: #ee3124;
+      /*font-size: 1.2em;*/
+      font-size: 18px;
+      text-transform: uppercase;
+      line-height: 35px;
+      text-align: center;
+      color: #fff;
+      border-right: 10px solid #F3F3F3;
+      border-left: 10px solid #F3F3F3; }
+      /* line 321, ../../sass/common/_globalSFR.scss */
+      list.sfr #endless-scroll .view-more-products span {
+        background: url("../image/view-more-arrow.png") no-repeat scroll right center;
+        padding-right: 20px; }
+      /* line 325, ../../sass/common/_globalSFR.scss */
+      list.sfr #endless-scroll .view-more-products:hover {
+        background-color: #828282; }
+    /* line 327, ../../sass/common/_globalSFR.scss */
+    list.sfr #endless-scroll .view-all-products {
+      cursor: pointer;
+      margin: 0 auto;
+      width: 200px;
+      height: 45px;
+      margin-top: 20px;
+      /*font-size: 1em;*/
+      font-size: 14px;
+      color: #333333; }
+      /* line 336, ../../sass/common/_globalSFR.scss */
+      list.sfr #endless-scroll .view-all-products:hover {
+        color: #ee3124; }
+
+/* ==========================================================================
+* TNF SFR productListSFR.scss
+* 
+* This style controls the product blocks, sub category sections in the top
+* category, sub category, search, collection pages. Also this controls the 
+* style for product block review, back to top module and espots.
+============================================================================= */
+/* line 8, ../../sass/common/_productListSFR.scss */
+list.sfr {
+  /* (HM) - this style is for the overlay that is displayed every time the
+  * user applies or removes a filter and for lazy loading*/
+  /* (HM) - this styles the overlay background*/
+  /* (HM) - this styles the loading logo on the overlay*/
+  /* (HM) - this styles the text on the overlay*/
+  /* (HM) - this is the style for the divider product set on grid*/
+  /* Style for benefit section in the product block */
+  /* This style is to fix the height of the hover product block when there are not benefits */
+  /* This style is to fix the height of the hover featured product block when there are not benefits */
+  /* Style for espot on sub category section block */ }
+  /* line 11, ../../sass/common/_productListSFR.scss */
+  list.sfr .overlay-sfr {
+    display: none;
+    position: absolute;
+    top: -10px;
+    z-index: 40;
+    width: 994px;
+    height: 100%; }
+  /* line 20, ../../sass/common/_productListSFR.scss */
+  list.sfr .overlay-bg-sfr {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: black url("../image/overlay-texture-sfr.png") 50% 50% repeat;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=$level)";
+    filter: alpha(opacity=50);
+    opacity: 0.5; }
+  /* line 28, ../../sass/common/_productListSFR.scss */
+  list.sfr .loading-sfr {
+    position: relative;
+    /*top: 150px;
+    left: 500px - 32px;*/
+    z-index: 41;
+    height: 100px;
+    width: 95%;
+    float: left;
+    background: url("../image/animationProcessingAjax.gif") no-repeat 50% 50% scroll; }
+  /* line 39, ../../sass/common/_productListSFR.scss */
+  list.sfr .loading-text-sfr {
+    position: relative;
+    left: 465px;
+    top: 90px;
+    font: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Helvetica Neue Condensed", "HelveticaNeue-Condensed", "Arial Narrow", "Arial-Narrow", "ArialNarrow", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+    color: black; }
+  /* line 47, ../../sass/common/_productListSFR.scss */
+  list.sfr .product-divider-sfr {
+    background: url("../image/product-divider-sfr.png") no-repeat scroll center;
+    height: 4px;
+    margin-left: -38px; }
+  /* line 53, ../../sass/common/_productListSFR.scss */
+  list.sfr section.row {
+    position: relative;
+    margin: -5px 0 0 0;
+    padding: 5px 0 40px 5px;
+    overflow: visible;
+    width: 990px !important;
+    background: url("../image/section-drop-shadow.png") no-repeat scroll 0 100% #f3f3f3; }
+    /* line 206, ../../sass/common/_variablesSFR.scss */
+    list.sfr section.row header {
+      overflow: hidden;
+      margin: 10px 0; }
+      /* line 242, ../../sass/common/_variablesSFR.scss */
+      list.sfr section.row header:before, list.sfr section.row header:after {
+        content: "";
+        display: table; }
+      /* line 247, ../../sass/common/_variablesSFR.scss */
+      list.sfr section.row header:after {
+        clear: both; }
+      /* line 252, ../../sass/common/_variablesSFR.scss */
+      list.sfr section.row header {
+        zoom: 1; }
+      /* line 210, ../../sass/common/_variablesSFR.scss */
+      list.sfr section.row header h3 {
+        /*@include text-heading("150%");*/
+        font-size: 26px;
+        font-weight: bold;
+        font-stretch: condensed;
+        color: #333333;
+        text-shadow: 1px 1px 1px white;
+        line-height: 28px;
+        margin: 0 20px 0 5px;
+        float: left; }
+      /* line 217, ../../sass/common/_variablesSFR.scss */
+      list.sfr section.row header a {
+        /*line-height: 28px;*/
+        line-height: 36px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #ee3124; }
+      /* line 224, ../../sass/common/_variablesSFR.scss */
+      list.sfr section.row header p {
+        font-size: 14px; }
+      /* line 227, ../../sass/common/_variablesSFR.scss */
+      list.sfr section.row header .pagination-counter {
+        font-weight: bold;
+        text-align: right;
+        padding: 8px 24px 0 0; }
+    /* line 61, ../../sass/common/_productListSFR.scss */
+    list.sfr section.row h3 {
+      /*font-weight: normal !important;*/ }
+    /* line 64, ../../sass/common/_productListSFR.scss */
+    list.sfr section.row .category-title {
+      font-weight: bold !important; }
+    /* line 67, ../../sass/common/_productListSFR.scss */
+    list.sfr section.row > div {
+      margin-right: -38px; }
+  /* line 72, ../../sass/common/_productListSFR.scss */
+  list.sfr #featured-title-container h3 {
+    font-weight: normal !important; }
+  /* line 77, ../../sass/common/_productListSFR.scss */
+  list.sfr section.last.row {
+    background: none #f3f3f3;
+    margin: 0 0 40px 0;
+    padding-bottom: 70px; }
+  /* line 82, ../../sass/common/_productListSFR.scss */
+  list.sfr .row p {
+    margin-left: 5px; }
+  /* line 86, ../../sass/common/_productListSFR.scss */
+  list.sfr #content .quickview-sfr {
+    display: none;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    left: 34px;
+    top: 193.5px;
+    height: 24px;
+    width: 96px;
+    line-height: 22px;
+    font: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Helvetica Neue Condensed", "HelveticaNeue-Condensed", "Arial Narrow", "Arial-Narrow", "ArialNarrow", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+    font-size: 92%;
+    font-stretch: condensed;
+    font-weight: bold;
+    color: #FFF;
+    text-align: center;
+    text-decoration: none;
+    text-indent: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 23px;
+    background: none repeat scroll 0 0 #EE1B2C; }
+  /* line 110, ../../sass/common/_productListSFR.scss */
+  list.sfr .seeItInAction span {
+    display: none; }
+  /* line 114, ../../sass/common/_productListSFR.scss */
+  list.sfr .benefits-sfr {
+    margin: 15px 0 0 0;
+    display: none;
+    position: relative; }
+    /* line 118, ../../sass/common/_productListSFR.scss */
+    list.sfr .benefits-sfr ul {
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      list-style: none;
+      text-align: center; }
+      /* line 125, ../../sass/common/_productListSFR.scss */
+      list.sfr .benefits-sfr ul li {
+        float: left;
+        width: 54.66667px;
+        height: 35px; }
+      /* line 130, ../../sass/common/_productListSFR.scss */
+      list.sfr .benefits-sfr ul img {
+        position: relative;
+        padding: 0 !important;
+        bottom: 0; }
+      /* line 135, ../../sass/common/_productListSFR.scss */
+      list.sfr .benefits-sfr ul div {
+        width: 100%;
+        height: 100%; }
+      /* line 139, ../../sass/common/_productListSFR.scss */
+      list.sfr .benefits-sfr ul span {
+        /*font-size: 0.8em;*/
+        font-size: 11px;
+        /*font-weight: bold;*/ }
+    /* line 145, ../../sass/common/_productListSFR.scss */
+    list.sfr .benefits-sfr .detail-text {
+      background: url("../image/detailRolloverBackground.png") no-repeat left transparent;
+      width: 220px;
+      height: 106px;
+      position: absolute;
+      z-index: 30;
+      display: none;
+      padding: 10px 20px 20px 20px;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      font-family: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Helvetica Neue Condensed", "HelveticaNeue-Condensed", "Arial Narrow", "Arial-Narrow", "ArialNarrow", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+      font-weight: normal;
+      font-stretch: normal;
+      /*font-size: 12px;*/
+      font-size: 15px; }
+  /* line 162, ../../sass/common/_productListSFR.scss */
+  list.sfr #results {
+    position: relative; }
+  /* line 167, ../../sass/common/_productListSFR.scss */
+  list.sfr #results section .gutter-01 {
+    width: 164px;
+    height: 411px;
+    padding: 0;
+    padding-right: 34px;
+    margin-bottom: 20px;
+    background-color: transparent;
+    z-index: 0; }
+    /* line 175, ../../sass/common/_productListSFR.scss */
+    list.sfr #results section .gutter-01 > div {
+      padding: 12px;
+      width: 164px;
+      height: 411px;
+      overflow: visible; }
+      /* line 180, ../../sass/common/_productListSFR.scss */
+      list.sfr #results section .gutter-01 > div.show-more {
+        position: absolute;
+        height: 479px;
+        /*border: 1px solid $color-gray-light;*/
+        background: #f3f3f3;
+        background: -webkit-gradient(linear, 0 0, 0 bottom, from(#f3f3f3), to(white));
+        background: -webkit-linear-gradient(#f3f3f3, white);
+        background: -moz-linear-gradient(#f3f3f3, white);
+        background: -ms-linear-gradient(#f3f3f3, white);
+        background: -o-linear-gradient(#f3f3f3, white);
+        background: linear-gradient(#f3f3f3, white);
+        -pie-background: linear-gradient(#f3f3f3, white);
+        behavior: url(/global/js/PIE.htc);
+        /*@include insetBoxShadow ($color-gray-light);*/
+        z-index: 20;
+        /*.divider-sfr {display: none;}*/ }
+        /* line 186, ../../sass/common/_productListSFR.scss */
+        list.sfr #results section .gutter-01 > div.show-more .quickview-sfr, list.sfr #results section .gutter-01 > div.show-more .seeItInAction span, list.sfr #results section .gutter-01 > div.show-more .benefits-sfr {
+          display: block; }
+  /* line 196, ../../sass/common/_productListSFR.scss */
+  list.sfr .productBlock {
+    position: relative;
+    background: none; }
+    /* line 199, ../../sass/common/_productListSFR.scss */
+    list.sfr .productBlock img {
+      width: 156px;
+      padding: 14px 0 0 8px; }
+    /* line 203, ../../sass/common/_productListSFR.scss */
+    list.sfr .productBlock .badge {
+      position: absolute;
+      top: 52px;
+      right: 2px;
+      width: 48px;
+      height: 50px;
+      padding: 0; }
+    /* line 211, ../../sass/common/_productListSFR.scss */
+    list.sfr .productBlock .productInfo {
+      margin: 10px 0;
+      position: relative;
+      text-align: center;
+      padding-top: 26px; }
+    /* line 217, ../../sass/common/_productListSFR.scss */
+    list.sfr .productBlock .colorSwatches {
+      position: absolute;
+      top: 0;
+      z-index: 30;
+      width: 164px;
+      height: 22px;
+      margin: 0 auto;
+      overflow: hidden;
+      text-align: center; }
+      /* line 226, ../../sass/common/_productListSFR.scss */
+      list.sfr .productBlock .colorSwatches.show-more {
+        overflow: visible;
+        height: 100%; }
+    /* line 231, ../../sass/common/_productListSFR.scss */
+    list.sfr .productBlock .colorSwatches div a {
+      height: 20px;
+      width: 39px;
+      border: 1px solid lightgrey;
+      cursor: pointer;
+      box-shadow: 0px 5px 5px 0px lightgrey; }
+    /* line 238, ../../sass/common/_productListSFR.scss */
+    list.sfr .productBlock .swatches-container {
+      background-color: transparent;
+      display: inline-block;
+      height: 100%;
+      margin: 0 auto;
+      text-align: center; }
+    /* line 245, ../../sass/common/_productListSFR.scss */
+    list.sfr .productBlock .innerBorder {
+      height: 16px;
+      width: 35px;
+      border: 2px solid white; }
+    /* line 251, ../../sass/common/_productListSFR.scss */
+    list.sfr .productBlock .swatch.twoColor .innerBorder span {
+      width: 17.5px; }
+    /* line 255, ../../sass/common/_productListSFR.scss */
+    list.sfr .productBlock .swatch.threeColor .innerBorder span {
+      width: 11.66667px; }
+    /* line 259, ../../sass/common/_productListSFR.scss */
+    list.sfr .productBlock .more-swatch-sfr {
+      font: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Helvetica Neue Condensed", "HelveticaNeue-Condensed", "Arial Narrow", "Arial-Narrow", "ArialNarrow", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+      font-weight: bold;
+      /*font-size: 0.9em;*/
+      font-size: 12px;
+      text-align: center;
+      height: 14px;
+      padding-top: 8px;
+      cursor: pointer; }
+    /* line 269, ../../sass/common/_productListSFR.scss */
+    list.sfr .productBlock .productName, list.sfr .productBlock .productPrice, list.sfr .productBlock .productActions {
+      clear: both;
+      text-align: center;
+      font: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Helvetica Neue Condensed", "HelveticaNeue-Condensed", "Arial Narrow", "Arial-Narrow", "ArialNarrow", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+      font-weight: bold;
+      color: #686868;
+      margin: 5px 0; }
+    /* line 277, ../../sass/common/_productListSFR.scss */
+    list.sfr .productBlock .productPrice {
+      font-size: 14px;
+      font-weight: normal; }
+    /* line 281, ../../sass/common/_productListSFR.scss */
+    list.sfr .productBlock .productName {
+      height: 48px;
+      width: 164px;
+      margin: 9px auto 5px auto;
+      font-size: 14px; }
+    /* line 287, ../../sass/common/_productListSFR.scss */
+    list.sfr .productBlock .productName a, list.sfr .productBlock .productName a:visited {
+      text-decoration: none;
+      color: #333333; }
+    /* line 291, ../../sass/common/_productListSFR.scss */
+    list.sfr .productBlock .productActions {
+      text-align: center; }
+      /* line 293, ../../sass/common/_productListSFR.scss */
+      list.sfr .productBlock .productActions a.compare-btn-sfr {
+        font-size: 14px;
+        font-weight: normal; }
+    /* line 298, ../../sass/common/_productListSFR.scss */
+    list.sfr .productBlock .productActions a {
+      text-decoration: none;
+      font: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Helvetica Neue Condensed", "HelveticaNeue-Condensed", "Arial Narrow", "Arial-Narrow", "ArialNarrow", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+      font-weight: normal;
+      color: #aeaeae; }
+    /* line 304, ../../sass/common/_productListSFR.scss */
+    list.sfr .productBlock .productActions .seeItInAction {
+      background: url("../image/iconVideo.png") no-repeat -90px top;
+      font: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Helvetica Neue Condensed", "HelveticaNeue-Condensed", "Arial Narrow", "Arial-Narrow", "ArialNarrow", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+      font-weight: bold;
+      /*font-size: $video-btn-font-size;*/
+      font-size: 10px;
+      color: #333333;
+      margin: 0;
+      padding: 22px 0 0;
+      position: absolute;
+      right: 8px;
+      text-align: center;
+      text-transform: uppercase;
+      top: -224px;
+      z-index: 10;
+      width: 35px; }
+      /* line 320, ../../sass/common/_productListSFR.scss */
+      list.sfr .productBlock .productActions .seeItInAction:hover {
+        background-position: -125px top; }
+    /* line 325, ../../sass/common/_productListSFR.scss */
+    list.sfr .productBlock .divider-sfr {
+      height: 10px;
+      width: 163px;
+      border-left: 1px solid lightgrey;
+      border-bottom: 1px solid lightgrey; }
+  /* line 334, ../../sass/common/_productListSFR.scss */
+  list.sfr #results .gutter-01.featured-sfr {
+    width: 365px;
+    height: 842px; }
+    /* line 337, ../../sass/common/_productListSFR.scss */
+    list.sfr #results .gutter-01.featured-sfr .content-box.tertiary.all {
+      padding-top: 71px; }
+    /* line 340, ../../sass/common/_productListSFR.scss */
+    list.sfr #results .gutter-01.featured-sfr .seeItInAction {
+      /*background-position: 0 top;
+      width: 45px;
+      padding-top: 35px;*/
+      /*top: -574px;*/
+      top: -527px;
+      /*top: -618px; streched 577 for image*/
+      /*font-size: 0.9em;
+      &:hover{
+          background-position: -45px top;
+      }*/ }
+    /* line 352, ../../sass/common/_productListSFR.scss */
+    list.sfr #results .gutter-01.featured-sfr .quickview-sfr {
+      height: 31.2px;
+      width: 124.8px;
+      left: 120.1px;
+      top: 425.4px;
+      /*font-size: 1.1em;*/
+      font-size: 14px;
+      line-height: 28px; }
+    /* line 361, ../../sass/common/_productListSFR.scss */
+    list.sfr #results .gutter-01.featured-sfr > div {
+      padding: 12px;
+      padding-top: 0;
+      width: 365px;
+      height: 842px; }
+      /* line 366, ../../sass/common/_productListSFR.scss */
+      list.sfr #results .gutter-01.featured-sfr > div.show-more {
+        position: absolute;
+        /*height: $featured-product-block-height + $featured-product-block-delta-height - 47;*/
+        height: 937px;
+        /*box-shadow: 0 0 3px 3px lightgray inset;*/
+        z-index: 20;
+        /*.divider-sfr {display: none;}*/ }
+        /* line 371, ../../sass/common/_productListSFR.scss */
+        list.sfr #results .gutter-01.featured-sfr > div.show-more .quickview-sfr, list.sfr #results .gutter-01.featured-sfr > div.show-more .seeItInAction span, list.sfr #results .gutter-01.featured-sfr > div.show-more .benefits-sfr {
+          display: block; }
+    /* line 378, ../../sass/common/_productListSFR.scss */
+    list.sfr #results .gutter-01.featured-sfr .productBlock {
+      margin-top: -20px; }
+      /* line 380, ../../sass/common/_productListSFR.scss */
+      list.sfr #results .gutter-01.featured-sfr .productBlock img {
+        width: 100%;
+        padding: 0; }
+      /* line 384, ../../sass/common/_productListSFR.scss */
+      list.sfr #results .gutter-01.featured-sfr .productBlock .badge {
+        /*top: -17px;*/
+        top: -6px;
+        right: 2px;
+        width: 78px;
+        height: 83px;
+        padding: 8px 0 0 0; }
+      /* line 392, ../../sass/common/_productListSFR.scss */
+      list.sfr #results .gutter-01.featured-sfr .productBlock .colorSwatches {
+        width: 248px;
+        left: 58.5px; }
+      /* line 396, ../../sass/common/_productListSFR.scss */
+      list.sfr #results .gutter-01.featured-sfr .productBlock .productName {
+        height: 54px;
+        width: 195px;
+        padding-top: 5px; }
+      /* line 401, ../../sass/common/_productListSFR.scss */
+      list.sfr #results .gutter-01.featured-sfr .productBlock .productName a, list.sfr #results .gutter-01.featured-sfr .productBlock .productPrice {
+        /*font-size: 115%;*/
+        font-size: 16px; }
+      /* line 405, ../../sass/common/_productListSFR.scss */
+      list.sfr #results .gutter-01.featured-sfr .productBlock .productPrice {
+        margin-bottom: 12px;
+        font-size: 16px; }
+      /* line 409, ../../sass/common/_productListSFR.scss */
+      list.sfr #results .gutter-01.featured-sfr .productBlock .divider-sfr {
+        width: 364px;
+        margin-top: 117px;
+        position: relative;
+        	/*position: absolute;
+            top: ($product-block-height *2) - 67;*/
+        z-index: 0; }
+    /* line 418, ../../sass/common/_productListSFR.scss */
+    list.sfr #results .gutter-01.featured-sfr .benefits-sfr li {
+      height: 55px;
+      width: 121.66667px; }
+      /* line 421, ../../sass/common/_productListSFR.scss */
+      list.sfr #results .gutter-01.featured-sfr .benefits-sfr li span {
+        margin: 15px 0 0 0;
+        /*font-weight: bold;*/
+        /*font-size: 1.2em;*/
+        font-size: 11px; }
+  /* line 433, ../../sass/common/_productListSFR.scss */
+  list.sfr #results section .gutter-01 > div.show-more.no-benefits {
+    height: 411px; }
+  /* line 442, ../../sass/common/_productListSFR.scss */
+  list.sfr #results section .gutter-01.featured-sfr > div.show-more.no-benefits {
+    height: 854px; }
+  /* line 449, ../../sass/common/_productListSFR.scss */
+  list.sfr #results .gutter-01.espot-sfr {
+    width: 360px;
+    height: 411px;
+    padding-right: 34px; }
+    /* line 453, ../../sass/common/_productListSFR.scss */
+    list.sfr #results .gutter-01.espot-sfr > div {
+      width: 360px;
+      height: 411px; }
+  /* line 461, ../../sass/common/_productListSFR.scss */
+  list.sfr .productInfo .productActions label.checkbox {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background: url("../image/compare-checkbox.png") no-repeat 0 -15px;
+    cursor: pointer;
+    margin-right: 3px;
+    vertical-align: bottom;
+    position: relative;
+    right: -30px;
+    z-index: 1; }
+    /* line 473, ../../sass/common/_productListSFR.scss */
+    list.sfr .productInfo .productActions label.checkbox.checked {
+      background-position: 0 0; }
+  /* line 477, ../../sass/common/_productListSFR.scss */
+  list.sfr .productInfo .productActions input[type='checkbox'] {
+    display: none; }
+  /* line 480, ../../sass/common/_productListSFR.scss */
+  list.sfr .productInfo .productActions a.compare-btn-sfr {
+    color: #AEAEAE;
+    padding: 5px 20px 5px 30px;
+    position: relative; }
+    /* line 485, ../../sass/common/_productListSFR.scss */
+    list.sfr .productInfo .productActions a.compare-btn-sfr.checked {
+      background: #9a9a9a;
+      color: #fdfffe;
+      border-radius: 3px; }
+  /* line 493, ../../sass/common/_productListSFR.scss */
+  list.sfr .product-result-footer {
+    text-align: center;
+    margin: 30px 0 40px 0; }
+    /* line 496, ../../sass/common/_productListSFR.scss */
+    list.sfr .product-result-footer .btn-view-all {
+      display: inline-block;
+      padding: 15px 25px;
+      background-color: #ee3124; }
+      /* line 500, ../../sass/common/_productListSFR.scss */
+      list.sfr .product-result-footer .btn-view-all span {
+        font-size: 1.5em;
+        font-weight: bold;
+        color: #fff;
+        text-transform: uppercase;
+        width: 100%;
+        height: 100%;
+        cursor: pointer; }
+      /* line 509, ../../sass/common/_productListSFR.scss */
+      list.sfr .product-result-footer .btn-view-all:hover {
+        background-color: #828282; }
+
+/* line 515, ../../sass/common/_productListSFR.scss */
+#category-top-sfr.sfr .productActions .compare-btn-sfr, #category-top-sfr.sfr .productActions .checkbox {
+  visibility: hidden; }
+
+/* ==========================================================================
+* TNF SFR quickViewSFR.scss
+* 
+* This controls the style that is specific to Quick View page.
+============================================================================= */
+/* line 7, ../../sass/common/_quickViewSFR.scss */
+list.sfr div#colorbox.quick-view {
+  left: 50% !important;
+  margin-left: -443px !important; }
+/* line 12, ../../sass/common/_quickViewSFR.scss */
+list.sfr #colorbox {
+  border-radius: 0px; }
+/* line 16, ../../sass/common/_quickViewSFR.scss */
+list.sfr.quick-view-sfr {
+  margin: 0 30px; }
+/* line 20, ../../sass/common/_quickViewSFR.scss */
+list.sfr #cboxTitle.cbox-title-sfr {
+  color: #FFF;
+  background-color: #FFF;
+  /*font-family: "HelveticaNeueBoldCondensed","HelveticaNeue-Bold-Condensed","Helvetica Neue Bold Condensed","HelveticaNeue-CondensedBold","Helvetica Neue","Arial Narrow","Arial-Narrow","ArialNarrow",Helvetica,Arial,sans-serif;*/
+  font-family: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Helvetica Neue Condensed", "HelveticaNeue-Condensed", "Arial Narrow", "Arial-Narrow", "ArialNarrow", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+  font-stretch: condensed;
+  height: 1px;
+  font-size: 1px; }
+  /* line 28, ../../sass/common/_quickViewSFR.scss */
+  list.sfr #cboxTitle.cbox-title-sfr.quick-view {
+    top: -9999px; }
+/* line 32, ../../sass/common/_quickViewSFR.scss */
+list.sfr #cboxTitle {
+  color: #000000;
+  font-family: "HelveticaNeueBoldCondensed","HelveticaNeue-Bold-Condensed","Helvetica Neue Bold Condensed","HelveticaNeue-CondensedBold","Helvetica Neue","Arial Narrow","Arial-Narrow","ArialNarrow",Helvetica,Arial,sans-serif;
+  font-size: 182%;
+  font-weight: bold;
+  height: 28px;
+  left: 0;
+  line-height: 28px;
+  padding: 20px 0 0 20px;
+  position: absolute;
+  text-transform: uppercase;
+  top: 0;
+  width: 100%;
+  margin: 0; }
+/* line 47, ../../sass/common/_quickViewSFR.scss */
+list.sfr .video-hopup-title {
+  color: #000 !important;
+  height: 28px !important;
+  font-size: 132% !important;
+  line-height: 5px !important;
+  padding-top: 22px !important; }
+/* line 54, ../../sass/common/_quickViewSFR.scss */
+list.sfr #cboxLoadedContent {
+  padding-top: 45px; }
+/* line 59, ../../sass/common/_quickViewSFR.scss */
+list.sfr #cboxClose {
+  background-image: url("../image/quickViewCloseButton.png");
+  background-position: right top;
+  height: 28px;
+  top: 12px;
+  line-height: 28px;
+  padding-right: 45px;
+  text-transform: uppercase;
+  font-family: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Helvetica Neue Condensed", "HelveticaNeue-Condensed", "Arial Narrow", "Arial-Narrow", "ArialNarrow", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+  font-weight: normal;
+  font-stretch: normal;
+  /*font-size: 14px;*/
+  font-size: 18px;
+  /*&.quick-view {
+      color: white;
+      top: 20px;
+      margin-right: 20px;
+      &.hover {
+          color: black;
+      }
+  }*/ }
+  /* line 73, ../../sass/common/_quickViewSFR.scss */
+  list.sfr #cboxClose.hover {
+    color: black; }
+/* line 86, ../../sass/common/_quickViewSFR.scss */
+list.sfr .cboxIframe, list.sfr #cboxLoadedContent, list.sfr #colorbox.quick-view {
+  border-radius: 0; }
+
+/* line 91, ../../sass/common/_quickViewSFR.scss */
+.quick-view-sfr {
+  min-width: inherit !important;
+  margin: 20px;
+  /*#product-name {*/ }
+  /* line 94, ../../sass/common/_quickViewSFR.scss */
+  .quick-view-sfr img {
+    border: 0; }
+  /* line 96, ../../sass/common/_quickViewSFR.scss */
+  .quick-view-sfr .heading {
+    /*font-size: 2em;*/
+    font-size: 30px;
+    margin: 0;
+    line-height: 100%; }
+    /* line 101, ../../sass/common/_quickViewSFR.scss */
+    .quick-view-sfr .heading span {
+      display: block;
+      color: #666666;
+      /*font-size: 0.7em;*/
+      font-size: 22px;
+      line-height: 1.3em;
+      font-family: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Helvetica Neue Condensed", "HelveticaNeue-Condensed", "Arial Narrow", "Arial-Narrow", "ArialNarrow", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+      font-weight: normal;
+      font-stretch: normal; }
+  /* line 113, ../../sass/common/_quickViewSFR.scss */
+  .quick-view-sfr .productConfiguration, .quick-view-sfr #product-hero, .quick-view-sfr #alt-views {
+    float: left; }
+  /* line 117, ../../sass/common/_quickViewSFR.scss */
+  .quick-view-sfr #product-hero {
+    margin-top: 30px;
+    /*width:50%;
+    img {
+        width: 100%;
+    }*/
+    width: 394px;
+    height: 460px; }
+    /* line 125, ../../sass/common/_quickViewSFR.scss */
+    .quick-view-sfr #product-hero img {
+      width: 394px;
+      height: 460px; }
+  /* line 131, ../../sass/common/_quickViewSFR.scss */
+  .quick-view-sfr #alt-views {
+    margin-top: 35px; }
+    /* line 133, ../../sass/common/_quickViewSFR.scss */
+    .quick-view-sfr #alt-views a {
+      list-style: none;
+      margin-top: 20px;
+      border-top: 3px solid #FFF;
+      display: block; }
+      /* line 138, ../../sass/common/_quickViewSFR.scss */
+      .quick-view-sfr #alt-views a.selected {
+        border-color: #ee2a3a; }
+    /* line 142, ../../sass/common/_quickViewSFR.scss */
+    .quick-view-sfr #alt-views img {
+      cursor: pointer;
+      padding-top: 10px;
+      width: 76px;
+      height: 76px; }
+  /* line 150, ../../sass/common/_quickViewSFR.scss */
+  .quick-view-sfr #video-view {
+    margin-top: 35px; }
+    /* line 152, ../../sass/common/_quickViewSFR.scss */
+    .quick-view-sfr #video-view a {
+      display: block;
+      width: 45px;
+      line-height: 9px;
+      margin: 0 auto 5px;
+      padding-top: 36px;
+      text-align: center;
+      text-transform: uppercase;
+      /*font-size: 92.3%;*/
+      font-size: 14.58px;
+      color: #444;
+      text-decoration: none;
+      background: url("../image/iconVideo.png") no-repeat;
+      cursor: pointer; }
+      /* line 166, ../../sass/common/_quickViewSFR.scss */
+      .quick-view-sfr #video-view a:hover {
+        background-position: -45px 0; }
+  /* line 172, ../../sass/common/_quickViewSFR.scss */
+  .quick-view-sfr .productConfiguration {
+    width: 39%;
+    border: 0;
+    margin: 0; }
+    /* line 176, ../../sass/common/_quickViewSFR.scss */
+    .quick-view-sfr .productConfiguration ul {
+      margin: 0;
+      padding: 0; }
+    /* line 180, ../../sass/common/_quickViewSFR.scss */
+    .quick-view-sfr .productConfiguration .title {
+      text-transform: uppercase;
+      margin: 7px 0 18px 0;
+      padding: 0; }
+      /* line 184, ../../sass/common/_quickViewSFR.scss */
+      .quick-view-sfr .productConfiguration .title span {
+        /*font-size: 0.8em;*/
+        font-size: 16px;
+        font-weight: bold;
+        font-stretch: condensed; }
+      /* line 190, ../../sass/common/_quickViewSFR.scss */
+      .quick-view-sfr .productConfiguration .title .label {
+        color: #626262; }
+      /* line 193, ../../sass/common/_quickViewSFR.scss */
+      .quick-view-sfr .productConfiguration .title .selected {
+        color: #b4b4b4;
+        font-family: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Helvetica Neue Condensed", "HelveticaNeue-Condensed", "Arial Narrow", "Arial-Narrow", "ArialNarrow", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+        font-weight: normal;
+        font-stretch: normal; }
+    /* line 200, ../../sass/common/_quickViewSFR.scss */
+    .quick-view-sfr .productConfiguration .productMessaging {
+      height: auto; }
+    /* line 203, ../../sass/common/_quickViewSFR.scss */
+    .quick-view-sfr .productConfiguration > ul > li {
+      margin: 0;
+      padding: 7px 4% 7px 0;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      width: 100%; }
+    /* line 211, ../../sass/common/_quickViewSFR.scss */
+    .quick-view-sfr .productConfiguration li {
+      /*&.product-ratings {*/
+      /*&.product-price {*/
+      /*bottom shadow style*/ }
+      /* line 213, ../../sass/common/_quickViewSFR.scss */
+      .quick-view-sfr .productConfiguration li.productRatings {
+        padding-top: 3px;
+        padding-bottom: 14px;
+        font-size: 14px; }
+        /* line 217, ../../sass/common/_quickViewSFR.scss */
+        .quick-view-sfr .productConfiguration li.productRatings a {
+          color: #666666;
+          font-family: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Helvetica Neue Condensed", "HelveticaNeue-Condensed", "Arial Narrow", "Arial-Narrow", "ArialNarrow", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+          font-weight: normal;
+          font-stretch: normal;
+          text-decoration: none; }
+      /* line 227, ../../sass/common/_quickViewSFR.scss */
+      .quick-view-sfr .productConfiguration li.productPrice {
+        /*font-family: $font-secondary;
+        font-weight: normal;*/
+        font-family: arial;
+        font-weight: bold;
+        font-stretch: normal;
+        /*font-size: 21px;*/
+        font-size: 22px;
+        padding-top: 5px; }
+      /* line 238, ../../sass/common/_quickViewSFR.scss */
+      .quick-view-sfr .productConfiguration li.productColors {
+        background: url("../image/pdp_config_shadow_upper.png") no-repeat right top transparent;
+        padding-right: 0; }
+        /* line 242, ../../sass/common/_quickViewSFR.scss */
+        .quick-view-sfr .productConfiguration li.productColors .pdpSwatchX {
+          position: absolute;
+          top: 1px;
+          left: 1px;
+          width: 32px;
+          height: 32px;
+          background-color: white;
+          -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+          filter: alpha(opacity=50);
+          opacity: .5; }
+        /* line 253, ../../sass/common/_quickViewSFR.scss */
+        .quick-view-sfr .productConfiguration li.productColors a {
+          margin: 0 4px 7px 0; }
+          /* line 256, ../../sass/common/_quickViewSFR.scss */
+          .quick-view-sfr .productConfiguration li.productColors a.selected .swatch, .quick-view-sfr .productConfiguration li.productColors a:hover .swatch {
+            border-color: transparent;
+            border-top: none; }
+            /* line 259, ../../sass/common/_quickViewSFR.scss */
+            .quick-view-sfr .productConfiguration li.productColors a.selected .swatch .innerBorder, .quick-view-sfr .productConfiguration li.productColors a:hover .swatch .innerBorder {
+              border-top: 2px solid #ee2a3a; }
+          /* line 266, ../../sass/common/_quickViewSFR.scss */
+          .quick-view-sfr .productConfiguration li.productColors a.unavailable.selected:hover .swatch {
+            border: none; }
+            /* line 268, ../../sass/common/_quickViewSFR.scss */
+            .quick-view-sfr .productConfiguration li.productColors a.unavailable.selected:hover .swatch .innerBorder {
+              border-top: 2px solid #ddd; }
+          /* line 273, ../../sass/common/_quickViewSFR.scss */
+          .quick-view-sfr .productConfiguration li.productColors a.unavailable.selected .innerBorder {
+            border-top: 2px solid #ddd; }
+          /* line 277, ../../sass/common/_quickViewSFR.scss */
+          .quick-view-sfr .productConfiguration li.productColors a.unavailable span {
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+            filter: alpha(opacity=50);
+            opacity: .5; }
+      /* line 286, ../../sass/common/_quickViewSFR.scss */
+      .quick-view-sfr .productConfiguration li.productSize, .quick-view-sfr .productConfiguration li.productLength {
+        padding: 14px 0 28px 0;
+        background: url("../image/pdp_config_shadow_lower.png") no-repeat right bottom transparent; }
+        /* line 290, ../../sass/common/_quickViewSFR.scss */
+        .quick-view-sfr .productConfiguration li.productSize .title, .quick-view-sfr .productConfiguration li.productLength .title {
+          margin-top: 0;
+          float: none; }
+        /* line 294, ../../sass/common/_quickViewSFR.scss */
+        .quick-view-sfr .productConfiguration li.productSize .large, .quick-view-sfr .productConfiguration li.productLength .large {
+          width: 142px; }
+        /* line 297, ../../sass/common/_quickViewSFR.scss */
+        .quick-view-sfr .productConfiguration li.productSize a, .quick-view-sfr .productConfiguration li.productLength a {
+          margin: 0 7px 7px 0;
+          box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          height: 30px;
+          width: 35px;
+          padding: 5px 4px;
+          display: block;
+          float: left;
+          border: 1px solid #cccccc;
+          background: #f8f8f8;
+          /*font-size: 12px;*/
+          font-size: 13px;
+          font-weight: bold;
+          color: #818181;
+          text-decoration: none;
+          text-align: center;
+          vertical-align: middle; }
+          /* line 316, ../../sass/common/_quickViewSFR.scss */
+          .quick-view-sfr .productConfiguration li.productSize a:hover, .quick-view-sfr .productConfiguration li.productLength a:hover {
+            border-color: #ed1b2c; }
+          /* line 319, ../../sass/common/_quickViewSFR.scss */
+          .quick-view-sfr .productConfiguration li.productSize a.selected, .quick-view-sfr .productConfiguration li.productLength a.selected {
+            border-top: 2px solid #ed1b2c;
+            padding-top: 5px; }
+          /* line 323, ../../sass/common/_quickViewSFR.scss */
+          .quick-view-sfr .productConfiguration li.productSize a.unavailable, .quick-view-sfr .productConfiguration li.productLength a.unavailable {
+            color: #d6d6d6;
+            border-color: #f0f0f0;
+            background-color: #fdfdfd; }
+            /* line 328, ../../sass/common/_quickViewSFR.scss */
+            .quick-view-sfr .productConfiguration li.productSize a.unavailable.selected, .quick-view-sfr .productConfiguration li.productLength a.unavailable.selected {
+              color: #cccccc;
+              border-color: #dddddd;
+              background-color: #f3f3f3; }
+      /* line 336, ../../sass/common/_quickViewSFR.scss */
+      .quick-view-sfr .productConfiguration li.productSize.singleDimension {
+        background: url("../image/faded_line.gif") no-repeat right bottom transparent; }
+      /* line 340, ../../sass/common/_quickViewSFR.scss */
+      .quick-view-sfr .productConfiguration li.productLength a {
+        width: 80px; }
+      /* line 345, ../../sass/common/_quickViewSFR.scss */
+      .quick-view-sfr .productConfiguration li #product-size-container {
+        background: url("../image/pdp_config_shadow_lower.png") no-repeat right bottom transparent;
+        padding: 14px 0 28px 0; }
+      /* line 350, ../../sass/common/_quickViewSFR.scss */
+      .quick-view-sfr .productConfiguration li #sizing-title-container {
+        display: inline-block;
+        width: 100%; }
+        /* line 353, ../../sass/common/_quickViewSFR.scss */
+        .quick-view-sfr .productConfiguration li #sizing-title-container .title {
+          width: 150px; }
+      /* line 358, ../../sass/common/_quickViewSFR.scss */
+      .quick-view-sfr .productConfiguration li.productSizingLink {
+        position: relative;
+        margin: 15px 7px 0 0;
+        text-align: right;
+        width: 303px;
+        background: url("../image/faded_line.gif") no-repeat right top transparent; }
+        /* line 364, ../../sass/common/_quickViewSFR.scss */
+        .quick-view-sfr .productConfiguration li.productSizingLink a {
+          position: absolute;
+          right: 0;
+          top: 28px;
+          color: dimgrey;
+          /*font-size: 11px;*/
+          font-size: 10px;
+          text-transform: uppercase;
+          border: 0;
+          width: auto;
+          height: auto;
+          text-decoration: underline;
+          line-height: inherit;
+          margin: 0;
+          font-family: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Helvetica Neue Condensed", "HelveticaNeue-Condensed", "Arial Narrow", "Arial-Narrow", "ArialNarrow", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+          font-weight: normal;
+          font-stretch: normal; }
+          /* line 381, ../../sass/common/_quickViewSFR.scss */
+          .quick-view-sfr .productConfiguration li.productSizingLink a:hover {
+            color: #333333;
+            border: 0; }
+      /* line 388, ../../sass/common/_quickViewSFR.scss */
+      .quick-view-sfr .productConfiguration li .size-container {
+        display: inline-block;
+        margin-left: 4%;
+        margin-top: 4px; }
+        /* line 393, ../../sass/common/_quickViewSFR.scss */
+        .quick-view-sfr .productConfiguration li .size-container a {
+          margin-right: 7px;
+          box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          height: 30px;
+          width: 30px;
+          padding: 6px 3px;
+          display: block;
+          float: left;
+          border: 1px solid #cccccc;
+          background: #f8f8f8;
+          font-size: 12px;
+          color: #818181;
+          text-decoration: none;
+          text-align: center;
+          vertical-align: middle; }
+          /* line 410, ../../sass/common/_quickViewSFR.scss */
+          .quick-view-sfr .productConfiguration li .size-container a:hover {
+            border-color: #ed1b2c; }
+          /* line 413, ../../sass/common/_quickViewSFR.scss */
+          .quick-view-sfr .productConfiguration li .size-container a.selected {
+            border-top: 2px solid #ed1b2c;
+            padding-top: 5px; }
+          /* line 417, ../../sass/common/_quickViewSFR.scss */
+          .quick-view-sfr .productConfiguration li .size-container a.unavailable {
+            color: #d6d6d6;
+            border-color: #f0f0f0;
+            background-color: #fdfdfd; }
+            /* line 422, ../../sass/common/_quickViewSFR.scss */
+            .quick-view-sfr .productConfiguration li .size-container a.unavailable.selected {
+              color: #cccccc;
+              border-color: #dddddd;
+              background-color: #f3f3f3; }
+      /* line 431, ../../sass/common/_quickViewSFR.scss */
+      .quick-view-sfr .productConfiguration li.productAgeVerify {
+        margin-top: 15px; }
+        /* line 433, ../../sass/common/_quickViewSFR.scss */
+        .quick-view-sfr .productConfiguration li.productAgeVerify .label {
+          width: 266px; }
+      /* line 438, ../../sass/common/_quickViewSFR.scss */
+      .quick-view-sfr .productConfiguration li.productButtons {
+        padding: 16px 0;
+        /*margin-left: 10px;*/ }
+        /* line 442, ../../sass/common/_quickViewSFR.scss */
+        .quick-view-sfr .productConfiguration li.productButtons button {
+          font-family: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Helvetica Neue Condensed", "HelveticaNeue-Condensed", "Arial Narrow", "Arial-Narrow", "ArialNarrow", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+          font-weight: bold;
+          font-stretch: condensed;
+          float: left;
+          color: white;
+          margin: 0 0 5px 0 !important;
+          padding: 8px;
+          /*font-size: 1em;*/
+          font-size: 18px;
+          text-transform: uppercase;
+          border: 0;
+          cursor: pointer; }
+          /* line 455, ../../sass/common/_quickViewSFR.scss */
+          .quick-view-sfr .productConfiguration li.productButtons button.inactive {
+            background-color: #999999 !important; }
+          /* line 458, ../../sass/common/_quickViewSFR.scss */
+          .quick-view-sfr .productConfiguration li.productButtons button#addToCart {
+            margin-right: 2% !important;
+            background-color: #ed1b2c; }
+            /* line 461, ../../sass/common/_quickViewSFR.scss */
+            .quick-view-sfr .productConfiguration li.productButtons button#addToCart:hover {
+              background-color: #999999; }
+          /* line 465, ../../sass/common/_quickViewSFR.scss */
+          .quick-view-sfr .productConfiguration li.productButtons button#view-product-details {
+            background-color: #999999; }
+            /* line 467, ../../sass/common/_quickViewSFR.scss */
+            .quick-view-sfr .productConfiguration li.productButtons button#view-product-details:hover {
+              background-color: #5c5c5c; }
+      /* line 474, ../../sass/common/_quickViewSFR.scss */
+      .quick-view-sfr .productConfiguration li.product-benefits {
+        padding-top: 0; }
+        /* line 476, ../../sass/common/_quickViewSFR.scss */
+        .quick-view-sfr .productConfiguration li.product-benefits a {
+          margin-right: 8px;
+          text-decoration: none; }
+        /* line 480, ../../sass/common/_quickViewSFR.scss */
+        .quick-view-sfr .productConfiguration li.product-benefits li {
+          width: auto; }
+      /* line 484, ../../sass/common/_quickViewSFR.scss */
+      .quick-view-sfr .productConfiguration li #benefits-container {
+        position: relative; }
+      /* line 487, ../../sass/common/_quickViewSFR.scss */
+      .quick-view-sfr .productConfiguration li .detail-element {
+        float: left;
+        cursor: hand; }
+      /* line 492, ../../sass/common/_quickViewSFR.scss */
+      .quick-view-sfr .productConfiguration li .detail-text {
+        background: url("../image/detailRolloverBackground.png") no-repeat left transparent;
+        width: 220px;
+        height: 106px;
+        position: absolute;
+        z-index: 30;
+        display: none;
+        padding: 20px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        font-family: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Helvetica Neue Condensed", "HelveticaNeue-Condensed", "Arial Narrow", "Arial-Narrow", "ArialNarrow", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+        font-weight: normal;
+        font-stretch: normal;
+        /*font-size: 12px;*/
+        font-size: 15px; }
+  /* line 510, ../../sass/common/_quickViewSFR.scss */
+  .quick-view-sfr #cboxWrapper .cboxIframe {
+    border: none;
+    width: 602px;
+    height: 400px; }
+  /* line 515, ../../sass/common/_quickViewSFR.scss */
+  .quick-view-sfr #cboxLoadedContent {
+    padding-top: 0px; }
+  /* line 518, ../../sass/common/_quickViewSFR.scss */
+  .quick-view-sfr #cboxClose {
+    display: none !important; }
+
+/* ==========================================================================
+* TNF SFR _featuredProductsSFR.scss
+* 
+* This controls the style that is specific to Featured Product Module.
+============================================================================= */
+/* line 6, ../../sass/common/_featuredProductsSFR.scss */
+.featured-products-section {
+  padding: 22px 0 0 0 !important;
+  margin-top: -1px !important;
+  margin-bottom: -35px !important;
+  background: url("../image/section-drop-shadow-top.png") no-repeat center top !important; }
+  /* line 11, ../../sass/common/_featuredProductsSFR.scss */
+  .featured-products-section #featured-title-container {
+    display: inline-block;
+    /* IE10 */
+    background: -ms-linear-gradient(right, white 0%, #cccccc 25%, #cccccc 75%, white 100%);
+    /* Mozilla Firefox */
+    background: -moz-linear-gradient(right, white 0%, #cccccc 25%, #cccccc 75%, white 100%);
+    /* Opera */
+    background: -o-linear-gradient(right, white 0%, #cccccc 25%, #cccccc 75%, white 100%);
+    /* Webkit (Safari/Chrome 10) */
+    background: -webkit-gradient(linear, right top, left top, color-stop(0, white), color-stop(0.25, #cccccc), color-stop(0.75, #cccccc), color-stop(1, white));
+    /* Webkit (Chrome 11+) */
+    background: -webkit-linear-gradient(right, white 0%, #cccccc 25%, #cccccc 75%, white 100%);
+    /* Proposed W3C Markup */
+    background: linear-gradient(right, white 0%, #cccccc 25%, #cccccc 75%, white 100%);
+    padding-bottom: 1px;
+    float: left;
+    background-color: #ccc; }
+  /* line 33, ../../sass/common/_featuredProductsSFR.scss */
+  .featured-products-section header {
+    margin: -5px 0 10px 10px !important; }
+    /* line 35, ../../sass/common/_featuredProductsSFR.scss */
+    .featured-products-section header > img.badge {
+      float: left !important; }
+    /* line 38, ../../sass/common/_featuredProductsSFR.scss */
+    .featured-products-section header h3 {
+      margin: 0 !important;
+      padding: 11px 10px 0px 10px;
+      background-color: #fff !important; }
+    /* line 43, ../../sass/common/_featuredProductsSFR.scss */
+    .featured-products-section header h6 {
+      display: block;
+      color: #666666;
+      display: block;
+      color: #666666;
+      font-size: 0.7em;
+      line-height: 1.3em;
+      font-weight: normal;
+      font-stretch: normal;
+      font-size: 1.1em;
+      clear: left;
+      padding-top: 4px;
+      padding-left: 10px; }
+    /* line 53, ../../sass/common/_featuredProductsSFR.scss */
+    .featured-products-section header.badge {
+      padding-left: 47px; }
+  /* line 59, ../../sass/common/_featuredProductsSFR.scss */
+  .featured-products-section .featured-icon #featured-products .badge {
+    display: none; }
+  /* line 61, ../../sass/common/_featuredProductsSFR.scss */
+  .featured-products-section #featured-products-container {
+    margin: 0 !important;
+    width: 990px;
+    padding: 20px 0 20px 5px;
+    background-color: white; }
+  /* line 68, ../../sass/common/_featuredProductsSFR.scss */
+  .featured-products-section #featured-products {
+    display: inline-block;
+    overflow: hidden;
+    height: 417px; }
+    /* line 72, ../../sass/common/_featuredProductsSFR.scss */
+    .featured-products-section #featured-products .productBlock {
+      background-color: inherit; }
+  /* line 76, ../../sass/common/_featuredProductsSFR.scss */
+  .featured-products-section #more-link {
+    margin: 0 auto !important;
+    width: 10% !important;
+    font-size: 14px;
+    text-align: center;
+    position: relative;
+    top: -25px;
+    z-index: 1;
+    display: none;
+    visibility: hidden; }
+    /* line 86, ../../sass/common/_featuredProductsSFR.scss */
+    .featured-products-section #more-link a {
+      width: 100%;
+      height: 60px;
+      display: block;
+      background: url("../image/viewMoreArrow.png") no-repeat center bottom transparent;
+      /* Use this mixin when you can so you don't forget to use the weight and stretch */
+      font-family: "HelveticaNeueBoldCondensed", "HelveticaNeue-Bold-Condensed", "Helvetica Neue Bold Condensed", "HelveticaNeue-CondensedBold", "Helvetica Neue", "Arial Narrow", "Arial-Narrow", "ArialNarrow", Helvetica, Arial, sans-serif;
+      font-weight: bold;
+      font-stretch: condensed;
+      text-transform: uppercase; }
+      /* line 93, ../../sass/common/_featuredProductsSFR.scss */
+      .featured-products-section #more-link a:hover {
+        color: inherit; }
+  /* line 98, ../../sass/common/_featuredProductsSFR.scss */
+  .featured-products-section #shadow-bottom-container {
+    background: url("../image/section-drop-shadow.png") no-repeat left 93.75% #f3f3f3;
+    width: 100%;
+    padding: 0 0 57px 0;
+    margin: 0 0 0 0px; }
+
+/* ==========================================================================
+* TNF SFR searchCatalogSFR.scss
+* 
+* This controls the style that is specific to search page. It controls the
+* banner area of the page.
+============================================================================= */
+/* line 7, ../../sass/common/_searchCatalogSFR.scss */
+list.search-sfr {
+  /* This is style for the search box*/
+  /* This style is to fix the height of the hover product block  on catalog search page */
+  /* This style is to fix the height of the hover featured product block  on catalog search page */
+  /* Style for sections on search page */
+  /* This style is for no results section */
+  /* This style is for popular products or last section */
+  /* This style is for suggestion term in the banner */
+  /* This style controls the layout of the banner area */ }
+  /* line 9, ../../sass/common/_searchCatalogSFR.scss */
+  list.search-sfr .search-box-sfr {
+    /*background: linear-gradient(#DFDFDF, white 50px) repeat scroll 0 0 transparent;*/
+    background: #dfdfdf;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#dfdfdf), to(white));
+    background: -webkit-linear-gradient(#dfdfdf, white);
+    background: -moz-linear-gradient(#dfdfdf, white);
+    background: -ms-linear-gradient(#dfdfdf, white);
+    background: -o-linear-gradient(#dfdfdf, white);
+    background: linear-gradient(#dfdfdf, white);
+    -pie-background: linear-gradient(#dfdfdf, white);
+    behavior: url(/global/js/PIE.htc);
+    border: 1px solid #999999;
+    /*border-radius: 3px 3px 3px 3px;*/
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    height: 22px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 165px; }
+  /* line 21, ../../sass/common/_searchCatalogSFR.scss */
+  list.search-sfr .search-input-sfr {
+    background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+    bottom: 0;
+    font-size: 85%;
+    height: 22px;
+    left: 0;
+    margin: 0;
+    padding: 0 0 0 14px;
+    position: absolute;
+    width: 128px; }
+  /* line 33, ../../sass/common/_searchCatalogSFR.scss */
+  list.search-sfr .search-submit-sfr {
+    background: none repeat scroll 0 0 transparent;
+    /*border-radius: 3px 3px 3px 3px;*/
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    bottom: 1px;
+    height: 25px;
+    width: 25px;
+    position: absolute;
+    right: 0; }
+  /* line 43, ../../sass/common/_searchCatalogSFR.scss */
+  list.search-sfr #page-banner {
+    min-height: 142px; }
+  /* line 49, ../../sass/common/_searchCatalogSFR.scss */
+  list.search-sfr #results section .gutter-01 > div.show-more {
+    height: 411px; }
+  /* line 57, ../../sass/common/_searchCatalogSFR.scss */
+  list.search-sfr #results section .gutter-01.featured-sfr > div.show-more {
+    height: 854px; }
+  /* line 63, ../../sass/common/_searchCatalogSFR.scss */
+  list.search-sfr section.row {
+    background: none; }
+  /* line 67, ../../sass/common/_searchCatalogSFR.scss */
+  list.search-sfr section.first {
+    height: 412px; }
+    /* line 69, ../../sass/common/_searchCatalogSFR.scss */
+    list.search-sfr section.first header {
+      padding: 205px 0;
+      text-align: center; }
+    /* line 73, ../../sass/common/_searchCatalogSFR.scss */
+    list.search-sfr section.first h3 {
+      width: 100%; }
+    /* line 76, ../../sass/common/_searchCatalogSFR.scss */
+    list.search-sfr section.first .popular-terms-sfr {
+      padding: 15px 20px; }
+  /* line 81, ../../sass/common/_searchCatalogSFR.scss */
+  list.search-sfr section.last.empty-results-sfr {
+    padding-bottom: 65px; }
+    /* line 82, ../../sass/common/_searchCatalogSFR.scss */
+    list.search-sfr section.last.empty-results-sfr header {
+      border-bottom: 2px solid lightgrey;
+      width: 980px; }
+    /* line 86, ../../sass/common/_searchCatalogSFR.scss */
+    list.search-sfr section.last.empty-results-sfr .gutter-01 .col-06.show-more {
+      height: 479px !important; }
+  /* line 92, ../../sass/common/_searchCatalogSFR.scss */
+  list.search-sfr .suggested-term-sfr {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9em;
+    text-decoration: underline; }
+  /* line 99, ../../sass/common/_searchCatalogSFR.scss */
+  list.search-sfr #page-banner .header-search {
+    position: absolute;
+    left: 50px;
+    top: 28px;
+    z-index: 1;
+    width: 80%; }
+    /* line 105, ../../sass/common/_searchCatalogSFR.scss */
+    list.search-sfr #page-banner .header-search h1 {
+      /*font-size: 300%;*/
+      font-size: 50px;
+      font-stretch: condensed;
+      color: #333333;
+      width: 100%;
+      position: relative;
+      top: 0;
+      left: 0;
+      margin-bottom: 20px; }
+    list.search-sfr #page-banner .header-search .small-text {
+      font-size: 30px; }
+    /* line 116, ../../sass/common/_searchCatalogSFR.scss */
+    list.search-sfr #page-banner .header-search .suggestion-sfr {
+      font-size: 0.9em;
+      font-weight: bold;
+      margin: -12px 0 12px 0; }
+    /* line 121, ../../sass/common/_searchCatalogSFR.scss */
+    list.search-sfr #page-banner .header-search .suggested-term-sfr {
+      font-size: 1.2em;
+      text-decoration: underline;
+      text-transform: uppercase; }
+    /* line 126, ../../sass/common/_searchCatalogSFR.scss */
+    list.search-sfr #page-banner .header-search .gutter-01, list.search-sfr #page-banner .header-search .col-24 {
+      width: 100%; }
+
+/* line 131, ../../sass/common/_searchCatalogSFR.scss */
+list.search-sfr, #sub-category-sfr {
+  /* This style controls the style for the page numbering */ }
+  /* line 133, ../../sass/common/_searchCatalogSFR.scss */
+  list.search-sfr #filters-page-numbering, #sub-category-sfr #filters-page-numbering {
+    position: relative;
+    /* Use this mixin when you can so you don't forget to use the weight and stretch */
+    font-family: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Helvetica Neue Condensed", "HelveticaNeue-Condensed", "Helvetica Neue", "Arial Narrow", "Arial-Narrow", "ArialNarrow", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-stretch: condensed;
+    float: right;
+    margin: 0 20px 0 0;
+    /*font-size: 1em;*/
+    font-size: 16px;
+    color: #333;
+    line-height: 28px; }
+    /* line 142, ../../sass/common/_searchCatalogSFR.scss */
+    list.search-sfr #filters-page-numbering .divider, #sub-category-sfr #filters-page-numbering .divider {
+      color: #B9B9B9;
+      font-size: 2em;
+      font-weight: normal;
+      vertical-align: middle; }
+
+/* line 5, ../../sass/common/_filterbarSFR.scss */
+#filter-bar-sfr {
+  margin: 0 0 8px;
+  background-color: #363636;
+  color: #ebebeb;
+  z-index: 100;
+  position: relative;
+  width: 994px; }
+  /* line 242, ../../sass/common/_variablesSFR.scss */
+  #filter-bar-sfr:before, #filter-bar-sfr:after {
+    content: "";
+    display: table; }
+  /* line 247, ../../sass/common/_variablesSFR.scss */
+  #filter-bar-sfr:after {
+    clear: both; }
+  /* line 252, ../../sass/common/_variablesSFR.scss */
+  #filter-bar-sfr {
+    zoom: 1; }
+  /* line 13, ../../sass/common/_filterbarSFR.scss */
+  #filter-bar-sfr .filters-sfr {
+    width: 58%;
+    height: 100%;
+    margin: 0;
+    float: left;
+    position: relative;
+    z-index: 120; }
+    /* line 20, ../../sass/common/_filterbarSFR.scss */
+    #filter-bar-sfr .filters-sfr .filter-facet, #filter-bar-sfr .filters-sfr .filter-text {
+      /* Use this mixin when you can so you don't forget to use the weight and stretch */
+      font-family: "HelveticaNeueBoldCondensed", "HelveticaNeue-Bold-Condensed", "Helvetica Neue Bold Condensed", "HelveticaNeue-CondensedBold", "Helvetica Neue", "Arial Narrow", "Arial-Narrow", "ArialNarrow", Helvetica, Arial, sans-serif;
+      font-weight: bold;
+      font-stretch: condensed;
+      list-style-type: none;
+      float: left;
+      margin: 0 0 0 0;
+      background: url("../image/filter-bar-arrows.png") no-repeat right 23px;
+      /*font-size: 0.9em;*/
+      font-size: 13px;
+      text-transform: uppercase; }
+      /* line 29, ../../sass/common/_filterbarSFR.scss */
+      #filter-bar-sfr .filters-sfr .filter-facet.first > a, #filter-bar-sfr .filters-sfr .filter-text.first > a {
+        border-left: 1px solid #575958; }
+      /* line 32, ../../sass/common/_filterbarSFR.scss */
+      #filter-bar-sfr .filters-sfr .filter-facet > a, #filter-bar-sfr .filters-sfr .filter-text > a {
+        color: #ebebeb;
+        border-right: 1px solid #575958;
+        padding: 5px 26px 5px 10px;
+        line-height: 53px;
+        text-transform: uppercase; }
+      /* line 39, ../../sass/common/_filterbarSFR.scss */
+      #filter-bar-sfr .filters-sfr .filter-facet.active, #filter-bar-sfr .filters-sfr .filter-text.active {
+        background: #fcfcfc url("../image/filter-bar-arrows.png") no-repeat right -8px;
+        cursor: pointer; }
+        /* line 42, ../../sass/common/_filterbarSFR.scss */
+        #filter-bar-sfr .filters-sfr .filter-facet.active.first a, #filter-bar-sfr .filters-sfr .filter-text.active.first a {
+          border-left: 1px solid transparent; }
+        /* line 45, ../../sass/common/_filterbarSFR.scss */
+        #filter-bar-sfr .filters-sfr .filter-facet.active > a, #filter-bar-sfr .filters-sfr .filter-text.active > a {
+          color: #4e4e4e;
+          border-right: 1px solid transparent; }
+      /* line 50, ../../sass/common/_filterbarSFR.scss */
+      #filter-bar-sfr .filters-sfr .filter-facet.filter-text, #filter-bar-sfr .filters-sfr .filter-text.filter-text {
+        padding: 19px 19px 0 31px;
+        background: transparent; }
+        /* line 53, ../../sass/common/_filterbarSFR.scss */
+        #filter-bar-sfr .filters-sfr .filter-facet.filter-text:hover, #filter-bar-sfr .filters-sfr .filter-text.filter-text:hover {
+          cursor: auto; }
+  /* line 59, ../../sass/common/_filterbarSFR.scss */
+  #filter-bar-sfr .facet-options {
+    display: none;
+    list-style: none;
+    position: absolute;
+    top: 51px;
+    left: 0;
+    width: 942px;
+    background: url("../image/facet-bg-texture.gif");
+    margin: 0;
+    z-index: 100;
+    padding: 12px 26px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 4px; }
+  /* line 72, ../../sass/common/_filterbarSFR.scss */
+  #filter-bar-sfr .centering-container {
+    display: table-cell;
+    vertical-align: middle; }
+  /* line 76, ../../sass/common/_filterbarSFR.scss */
+  #filter-bar-sfr li.facet-option {
+    list-style-type: none;
+    width: 102px;
+    float: left;
+    color: #636363;
+    padding: 3px 6px 0 6px;
+    background: url("../image/facet-option-bg.png");
+    margin: 0 5px 3px 0;
+    overflow: hidden;
+    height: 44px;
+    display: table;
+    /* Use this mixin when you can so you don't forget to use the weight and stretch */
+    font-family: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Helvetica Neue Condensed", "HelveticaNeue-Condensed", "Helvetica Neue", "Arial Narrow", "Arial-Narrow", "ArialNarrow", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-stretch: condensed; }
+    /* line 88, ../../sass/common/_filterbarSFR.scss */
+    #filter-bar-sfr li.facet-option:hover, #filter-bar-sfr li.facet-option.active {
+      padding-top: 0;
+      border-top: 3px solid #ea1b2c; }
+    /* line 92, ../../sass/common/_filterbarSFR.scss */
+    #filter-bar-sfr li.facet-option.disabled {
+      zoom: 1;
+      opacity: 0.4;
+      filter: alpha(opacity=40);
+      cursor: default; }
+    /* line 98, ../../sass/common/_filterbarSFR.scss */
+    #filter-bar-sfr li.facet-option.disabled:hover, #filter-bar-sfr li.facet-option.applied:hover {
+      padding-top: 3px;
+      border-top: 0; }
+    /* line 102, ../../sass/common/_filterbarSFR.scss */
+    #filter-bar-sfr li.facet-option .facet-option-title {
+      color: #636363;
+      text-transform: none; }
+    /* line 106, ../../sass/common/_filterbarSFR.scss */
+    #filter-bar-sfr li.facet-option .facet-option-title:hover {
+      color: #636363; }
+    /* line 109, ../../sass/common/_filterbarSFR.scss */
+    #filter-bar-sfr li.facet-option a.facet-option-title {
+      font-size: 14px; }
+  /* line 114, ../../sass/common/_filterbarSFR.scss */
+  #filter-bar-sfr li.facet-option.swatch-option .facet-option-visual {
+    margin: 9px 5px 0 0;
+    height: 20px;
+    width: 28px;
+    border: 2px solid white; }
+  /* line 121, ../../sass/common/_filterbarSFR.scss */
+  #filter-bar-sfr li.facet-option.descriptive-option {
+    height: 90px;
+    width: 218px; }
+    /* line 124, ../../sass/common/_filterbarSFR.scss */
+    #filter-bar-sfr li.facet-option.descriptive-option p {
+      height: 48px; }
+    /* line 127, ../../sass/common/_filterbarSFR.scss */
+    #filter-bar-sfr li.facet-option.descriptive-option .facet-option-visual {
+      margin: 13px 5px 0 0;
+      height: 52px;
+      width: 52px;
+      float: left;
+      display: block; }
+    /* line 134, ../../sass/common/_filterbarSFR.scss */
+    #filter-bar-sfr li.facet-option.descriptive-option .descriptive-option-content {
+      text-transform: none;
+      width: 160px;
+      height: 70px;
+      float: left;
+      padding: 8px 0 0 0; }
+      /* line 138, ../../sass/common/_filterbarSFR.scss */
+      #filter-bar-sfr li.facet-option.descriptive-option .descriptive-option-content h5 {
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-left: 5px; }
+      /* line 143, ../../sass/common/_filterbarSFR.scss */
+      #filter-bar-sfr li.facet-option.descriptive-option .descriptive-option-content .option-count {
+        padding-left: 5px; }
+  /* line 151, ../../sass/common/_filterbarSFR.scss */
+  #filter-bar-sfr li.facet-option.icon-option .facet-option-visual {
+    margin: 3px 5px 0 0;
+    height: 28px;
+    width: 28px;
+    border: 2px solid white; }
+  /* line 160, ../../sass/common/_filterbarSFR.scss */
+  #filter-bar-sfr .remove-facet-option {
+    position: absolute;
+    right: 5px;
+    bottom: 9px; }
+  /* line 165, ../../sass/common/_filterbarSFR.scss */
+  #filter-bar-sfr #applied-filters {
+    background: white;
+    clear: both;
+    padding: 20px 85px 15px 0;
+    position: relative;
+    display: none;
+    z-index: 110;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 4px; }
+    /* line 173, ../../sass/common/_filterbarSFR.scss */
+    #filter-bar-sfr #applied-filters .centering-container {
+      min-width: 73px; }
+    /* line 176, ../../sass/common/_filterbarSFR.scss */
+    #filter-bar-sfr #applied-filters ul {
+      list-style: none;
+      clear: both; }
+      /* line 242, ../../sass/common/_variablesSFR.scss */
+      #filter-bar-sfr #applied-filters ul:before, #filter-bar-sfr #applied-filters ul:after {
+        content: "";
+        display: table; }
+      /* line 247, ../../sass/common/_variablesSFR.scss */
+      #filter-bar-sfr #applied-filters ul:after {
+        clear: both; }
+      /* line 252, ../../sass/common/_variablesSFR.scss */
+      #filter-bar-sfr #applied-filters ul {
+        zoom: 1; }
+    /* line 181, ../../sass/common/_filterbarSFR.scss */
+    #filter-bar-sfr #applied-filters li.facet-option {
+      height: 37px;
+      padding-right: 24px;
+      position: relative; }
+    /* line 187, ../../sass/common/_filterbarSFR.scss */
+    #filter-bar-sfr #applied-filters li.facet-option.swatch-option .facet-option-visual {
+      margin: 11px 5px 0 0;
+      height: 12px;
+      width: 17px; }
+    /* line 193, ../../sass/common/_filterbarSFR.scss */
+    #filter-bar-sfr #applied-filters li.facet-option.descriptive-option {
+      height: 37px;
+      width: auto; }
+      /* line 196, ../../sass/common/_filterbarSFR.scss */
+      #filter-bar-sfr #applied-filters li.facet-option.descriptive-option .facet-option-visual {
+        margin: 9px 5px 0 0;
+        height: 17px;
+        width: 17px;
+        float: left;
+        display: block; }
+      /* line 203, ../../sass/common/_filterbarSFR.scss */
+      #filter-bar-sfr #applied-filters li.facet-option.descriptive-option .descriptive-option-content {
+        float: left;
+        height: auto;
+        width: auto;
+        padding: 12px 0 0 0; }
+        /* line 208, ../../sass/common/_filterbarSFR.scss */
+        #filter-bar-sfr #applied-filters li.facet-option.descriptive-option .descriptive-option-content h5 {
+          text-transform: none;
+          font-weight: normal;
+          margin-left: 5px; }
+        /* line 213, ../../sass/common/_filterbarSFR.scss */
+        #filter-bar-sfr #applied-filters li.facet-option.descriptive-option .descriptive-option-content .facet-option-description {
+          display: none; }
+        /* line 216, ../../sass/common/_filterbarSFR.scss */
+        #filter-bar-sfr #applied-filters li.facet-option.descriptive-option .descriptive-option-content .option-count {
+          padding-left: 5px; }
+    /* line 222, ../../sass/common/_filterbarSFR.scss */
+    #filter-bar-sfr #applied-filters li.facet-option.icon-option .facet-option-visual {
+      margin: 8px 5px 0 0;
+      height: 17px;
+      width: 17px;
+      border: 2px solid white; }
+    /* line 229, ../../sass/common/_filterbarSFR.scss */
+    #filter-bar-sfr #applied-filters li.facet-option.textual-option {
+      padding-left: 8px; }
+  /* line 233, ../../sass/common/_filterbarSFR.scss */
+  #filter-bar-sfr #clear-all-filters {
+    float: left;
+    margin: 24px 0 0 9px;
+    cursor: pointer; }
+  /* line 238, ../../sass/common/_filterbarSFR.scss */
+  #filter-bar-sfr #clear-all-filters a {
+    /* Use this mixin when you can so you don't forget to use the weight and stretch */
+    font-family: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Helvetica Neue Condensed", "HelveticaNeue-Condensed", "Helvetica Neue", "Arial Narrow", "Arial-Narrow", "ArialNarrow", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-stretch: condensed;
+    /*font-size: 0.7em;*/
+    font-size: 10px;
+    text-decoration: underline;
+    text-transform: uppercase;
+    color: #333; }
+    /* line 245, ../../sass/common/_filterbarSFR.scss */
+    #filter-bar-sfr #clear-all-filters a:hover {
+      color: #333; }
+  /* line 249, ../../sass/common/_filterbarSFR.scss */
+  #filter-bar-sfr #filters-page-numbering {
+    display: none;
+    position: absolute;
+    right: 77px;
+    bottom: 20px;
+    /* Use this mixin when you can so you don't forget to use the weight and stretch */
+    font-family: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Helvetica Neue Condensed", "HelveticaNeue-Condensed", "Helvetica Neue", "Arial Narrow", "Arial-Narrow", "ArialNarrow", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-stretch: condensed;
+    float: left;
+    margin-top: 28px;
+    /*font-size: 0.7em;*/
+    font-size: 16px;
+    color: #333; }
+    /* line 260, ../../sass/common/_filterbarSFR.scss */
+    #filter-bar-sfr #filters-page-numbering:hover {
+      color: #333; }
+  /* line 264, ../../sass/common/_filterbarSFR.scss */
+  #filter-bar-sfr #filters-page-numbering {
+    /* Use this mixin when you can so you don't forget to use the weight and stretch */
+    font-family: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Helvetica Neue Condensed", "HelveticaNeue-Condensed", "Helvetica Neue", "Arial Narrow", "Arial-Narrow", "ArialNarrow", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-stretch: condensed;
+    position: absolute;
+    right: 10px;
+    bottom: 15px;
+    /*font-size: 1.15em;*/
+    font-size: 16px;
+    color: #626262; }
+    /* line 272, ../../sass/common/_filterbarSFR.scss */
+    #filter-bar-sfr #filters-page-numbering .divider {
+      font-size: 2em;
+      color: #b9b9b9;
+      vertical-align: middle; }
+  /* line 278, ../../sass/common/_filterbarSFR.scss */
+  #filter-bar-sfr .reset-filter-facet {
+    /* Use this mixin when you can so you don't forget to use the weight and stretch */
+    font-family: "HelveticaNeueCondensed", "HelveticaNeue-Condensed", "Helvetica Neue Condensed", "HelveticaNeue-Condensed", "Helvetica Neue", "Arial Narrow", "Arial-Narrow", "ArialNarrow", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-stretch: condensed;
+    float: right;
+    margin-top: 40px;
+    /*font-size: 0.7em;*/
+    font-size: 10px;
+    text-decoration: underline;
+    color: #333;
+    display: none; }
+    /* line 287, ../../sass/common/_filterbarSFR.scss */
+    #filter-bar-sfr .reset-filter-facet:hover {
+      color: #333; }
+  /* line 291, ../../sass/common/_filterbarSFR.scss */
+  #filter-bar-sfr #compare-sfr {
+    float: right;
+    padding: 6px 20px 10px 0;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 115; }
+    /* line 297, ../../sass/common/_filterbarSFR.scss */
+    #filter-bar-sfr #compare-sfr #compare-button-sfr {
+      /* Use this mixin when you can so you don't forget to use the weight and stretch */
+      font-family: "HelveticaNeueBoldCondensed", "HelveticaNeue-Bold-Condensed", "Helvetica Neue Bold Condensed", "HelveticaNeue-CondensedBold", "Helvetica Neue", "Arial Narrow", "Arial-Narrow", "ArialNarrow", Helvetica, Arial, sans-serif;
+      font-weight: bold;
+      font-stretch: condensed;
+      float: right;
+      background-color: #5c5c5c;
+      padding: 10px;
+      cursor: pointer;
+      position: relative;
+      width: 95px;
+      top: 3px; }
+    /* line 308, ../../sass/common/_filterbarSFR.scss */
+    #filter-bar-sfr #compare-sfr #sort-button-sfr {
+      float: right;
+      margin: 0 15px 0 0;
+      width: 265px;
+      position: relative; }
+      /* line 314, ../../sass/common/_filterbarSFR.scss */
+      #filter-bar-sfr #compare-sfr #sort-button-sfr select {
+        display: none; }
+      /* line 318, ../../sass/common/_filterbarSFR.scss */
+      #filter-bar-sfr #compare-sfr #sort-button-sfr .label {
+        margin-left: 0;
+        margin-top: 13px;
+        float: left;
+        /*font-size: 0.9em;*/
+        font-size: 13px; }
+      /* line 326, ../../sass/common/_filterbarSFR.scss */
+      #filter-bar-sfr #compare-sfr #sort-button-sfr #selected-sort {
+        background: url("../image/filter-bar-arrows.png") no-repeat 138px 5px; }
+        /* line 329, ../../sass/common/_filterbarSFR.scss */
+        #filter-bar-sfr #compare-sfr #sort-button-sfr #selected-sort.open {
+          background-position: 138px -62px; }
+      /* line 334, ../../sass/common/_filterbarSFR.scss */
+      #filter-bar-sfr #compare-sfr #sort-button-sfr form {
+        float: right;
+        margin-left: 4px;
+        height: 36px;
+        width: 167px; }
+        /* line 340, ../../sass/common/_filterbarSFR.scss */
+        #filter-bar-sfr #compare-sfr #sort-button-sfr form #sort-by-cont {
+          border: 1px solid #8a8a8a;
+          padding: 9px 0 10px 10px;
+          cursor: pointer;
+          background: #363636;
+          z-index: 100;
+          position: absolute;
+          right: 0;
+          top: 3px;
+          width: 165px;
+          box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2), -2px 2px 2px rgba(0, 0, 0, 0.2); }
+      /* line 354, ../../sass/common/_filterbarSFR.scss */
+      #filter-bar-sfr #compare-sfr #sort-button-sfr ul#sort-by-select {
+        list-style: none;
+        display: none;
+        margin-left: 0; }
+        /* line 358, ../../sass/common/_filterbarSFR.scss */
+        #filter-bar-sfr #compare-sfr #sort-button-sfr ul#sort-by-select li {
+          white-space: nowrap;
+          margin: 9px 0; }
+        /* line 363, ../../sass/common/_filterbarSFR.scss */
+        #filter-bar-sfr #compare-sfr #sort-button-sfr ul#sort-by-select li:hover {
+          color: #ee3124; }
+
+/* line 371, ../../sass/common/_filterbarSFR.scss */
+div.compare-flyout-sfr {
+  background: #ffffff;
+  color: #333333;
+  text-transform: uppercase;
+  text-align: center;
+  min-width: 220px;
+  width: auto;
+  padding: 20px 0;
+  position: absolute;
+  border-radius: 10px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+  margin-top: 47px;
+  right: 20px;
+  z-index: 1000;
+  display: none; }
+  /* line 387, ../../sass/common/_filterbarSFR.scss */
+  div.compare-flyout-sfr span.arrow-sfr {
+    background: url("../image/compare_top_arrow.png") no-repeat;
+    width: 25px;
+    height: 12px;
+    display: block;
+    position: absolute;
+    top: -12px;
+    right: 20%; }
+  /* line 397, ../../sass/common/_filterbarSFR.scss */
+  div.compare-flyout-sfr span {
+    /* Use this mixin when you can so you don't forget to use the weight and stretch */
+    font-family: "HelveticaNeueBoldCondensed", "HelveticaNeue-Bold-Condensed", "Helvetica Neue Bold Condensed", "HelveticaNeue-CondensedBold", "Helvetica Neue", "Arial Narrow", "Arial-Narrow", "ArialNarrow", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-stretch: condensed;
+    font-size: 11px; }
+  /* line 402, ../../sass/common/_filterbarSFR.scss */
+  div.compare-flyout-sfr .compare-error-message {
+    display: none;
+    padding: 0 10px; }
+  /* line 407, ../../sass/common/_filterbarSFR.scss */
+  div.compare-flyout-sfr .compare-products-sfr {
+    margin: 0 22px;
+    min-width: 211px;
+    text-align: left; }
+    /* line 412, ../../sass/common/_filterbarSFR.scss */
+    div.compare-flyout-sfr .compare-products-sfr a.compare-products-button-sfr {
+      /* Use this mixin when you can so you don't forget to use the weight and stretch */
+      font-family: "HelveticaNeueBoldCondensed", "HelveticaNeue-Bold-Condensed", "Helvetica Neue Bold Condensed", "HelveticaNeue-CondensedBold", "Helvetica Neue", "Arial Narrow", "Arial-Narrow", "ArialNarrow", Helvetica, Arial, sans-serif;
+      font-weight: bold;
+      font-stretch: condensed;
+      display: block;
+      background: #ea1b2c;
+      color: #ffffff;
+      font-size: 1.3em;
+      text-transform: uppercase;
+      line-height: 34px;
+      margin-top: 18px;
+      text-align: center; }
+    /* line 424, ../../sass/common/_filterbarSFR.scss */
+    div.compare-flyout-sfr .compare-products-sfr .compare-product-sfr {
+      display: inline-block;
+      position: relative; }
+      /* line 428, ../../sass/common/_filterbarSFR.scss */
+      div.compare-flyout-sfr .compare-products-sfr .compare-product-sfr a.compare-product-remove-sfr {
+        width: 15px;
+        height: 15px;
+        background: url("../image/compare_gray_close_15x15.png") no-repeat;
+        cursor: pointer;
+        display: block;
+        position: absolute;
+        bottom: 5px;
+        right: 3px; }
+
+/* line 441, ../../sass/common/_filterbarSFR.scss */
+#filter-bar-row {
+  overflow: visible; }
+
+/* line 444, ../../sass/common/_filterbarSFR.scss */
+#filter-bar-col-24 {
+  overflow: visible; }

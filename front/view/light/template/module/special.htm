@@ -1,0 +1,41 @@
+<div class="clearfix page-heading w-recommend-products-heading"><a class="heading-title title-tab"><?php echo $heading_title; ?></a></div>
+<div id="recProds">
+  <div class="widget w-mini-cateEntryProdList">
+    <div class="widget w-productList w-grid w-grid-752-5cols w-mini-productList w-mini-reletedProdGrid">
+      <?php if(isset($products)) { $i=0; ?>
+      <?php foreach($products as $product) {
+            if($i%5 == 0) { ?>
+      <br class="clear">
+      <?php } ?>
+      <dl>
+        <?php if ($product['thumb']) {?>
+          <dt> 
+            <a title="<?php echo $product['name']; ?>" href="<?php echo $product['href']; ?>"> 
+              <img src="<?php echo $product['thumb']; ?>" height="128" width="128" alt="<?php echo $product['name']; ?>" /> 
+              <img src="<?php echo $res; ?>image/imageHover128.png" width="128" height="128" class="imageHover" /> 
+            </a> 
+          </dt>
+        <?php } ?>
+        <dd class="prodName"> <a title="<?php echo $product['name']; ?>" href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a> </dd>              
+        <dd class="prodPrice">
+          <?php if ($product['special']) {?>
+            <span class="oldPrice"><?php echo $product['price']; ?></span>
+            <a title="<?php echo $product['name']; ?>" href="<?php echo $product['href']; ?>" class="price"><?php echo $product['special']; ?></a>
+          <?php } else {?>
+            <a title="<?php echo $product['name']; ?>" href="<?php echo $product['href']; ?>" class="price"><?php echo $product['price']; ?></a>
+            <span class="oldPrice"></span>
+          <?php }?>
+        </dd>
+        <?php if ($product['rating']) { ?>
+          <dd class="prodReview">
+            <span class="star starS<?php echo $product['rating']; ?>" alt="<?php echo $product['reviews']; ?>"><em><?php echo $product['rating']; ?> stars of 5</em></span> 
+            <a href="<?php echo $product['href']; ?>" rel="nofollow">(<?php echo $product['reviews']; ?>)</a>
+          </dd>
+        <?php } ?>
+        <div class="cart"><input type="button" value="<?php echo $button_cart; ?>" onclick="addToCart('<?php echo $product['product_id']; ?>');" class="button" /></div>
+      </dl>
+      <?php $i++;}?>
+      <?php }?>
+    </div>
+  </div>
+</div>

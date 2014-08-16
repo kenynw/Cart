@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" rel="stylesheet" href="/cpanel/view/default/stylesheet/silver.css" />
+<script src="/cpanel/view/default/javascript/frame/func.js"></script>
+</head>
+<script src="/cpanel/view/default/javascript/frame/left.js"></script>
+<script src="/cpanel/view/default/javascript/frame/navi.js"></script>
+<style>
+body,html { overflow-x:hidden; }
+</style>
+
+<script>
+var IECLNO = new IECLN();
+var IECLeftList = new IECLeftListObject();
+window.onload = function ()
+{
+	// 窗口重新加载时执行
+	if (parent.IECMainObject.IECLoadComplete)
+	{
+		parent._IECTagLoad = false;
+		parent.IECMainObject.IECLeftRun();
+		parent.IECMainObject.IECExtendInitialConfigRun();	// 重新初始化
+	}
+	else if(parent._IECLeftLoad && parent._IECTagLoad) 	// 首次加载完成运行
+	{
+		parent._IECTagLoad = false;
+		parent.IECMainObject.IECRun();
+	}
+	
+}
+</script>
+</head>
+<body id="left">
+<div id="left_navigation"></div>
+<div id="left_logo"><!--LOGIN--></div>
+<div id="IECLeftList"></div>
+</body>
+</html>

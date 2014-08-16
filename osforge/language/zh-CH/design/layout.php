@@ -1,0 +1,24 @@
+<?php
+// Heading
+$_['heading_title']     = '布局';
+
+// Text
+
+$_['text_default']      = '默认';
+
+// Column
+$_['column_name']       = '布局名称';
+
+// Entry
+$_['entry_name']        = '布局名称：';
+$_['entry_store']       = '商店：';
+$_['entry_route']       = '路径：';
+
+// Error
+$_['error_name']        = '布局标题必须在3至64个字符之间！';
+$_['error_default']     = '警告： 该布局为商店的默认布局，因此无法删除！';
+$_['error_store']       = '警告： 该布局不能删除，因为被绑定到 %s 个商店！';
+$_['error_product']     = '警告： 该布局不能删除，因为被绑定到 %s 项商品！';
+$_['error_category']    = '警告： 该布局不能删除，因为被绑定到 %s 项类别！';
+$_['error_information'] = '警告： 该布局不能删除，因为被绑定到 %s 条信息！';
+?>

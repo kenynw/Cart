@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" rel="stylesheet" href="<?php echo $res; ?>stylesheet/silver.css" />
+<script src="<?php echo $res; ?>javascript/frame/func.js"></script>
+<script>
+var _HttpPath = '';
+var _ContentUrl = '<?php echo $res; ?>template/common/content.htm';
+var _TagUrl = '<?php echo $res; ?>template/common/tag.htm';
+var _LeftUrl = '<?php echo $res; ?>template/common/left.htm';
+var _IECContent;		// 框架内容
+var _IECTag;			// 框架标签
+var _IECLeft;			// 框架左栏
+var _IECContentLoad = false;
+var _IECTagLoad = false;
+var _IECLeftLoad = false;
+
+
+// 设置默认打开的标签列表
+var _IECTabJson = [
+	{'type':'Activate','id':'home','name':'<?php echo $text_menu_0;?>', 'url':'<?php echo $home;?>'}
+];
+
+// 设置默认小标签列表
+var _IECTabMinJson = [];
+
+
+// 设置左栏下拉菜单数据
+var _IECLNIJson = [
+	{'order':6,'id':'logout', 'name':'<?php echo $text_logout;?>', 'url':'<?php echo $logout;?>'}, 
+];
+
+// 设置左栏列表数据
+var _IECLeftListJson = [
+<?php if($menus){ $i = 1;	?>
+<?php foreach($menus as $menu){?>
+<?php if($menu['item'] && count($menu['item']) > 0){ $j = 1;?>
+{'id':'<?php echo $menu['title']; ?>','name':'<?php echo $menu['title']; ?>','url':'<?php echo $menu['item'][0]['href_1']; ?>','IcoClass':'ico_img ico_<?php echo $i;?>',
+		'ChildItem':[<?php foreach($menu['item'] as $item){ ?>
+			         	{'id':'<?php echo $item['text_2']; ?>','name':'<?php echo $item['text_2']; ?>','url':'<?php echo $item['href_2']; ?>','IcoClass':'ico_img ico_<?php echo $i.$j; ?>','ChildItem':null},
+			         	<?php  $j ++; }?>]
+},
+<?php } else {?>
+<?php if($menu['item']){?>
+{'id':'<?php echo $menu['item'][0]['text_1']; ?>','name':'<?php echo $menu['item'][0]['text_1']; ?>','url':'<?php echo $menu['item'][0]['href_1']; ?>','IcoClass':'ico_database','open':true,'ChildItem':null},
+<?php } else {?>
+{'id':'<?php echo $menu['text_1']; ?>','name':'<?php echo $menu['text_1']; ?>','url':'<?php echo $menu['href_1']; ?>','IcoClass':'ico_database','open':true,'ChildItem':null},
+<?php } ?>
+<?php } ?>
+<?php $i ++; } ?>
+<?php } ?>
+];
+</script>
+<script src="<?php echo $res; ?>javascript/frame/main.js"></script>
+<script src="<?php echo $res; ?>javascript/frame/plugin/plugin.js"></script>
+<script src="<?php echo $res; ?>javascript/frame/plugin/alltag.js"></script>
+<script src="<?php echo $res; ?>javascript/frame/plugin/newtag.js"></script>
+<script src="<?php echo $res; ?>javascript/frame/plugin/recoverytag.js"></script>
+<script src="<?php echo $res; ?>javascript/frame/plugin/nexttag.js"></script>
+<script src="<?php echo $res; ?>javascript/frame/plugin/prevtag.js"></script>
+<script src="<?php echo $res; ?>javascript/frame/plugin/closetag.js"></script>
+</head>
+<script>
+window.onload = function() 
+{
+	G("IECContent").src = _ContentUrl;
+	_IECContent = window.frames.IECContent;
+	_IECLeft = window.frames.IECLeft;
+	_IECTag = window.frames.IECTag;
+}
+</script>
+<frameset rows="31,*" cols="*" border="0" framespacing="0">
+	<frame  name="IECTag" id="IECTag" scrolling="No" frameborder="0" border="0" noresize >
+	<frameset rows="*" cols="223,*" border="0"  framespacing="0">
+		<frame  name="IECLeft"  id="IECLeft" frameborder="0" border="0" >
+		<frame  scrolling="No" name="IECContent" id="IECContent"  frameborder="0" border="0">
+	</frameset>
+</frameset>
+</html>

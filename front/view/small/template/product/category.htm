@@ -1,0 +1,36 @@
+<?php echo $header; ?>
+
+<div id="content"><?php echo $content_top; ?>
+  <div id="frame">
+    <div id="breadcrumbsH1Wrapper">
+      <div id="crumbs">
+        <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+        <?php echo $breadcrumb['separator']; ?><a href="<?php echo $breadcrumb['href']; ?>" class="breadcrumb"><?php echo $breadcrumb['text']; ?></a>
+        <?php } ?>
+      </div>
+    </div>
+    <?php echo $column_left; ?>
+    <h1 id="currentCatTitle"><?php echo $heading_title; ?></h1>
+    <div id="monetate_selectorBanner_d7c418d_00" style="margin-top: 10px; text-align: center;"><img alt="Shop Mother's Day" src="<?php echo $res; ?>image/167848.jpg" style="border: none; outline: none;"> </div>
+    <div id="content1">
+      <div style="height:150px; width:780px; position:relative; overflow:hidden;"><img alt="" class="one visible" src="<?php echo $res; ?>image/TMS_0227_BaseballSoftball.jpg"></div>
+    </div>
+    <?php if ($products) { ?>
+    <div class="subCategoryList">
+      <?php foreach ($products as $product) { ?>
+      <div class="catListHead"> <a class="noSubCatLink" href="<?php echo $product['href']; ?>">
+        <h2 class="catListTitle"> <?php echo $product['name']; ?> </h2>
+        <?php if ($product['thumb']) { ?>
+        <img class="catListImg" src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" />
+        <?php } ?>
+        </a> </div>
+      <?php } ?>
+      <div style="display:block;height:20px; clear:both;"></div>
+      <div class="searchPagContainer"> <?php echo $pagination; ?></div>
+    </div>
+    <?php } ?>
+    <div style="clear:both"></div>
+  </div>
+  <?php echo $content_bottom; ?>
+</div>
+<?php echo $footer; ?>

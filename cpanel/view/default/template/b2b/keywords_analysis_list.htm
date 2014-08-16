@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+      <title>阿里数据管家采集</title>
+      <script type="text/javascript" src="<?php echo $res; ?>javascript/b2b/alibaba_op.js"></script>
+  </head>
+<body>
+
+<script>
+
+var _env, _dba;     //环境对象 / 数据库访问对象
+
+var _keyword_cj;    //关键词采集器
+
+var _timer_id, _timer_user;    //定时器ID / 定时器用户
+
+function set_timer(user)
+{
+    if(user==null)
+    {                       //关闭定时器
+        _timer_user=null;
+        if(_timer_id!=null) 
+        {
+            clearInterval(_timer_id);
+            _timer_id=null;
+        }
+        return;
+    }
+    else
+    {
+        _timer_user=user;   //打开定时器
+        if(_timer_id==null) 
+            _timer_id=setInterval("_timer_user.on_timer()",500);
+    }
+}
+
+function load_js(url, callback) {
+	var head = document.getElementsByTagName('head')[0];
+	var script = document.createElement('script');
+	script.type = 'text/javascript';
+	script.src = url;
+	script.onreadystatechange = callback;
+	script.onload = callback;
+	head.appendChild(script);
+}
+
+function keyword_cj(window_id, start_page, month_or_week, filter_word)
+{
+    this._task = new alibaba_data_cj(window_id, "http://soe.freeoa.cc/cpanel/index.php?route=common/api/patten&f=alibaba_op");
+    this._task.run(this, start_page, month_or_week, filter_word);
+    
+    this.on_timer = function()
+    {
+        if (this._task.done())
+        {
+            set_timer(null); //完成了，关闭定时器?
+
+            alert("done");
+        }
+    };
+
+    this.on_error = function(str)
+    {
+        alert(str);
+    };
+
+    this.on_keyword = function(word, stat)
+    {
+        alert("keyword:"+word);
+        alert("stat {");
+        for (var i in stat)
+        {
+            alert(i + ":" + stat[i]);
+        }
+        alert("}");
+    };
+    this.on_nextpage = function(page_id)
+    {
+       //TODO 保存页号到数据库，下次可以从中断处继续采
+       
+       alert("next-page:" + page_id);  
+    };
+    this.on_complete = function(last_page)
+    {
+        //TODO 全部采集完了，last_page是最后一页
+
+        alert("complete:" + last_page);
+    };
+
+    set_timer(this); //设置定时器
+}
+
+//数据库载入器
+function db_loader()
+{
+    this.done = false;
+    this.ok = false;
+
+    load_js("http://soe.freeoa.cc/cpanel/index.php?route=common/api/db_conf", null);
+	load_js("http://soe.freeoa.cc/cpanel/index.php?route=common/api/db_obj", null);
+
+    this.on_timer = function()
+    {
+        if( this.done )
+            return;
+
+        this.check();
+    };
+
+    this.check = function()
+    {
+        if( typeof(dba_object)=="function" && typeof(env_object)=="function" )
+        {
+            this.done = true;
+            set_timer(null);
+
+            _env=new env_object();
+            _dba=new dba_object();
+            if(!_dba.connect(_env.db_host, _env.db_username, _env.db_password, _env.db_name))
+            {
+                alert("连接数据库失败");
+                return;
+            }
+
+            var ecode = _dba.check(_env);
+            if(ecode!=0)
+            {
+                alert("数据库初始化错误:"+ecode);
+                return;
+            }
+            this.ok=true;
+            alert("数据库检测OK");
+        }
+    };
+    set_timer(this);   //设置定时器
+}
+var _db_loader = new db_loader();
+
+function start(filter_word)
+{
+    if(_db_loader.ok && _keyword_cj==null) 
+    {
+        _keyword_cj=new keyword_cj(3, 1, "week", filter_word);
+    }
+}
+</script>
+
+<button onclick="start(null);">采集我的词</button> 
+<br><br><br>
+
+<button onclick="start(filter_input.value);">采集相关词</button>
+<input id="filter_input" value="jacket" />
+<br><br>
+
+</body>
+</html>

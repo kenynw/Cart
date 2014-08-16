@@ -1,0 +1,47 @@
+
+seller {
+	DIV[class="view-swv"] {
+		A[class="dot-app-cp" data-dot=>$id_info] { "View this Supplier's Website" }
+	}
+	DIV[class="company"] {
+		SPAN { "Verified Supplier" }
+		A[href=>$url] { "%s"=>$name }
+	}
+}
+
+item_detail {
+	DIV[class="main-wrap"] {
+		category => $category_list[] {
+			A[class="category" href=>$url] { "%s"=>$name }
+			SPAN
+		}
+	}
+	DIV[class="action-main"] {
+		H1 { "%s"=>$name }
+		TD[class="value"] { "US $" SPAN[content=>$price] }
+		TR {
+			TH[class="name"] { "Supply Ability:" }
+			TD[class="value"] { "%s"=>$quantity }
+		}
+	}	
+}
+
+item {
+	DIV[class="ls-icon ls-item"] {
+		H2[class="title"] {
+			A[href=>$url data-pid=>$id] { "%s"=>$name }
+		}
+	}
+}
+
+items {
+	DIV[id="J-items-content"] {  
+		item =>$items[]
+	}
+}
+
+nextpage {
+ 	DIV[class="navi"] {
+		A[class="next" href=>$url] =>$nextpage
+	}
+}

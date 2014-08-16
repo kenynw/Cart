@@ -1,0 +1,61 @@
+<div id="column-left">
+  <?php if ($categories) { ?>
+  <div class="leftNavNew ">
+    <?php foreach ($categories as $category) { ?>
+    <div id="leftNavNewNameWrap" class=""> <span><?php echo $category['name']; ?></span> </div>
+    <?php if ($category['children']) { ?>
+    <ul id="leftNavUL">
+      <?php for ($i = 0; $i < count($category['children']);) { ?>
+      <?php $j = $i + ceil(count($category['children']) / $category['column']); ?>
+      <?php for (; $i < $j; $i++) { ?>
+      <?php if (isset($category['children'][$i])) { ?>
+      <li class=""><a href="<?php echo $category['children'][$i]['href']; ?>" title="<?php echo $category['children'][$i]['name']; ?>" class="leftnavlink"><?php echo $category['children'][$i]['name']; ?></a> </li>
+      <?php } ?>
+      <?php } ?>
+      <?php } ?>
+    </ul>
+    <?php } ?>
+    <?php } ?>
+  </div>
+  <?php } ?>
+  <div id="rvDisplayWrap" class="">
+    <div id="rvDisplay"><span>Recently Viewed</span></div>
+  </div>
+  <div style="clear:both; padding-top:10px; background-color:#f0f0f0;" class="">
+    <div>
+      <div style="width:8px;float:left;"> <br clear="all">
+      </div>
+      <div style="border:1px solid #E9E9E9;margin:0;float:left;"> <a href="/"><img src="./images/pDSP1-16568010t50.jpg" width="50" height="50" alt="" border="0"></a></div>
+      <div style="width:4px;float:left;"> <br clear="all">
+      </div>
+      <div style="width:83px;float:left;"> <a href="/" class="rv_link" style="width:83px;float:left;color:#707070;font-weight:bold;word-wrap:break-word;">DeMarini CF6 BBCOR Bat 2014 (-3)</a>
+        <div style="width:83px;float:height:6px;line-height:6px;"> <br clear="all">
+        </div>
+        $399.99
+        <div style="width:83px;float:height:6px;line-height:6px;"> <br clear="all">
+        </div>
+      </div>
+      <div style="clear:both;height:10px;"></div>
+    </div>
+    <div style="background-image:url('./image/rv_dotted_line.gif');width:150px;line-height:1px; height:1px;font-size:1px;"> <br clear="all">
+    </div>
+    <div style="height:8px;line-height:8px;"> <br clear="all">
+    </div>
+  </div>
+  <div id="sdNavLinks">
+    <div id="relatedCategories"><span>Featured Categories</span></div>
+    <div class="leftNavNew">
+      <ol class="parametricAttribs">
+        <ul id="leftNavUL">
+          <li><a class="parametricAttribValueLink" href="/">Men's Baseball Apparel</a></li>
+          <li><a class="parametricAttribValueLink" href="/">Youth Baseball Apparel</a></li>
+          <li><a class="parametricAttribValueLink" href="/">Softball Apparel</a></li>
+          <li><a class="parametricAttribValueLink" href="/">Girls' Softball Apparel</a></li>
+          <li><a class="parametricAttribValueLink" href="/">Lifestyle Apparel</a></li>
+        </ul>
+        <span class="parametricAttrib"> <a href="/" class="parametricAttribMoreLink">more...</a> <br clear="all">
+        </span>
+      </ol>
+    </div>
+  </div>
+</div>

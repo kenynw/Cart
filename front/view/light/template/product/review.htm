@@ -1,0 +1,25 @@
+<?php if ($reviews) { ?>        
+<div class="widget prod_review">
+    <div class="prod_review_list prod_recent_review ctr-info ctr-track-a">
+      <h6 class="review_title border-radius-min">Recent Reviews</h6>
+      
+<?php for($i=0; $i<5; $i++) { $review = $reviews[$i]; ?>
+  <div class="widget review-item">        
+    <ul class="reviewer left">
+      <li><span title="<?php echo $review['rating']; ?> out of 5 stars" class="star star-s<?php echo $review['rating']; ?>"></span></li>
+      <li><span class="gray by-text">By </span><cite><?php echo $review['author']; ?></cite></li>
+      <li><cite class="gray"><?php echo $review['date_added']; ?></cite></li>
+    </ul>
+    <div class="main">
+      <div class="content ctr-track">
+        <span class="litb-icon-quote-left"></span>
+          <?php echo $review['text']; ?>
+        <span class="litb-icon-quote-right"></span>
+      </div>
+    </div>
+  </div>
+<?php } ?>
+</div>
+
+</div>     
+<?php } ?>

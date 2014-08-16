@@ -1,0 +1,51 @@
+
+seller {
+	DIV[class="seller-info"] {
+		DIV[class="company-name"] {
+			INPUT[id="hid_storeId" value=>$id]
+			A[href=>$url] { "%s"=>$name }
+		}
+		ADDRESS { "%s"=>$address }
+	}
+}
+
+item_detail {
+	DIV[class="detail-page"] {
+		DIV {
+			category_node => $category_list[] {
+				SPAN[class="divider"]
+				A[href=>$url] { "%s"=>$name }
+			}
+		}
+		DIV[class="main-wrap util-clearfix"] {
+			H1[class="product-name"] { "%s"=>$name }
+		}
+	}
+}
+
+item {
+ LI {
+	DIV[class="detail"] {
+		H3 { A[href=>$url] { "%s"=>$name }  }
+	}
+	DIV[class="info infoprice"] {
+		INPUT[class="atc-product-id" type="hidden" value=>$id]
+	}
+ }
+}
+
+items {
+ UL[id="list-items"] {
+  item =>$items[]
+ }
+}
+
+category {
+	INPUT[id="narrowDownCate" type="hidden" name="CatId" value=>$id]
+}
+
+nextpage {
+ DIV[class="ui-pagination-navi util-left"] {
+	A[href=>$url class="page-next ui-pagination-next"]=>$nextpage
+ } 
+}

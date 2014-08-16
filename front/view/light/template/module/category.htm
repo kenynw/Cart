@@ -1,0 +1,26 @@
+		<div class="pull-left litb-span13">
+		  <div class="pagelet category-sidebar clearfix litb-span13">
+		    <div class="sub-category">
+			  <div class="widget mini-text ctr-track-a ctr-info ctr-track-show">
+			    <?php foreach($categories as $category) { ?>
+			      <dl class="category cate-nav-level">
+				  <dd>
+			      <?php if ($category['category_id'] == $category_id) { ?>
+					<div class="cate-title"><strong class="title"><?php echo $category['name']; ?></strong></div>
+					<?php if(isset($category['children'])) { ?>
+					<?php foreach($category['children'] as $child) {?>
+								  <dl>
+								    <dd><a href=" <?php echo $child['href']; ?>">- <?php echo $child['name']; ?></a></dd>
+								  </dl>
+								<?php } ?>
+								<?php }?>
+				  <?php } else {?>
+				    <strong class="black-empha"><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></strong>
+				  <?php } ?>
+							</dd>
+						</dl>
+				  <?php }?>
+					</div>
+				</div>
+			</div>
+		</div>

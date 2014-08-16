@@ -1,0 +1,104 @@
+<?php echo $header; ?>
+
+<list class="platform-default published sfr shop" data-ns="TNF.ECOM.sfr" data-page="topCategoryTemplateSFR">
+<? $breadcrumb = end($breadcrumbs);?>
+<div id="content">
+  <div id="content-inner">
+    <div id="breadcrumbs">
+      <div class="row">
+        <div class="gutter-01">
+          <div class="col-24">
+            <h1><?php echo $breadcrumb['text']; ?></h1>
+            <div class="chat-now">               
+              <!-- BoldChat Live Chat Button HTML v1.20 (Type=Web) --> 
+              <a class="boldChat" href="#" target="_blank" onclick=""><img alt="Chat Now" src="<?php echo $res; ?>image/chatUnavailable.png" border="0"></a> 
+              <!-- /BoldChat Live Chat Button HTML v1.20 -->               
+            </div>
+            <div class="crumbs"> 
+            <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+            <a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a> </div>
+            <?php } ?>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content-box">
+      <div class="row">
+        <div class="col-24">
+          <div id="grid" class="row">
+            <header id="page-banner">
+              <div class="box hero-box">
+                <div id="promoImageSFR" class="col-24"> <a class="gutter-00" title="" href="#"> <img src="<?php echo $res; ?>image/Womens_FEB_MA.jpg" alt=""> </a> </div>
+              </div>
+            </header>
+            <div id="nav-sub-category" class="row">
+              <nav>
+                <div class=""><a href="#" title="Jackets &amp; Vests"><img src="<?php echo $res; ?>image/-jacketsvests.jpg" alt="Jackets &amp; Vests">
+                  <h6>Jackets &amp; Vests</h6>
+                  </a></div>
+                <div class=""><a href="#" title="Shirts &amp; Tops"><img src="<?php echo $res; ?>image/-tops.jpg" alt="Shirts &amp; Tops">
+                  <h6>Shirts &amp; Tops</h6>
+                  </a></div>
+                <div class=""><a href="#" title="Pants &amp; Shorts"><img src="<?php echo $res; ?>image/-bottoms.jpg" alt="Pants &amp; Shorts">
+                  <h6>Pants &amp; Shorts</h6>
+                  </a></div>
+                <div class=""><a href="#" title="Accessories"><img src="<?php echo $res; ?>image/-accessories.jpg" alt="Accessories">
+                  <h6>Accessories</h6>
+                  </a></div>
+                <div class=""><a href="#" title="Shoes"><img src="<?php echo $res; ?>image/-footwear.jpg" alt="Shoes">
+                  <h6>Shoes</h6>
+                  </a></div>
+                <div><a href="#" title="Activities"><img src="<?php echo $res; ?>image/-activities.jpg" alt="Activities">
+                  <h6>Activities</h6>
+                  </a></div>
+                <div><a href="#" title="Collections"><img src="<?php echo $res; ?>image/-collectionsseries.jpg" alt="Collections">
+                  <h6>Collections</h6>
+                  </a></div>
+                <div><a href="#s" title="Outfits"><img src="<?php echo $res; ?>image/-outfits.jpg" alt="Outfits">
+                  <h6>Outfits</h6>
+                  </a></div>
+              </nav>
+            </div>
+            <div id="results">   
+             <?php if( $categories ) { ?> 
+            <?php foreach( $categories as $category ) { ?>          
+              <section class="row">
+                <header> <a href="<?php echo $category['href']; ?>">
+                  <h3 class="category-title"><?php echo $category['name']; ?></h3>
+                   </a> </header>
+                  
+                  <div id="featured-products" style="height: 431px;">
+                  
+                   <?php if ($products) { ?> 
+                   <?php foreach ($products as $product) { ?>                  
+                    <div class="gutter-01 ">
+                      <div class="col-06 no-benefits">
+                          <div class="content-box tertiary all">
+                            <div class="productBlock"> <img class="badge" alt=" " src="<?php echo $res; ?>image/TNF_PDP_Badges_Best_Seller_84x84.png"> <a href="<?php echo $product['href']; ?>"> <img src="<?php echo $res; ?><?php echo $product['image']; ?>" alt=" "> </a>
+                              <div class="productInfo">                                
+                                <div class="productName"> <a href="<?php echo $product['href']; ?>" title=" "><?php echo $product['name']; ?></a> </div>
+                                <div class="productPrice"><?php echo $product['price']; ?></div>
+                              </div>
+                              <div class="divider-sfr"></div>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                   <?php } ?>
+                  <?php } ?>
+                </div>
+                 
+              </section>
+              <?php } ?>
+             <?php } ?>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<?php echo $footer; ?>

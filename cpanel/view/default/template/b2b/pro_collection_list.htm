@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<script type="text/javascript"
+	src="<?php echo $res; ?>javascript/b2b/cj_object.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="<?php echo $res; ?>stylesheet/default.css" />
+</head>
+<body>
+	<div id="content">
+		<div class="box">
+			<div class="heading">
+				<h1>
+					<img src="<?php echo $res; ?>image/country.png" alt="" /> 产品分析
+				</h1>
+			</div>
+			<script>
+				function cj_event(ev) {
+					if (ev.id == EVENTID_ERROR) {
+						alert(ev.desc); //采集器发生错误了
+						return;
+					}
+
+					if (ev.id == EVENTID_DB_OK) {
+						alert(ev.desc); //数据检测完成（已初始化）
+						return;
+					}
+
+					if (ev.id == EVENTID_PAGE_LOAD) //载入了一个页面
+					{
+						var cont = ev.content;
+						input_title.value = cont.title;
+						input_descript.value = cont.description;
+						input_keywords.value = cont.keywords;
+
+						//        static_script.value = cont.script; //显示静态页脚本
+						return;
+					}
+
+					if (ev.id == EVENTID_ADD_TASK) //新增了一个任务
+					{
+						//       input_task_url.value = ev.url;
+						return;
+					}
+				}
+				function clear_task() {
+					if (typeof (_dba) == "object") {
+						_dba.delete_all_task();
+						_cj.reset();
+					}
+				}
+				function clear_product() {
+					if (typeof (_dba) == "object") {
+						_dba.delete_all_product();
+					}
+				}
+				function clear_seller() {
+					_dba.delete_all_seller();
+				}
+				function pause() {
+					if (typeof (_cj) == "object") {
+						if (_cj.running) {
+							_cj.running = false;
+							button_pause.innerText = "恢复";
+						} else {
+							_cj.running = true;
+							button_pause.innerText = "暂停";
+						}
+					}
+				}
+				function resume() {
+					if (typeof (_cj) == "object") {
+						_cj.running = true;
+						button_pause.innerText = "暂停";
+					}
+				}
+
+				function aliexpress_cj() {
+					if (typeof (_dba) == "object") {
+						_dba
+								.add_task(100001629, TASK_IS_ALIEXPRESS_LIST,
+										0,
+										"http://www.aliexpress.com/category/100001629/electronic-toys.html");
+						resume();
+					}
+				}
+				function alibaba_cj() {
+					if (typeof (_dba) == "object") {
+						_dba.add_task(109, TASK_IS_ALIBABA_LIST, 0,
+								"http://www.alibaba.com/Seafood_pid109");
+						resume();
+					}
+				}
+				function taobao_cj() {
+					if (typeof (_dba) == "object") {
+						_dba
+								.add_task(
+										0,
+										TASK_IS_TAOBAO_LIST,
+										0,
+										"http://list.taobao.com/itemlist/market/food2011.htm?spm=1.6659421.a214722.83.bfPhXB&scm=1220.11.7.1&cat=50108542&sd=0&md=5221&viewIndex=1&as=0&atype=b&style=grid&same_info=1&tid=0&isnew=2&_input_charset=utf-8");
+						resume();
+					}
+				}
+
+				function taobao_detail_cj() {
+					var url = "http://detail.tmall.com/item.htm?id=18544364128&source=dou&scm=1029.newlist-0.bts4.50108542&ppath=&sku=&ug=";
+					var pid = 18544364128;
+					if (false)
+						test_url.value = url;
+					else {
+						_dba.add_task(pid, TASK_IS_TAOBAO_ITEM, 1, url);
+						resume();
+					}
+				}
+				function aliexpress_detail_cj() {
+					_dba
+							.add_task(
+									1561475979,
+									TASK_IS_ALIEXPRESS_ITEM,
+									1,
+									"http://www.aliexpress.com/item/1-Pcs-New-Robotic-Cute-Electronic-Walking-Pet-Dog-Puppy-Kids-Toy-With-Music-Light-Free/1561475979.html");
+					resume();
+				}
+				function alibaba_detail_cj() {
+					var pid = 915186871;
+					var url = "http://www.alibaba.com/product-detail/CANNED-MACKEREL-IN-TOMATO-SAUCE-425G_915186871.html";
+					_dba.add_task(pid, TASK_IS_ALIBABA_ITEM, 1, url);
+					resume();
+				}
+
+				var test_wnd = external.get_window(3);
+				function browse(url) {
+					test_wnd.open(url);
+					test_wnd.show("show");
+				}
+				function show_src() {
+					source_text.value = test_wnd.document.source_code;
+				}
+			</script>
+
+			<table class="form">
+				<tr>
+					<td>淘宝：
+					  <select>
+						<option value="1" selected="selected">蔬菜</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+					  </select>
+					  <button onclick="taobao_cj();">列表</button>
+					  <button onclick="taobao_detail_cj();">单个</button></td>
+				</tr>
+				<tr>
+					<td>阿里：
+					  <select>
+					    <option value="1" selected="selected">水产</option>
+					    <option value="2">2</option>
+						<option value="3">3</option>
+					  </select>
+					  <button onclick="alibaba_cj();">列表</button>
+					  <button onclick="alibaba_detail_cj();">单个</button>
+					</td>
+				</tr>
+				<tr>
+					<td>速卖：
+					  <select>
+					    <option value="1" selected="selected">玩具</option>
+					    <option value="2">2</option>
+						<option value="3">3</option>
+					  </select>
+					  <button onclick="aliexpress_cj();">列表</button>
+					  <button onclick="aliexpress_detail_cj();">单个</button>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<button id="button_pause" onclick="pause();">暂停</button> &nbsp;
+						<button onclick="clear_task();">清空任务</button> &nbsp;
+						<button onclick="clear_product();">清空产品库</button> &nbsp;
+						<button onclick="clear_seller();">清空卖家库</button>
+					</td>
+				</tr>
+			</table>
+
+			<br>
+			<hr>
+			<b>采集状态:</b> <br>
+			<table class="form">
+				<tr>
+					<td>TITLE:</td>
+					<td><input id="input_title" size="90" /><br></td>
+				</tr>
+				<tr>
+					<td>DESCRIPT:</td>
+					<td><input id="input_descript" size="90" /><br></td>
+				</tr>
+				<tr>
+					<td>KEYWORDS:</td>
+					<td><input id="input_keywords" size="90" /><br></td>
+				</tr>
+				<tr>
+					<td>新增任务:</td>
+					<td><input id="input_task_url" size="90" /><br></td>
+				</tr>
+				<tr>
+					<td>静态页脚本:</td>
+					<br>
+					<td><textarea id="static_script" cols="90"></textarea></td>
+				</tr>
+			</table>
+			<br>
+			<hr>
+
+			<b>动态页分析器</b><br>
+			<table bordercolor="#efefef" border="2" bgcolor="#cdcdcd" width="900"
+				height="800">
+				<tr>
+					<td valign="top"><br> 请输入URL: <br> <input
+						type="text" id="test_url" size="86"
+						value="http://hz.my.data.alibaba.com/self/keyword.htm?tracelog=biz_ma_home_gs">
+						&nbsp;
+						<button onclick="browse(test_url.value);">Go</button> <br> <textarea
+							id="source_text" cols="90" rows="30"></textarea> <br>
+						<button onclick="show_src();">查看源码</button> <br> <br> <b>提示:</b>页面完全载入后，点查看源码按钮，把源码复制并保存成XML文件，用XML阅读器分析HTML结构，进行模板编辑。
+						<br></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

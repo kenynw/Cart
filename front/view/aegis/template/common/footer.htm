@@ -1,0 +1,75 @@
+<div id="footer">
+  <div class="row">
+    <div class="gutter-05">
+      <div class="col-08 social">
+        <div id="locate">
+          <h3 class="alt"><?php echo $text_tracking; ?></h3>
+          <form action="#" class="inline" method="get">
+            <input class="zip-code" id="zipcode" name="zipcode" title="Zip Code" type="text" value="Zip Code">
+            <input class="arrow-submit" id="subscribe_submit" src="<?php echo $res; ?>template/default/image/blank.gif" title="Submit" type="image">
+          </form>
+        </div>
+      </div>
+      <div class="col-08 social">
+        <div id="subscribe">
+          <h3 class="alt"><?php echo $text_email; ?></h3>
+          <form class="inline">
+            <input type="hidden" name="storeId" value="207">
+            <input type="hidden" name="langId" value="-1">
+            <input class="email" title="Email Address" type="text" value="email@example.com">
+            <input class="arrow-submit" id="subscribe_submit" src="<?php echo $res; ?>template/default/image/blank.gif" title="Submit" type="image">
+            <div class="error-message">Please submit a valid email address</div>
+          </form>
+        </div>
+      </div>
+      <div class="col-08 social">
+        <div id="social-icons">
+          <h3 class="alt"><?php echo $text_contact; ?></h3>
+          <ul>
+            <li> <a href="#" class="blog" target="_blank">Blog</a> </li>
+            <li> <a href="#" class="youtube" target="_blank">Youtube</a> </li>
+            <li> <a href="#" class="facebook" target="_blank">Facebook</a> </li>
+            <li> <a href="#" class="twitter" target="_blank">Twitter</a> </li>
+            <li> <a href="#" class="pinterest" target="_blank">Pinterest</a> </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+        			
+  <div class="full-width">
+    <div class="row" id="footer-nav">
+      <div class="col-24">
+        <?php if($menu_list) {?>
+        <ul class="nav">        
+        <?php foreach($menu_list as $item){?>
+          <li class="drop-up"> <a href="<?php echo $item['href']; ?>" ><?php echo $item['name']; ?></a>          
+          <?php if($item['item']) {?>          
+          <ul>
+          <?php foreach($item['item'] as $tmp) {?>
+          <li> <a href="<?php echo $tmp['href']; ?>"><?php echo $tmp['name']; ?></a> </li> 
+          <?php } ?>          
+          </ul>          
+          <?php } ?>         
+          </li>
+          <?php } ?>                   
+        </ul>
+        <?php } ?>
+        <div class="row" id="copyright">
+          <div class="gutter-08">
+            <div class="col-24">
+              <div class="copyright"> © Aegis<sup>®</sup> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+</div>
+</body></html>

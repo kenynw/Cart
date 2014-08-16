@@ -1,0 +1,187 @@
+<?php echo $header; ?>
+<style>
+#wrapper, .wrapper {
+  width:992px;
+  margin:0 auto;
+  padding:0 23px;
+}
+#wrapper-l {
+  float: none;
+  width:448px;
+  margin-left: auto; 
+  margin-right: auto; 
+}
+#wrapper-r {
+  float:right;
+  width:448px;
+  margin-right:32px;
+}
+#wrapper .login-sign-tips {
+  margin-left:32px;
+}
+.login-sign-tips {
+  font:18px Georgia;
+  color:#333;
+  margin:20px 0;
+}
+
+.w-signInGuide .mainboxV2 {
+  font:12px Verdana;
+  color:#000;
+}
+.w-signInGuide table {
+  width:100%;
+}
+.w-signInGuide th {
+  line-height:150%;
+}
+.w-signInGuide td, .w-signInGuide th {
+  padding:8px 5px;
+  vertical-align:top;
+}
+.w-signInGuide .inputcol {
+  width:220px;
+}
+.w-signInGuide .inputcol a {
+  padding-top:5px;
+  display:inline-block;
+}
+.w-signInGuide .inputcol input.text {
+  width:260px;
+  padding:1px;
+  height:20px;
+  font:bold 13px arial;
+}
+.w-signInGuide form p a {
+  margin-top:15px;
+}
+.w-signInGuide .fb-sep {
+  margin:20px -10px 20px -10px;
+  position:relative;
+  background-color:#cccccc;
+  height:1px;
+}
+
+.w-signInGuide .fb-sep span {
+  background-color:#EEEEEE;
+  position: absolute;
+  top:-7px;
+  right:13px;
+  padding: 0 8px;
+  font-weight:bold;
+  color:#333;
+  font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.w-scCreatNewAccount .mainbox {
+  position:relative;
+  padding:10px;
+  font:12px Verdana;
+  color:#333;
+}
+.w-scCreatNewAccount .mainbox .indicates {
+  color:#666;
+  font-size:10px;
+}
+
+.w-scCreatNewAccount table {
+  width:100%;
+}
+.w-scCreatNewAccount th {
+  width:45%;
+  line-height:150%;
+}
+.w-scCreatNewAccount td, .w-scCreatNewAccount th {
+  padding:8px 5px;
+  vertical-align:top;
+}
+.w-scCreatNewAccount .inputcol {
+  width:220px;
+}
+.w-scCreatNewAccount .inputcol .lightGray {
+  font-size:10px;
+  margin-top:5px;
+  color:#999;
+}
+.w-scCreatNewAccount .inputcol input.text {
+  width:216px;
+  padding:1px;
+  height:20px;
+  font:bold 13px arial;
+  color:#333;
+}
+.w-scCreatNewAccount .inputcol select {
+  width:220px;
+  border:1px solid #ccc;
+  height:20px;
+}
+.errorInfo, .errorInfo a:link {
+  color:#990000;
+  margin-top:5px;
+}
+.required {
+  color:#990000;
+}
+.w-scCreatNewAccount table .required {
+  float:left;
+  width:6px;
+  margin:0 5px 0 -7px;
+}
+.w-scCreatNewAccount p .required {
+  color:#990000;
+  margin-left:-2px;
+}
+.w-scCreatNewAccount form p a {
+  margin-top:15px;
+}
+</style>
+
+
+<?php if ($success) { ?>
+<div class="success"><?php echo $success; ?></div>
+<?php } ?>
+<?php if ($error_warning) { ?>
+<div class="warning"><?php echo $error_warning; ?></div>
+<?php } ?>
+<div id="wrapper" class="widget">
+  <div id="wrapper-l">
+    <!-- widget-sign-in -->
+    <div class="widget w-signInGuide">
+      <div class="w-rHeadingV2"><h2><span><?php echo $heading_title; ?></span></h2></div>
+      <div class="mainboxV2">
+        <form action="<?php echo $action; ?>" method="post">
+          <input type="hidden" name="action" value="accountLogin">
+          <input type="hidden" name="targetUrl" value="">
+          <table cellspacing="0">
+            <tbody>
+              <tr>
+                <th><?php echo $entry_email; ?></th>
+                <td class="inputcol">
+                  <input type="text" name="login_email_address" value="<?php echo $email; ?>" class="text elmbBlur" id="loginEmail" maxlength="96" autocomplete="off">
+                  <p class="errorInfo red"></p>
+                  <input type="text" style="display: none">
+                </td>
+              </tr>
+              <tr>
+                <th><?php echo $entry_password; ?></th>
+                <td class="inputcol">
+                  <input type="password" name="login_password" value="<?php echo $password; ?>" class="text elmbBlur" id="loginPassword" maxlength="40">
+                  <p class="errorInfo red"></p>
+                  <p>
+                    <a href="<?php echo $forgotten; ?>" class="gray u" title="Forgot your password?"><?php echo $text_forgotten; ?></a>
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="clearfix">
+            <a href="javascript:void(0);" class="right" tabindex="3">
+              <input type="image" alt="Sign In" title="Sign In" src="<?php echo $res; ?>image/transparent.gif" class="litb-btn signInBtn right">
+            </a>
+          </p>
+        </form>
+    </div>
+  </div>
+</div>
+</div>
+<?php echo $footer; ?>

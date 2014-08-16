@@ -1,0 +1,32 @@
+<?php echo $header; ?>
+<div style="margin:0 auto; width:100%; background:#f4f4f4 url(images/bg_about.jpg) center top no-repeat; padding-top:20px; ">
+  <div class="main_2">
+    <div class="left">
+      <div class="title_3"> <?php echo $cate['name']; ?> </div>
+      <div class="menu3">
+        <ul>
+          <?php if ($list){ ?>
+          <?php foreach($list as $tmp) {?>
+          <li <?php if(isset($item['information_id']) && ($tmp['information_id'] == $item['information_id'])) { ?> class="current" <?php } ?> ><a href="<?php echo $tmp['href']; ?>"><?php echo $tmp['name']; ?></a></li>
+          <?php } ?>
+          <?php } ?>
+        </ul>
+        <p style="clear:both;"></p>
+      </div>
+      <div class="bottom_3"> </div>
+    </div>
+    <div class="right">
+      <div class="top_4"> </div>
+      <div class="box_4">
+      <?php if($list) { ?>
+        <h2><?php echo $item['name'];?></h2>
+        <p><?php echo $item['description']; ?></p>
+      <?php }?>
+      </div>
+      <div class="bottom_4"> </div>
+      <div class="backtop"> <a href="#"><img src="/image/data/top1/backtop.gif"></a> </div>
+    </div>
+  </div>
+  <p style="clear:both;"></p>
+</div>
+<?php echo $footer; ?>

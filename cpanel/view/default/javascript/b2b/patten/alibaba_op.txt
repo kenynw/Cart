@@ -1,0 +1,74 @@
+
+keyword-filter {
+	DIV[id="J-keyword-filter"] {
+		INPUT[id="J-filter-keyword"]=>$input
+		A[id="J-filter-search"]=>$go
+	}
+}
+
+type-select {
+	DIV[id="J-statistics-type-month"] { A=>$month_link { "按月统计" } }
+	DIV[id="J-statistics-weeks"] { A=>$week_link }
+}
+
+page-info {
+	DIV[id="J-pagination-simple"] {
+		LABEL[class="ui-label"] { "%s"=>$info }
+	}
+}
+
+page-goto {
+	DIV[class="ui-pagination-navi util-left"] {
+		A[href="javascript:void(0);"] =>$list[] { "%s"=>$num }
+	}
+	DIV[class="ui-pagination-goto util-right"] {
+		LABEL { INPUT=>$input }
+		BUTTON=>$go
+	}
+}
+
+keyword-table {
+	TABLE[id="J-keyword-table"] {
+		A[class="J-keyword" data-keyword=>$keyword]=>$list[]
+	}
+}
+
+base-stat {
+	TABLE[class="group-base J-statistics-table"] {
+		record =>$list[] {
+			TR[class="J-table-hover"] {
+				TD { "%s"=>$a }
+				TD { "%s"=>$b }
+				TD { "%s"=>$c }
+				TD { A[class="J-product-rank"] =>$d }
+			}
+		}
+	}
+}
+
+p4p-stat {
+	TABLE[class="group-p4p J-statistics-table"] {
+		record =>$list[] {
+			TR[class="J-table-hover"] {
+				TD { "%s"=>$a }
+				TD { "%s"=>$b }
+				TD { "%s"=>$c }
+				TD { "%s"=>$d }
+				TD { "%s"=>$e }
+			}
+		}
+	}
+}
+
+other-stat {
+	TABLE[class="group-other J-statistics-table"] {
+		record =>$list[] {
+			TR[class="J-table-hover"] {
+				TD { "%s"=>$a }
+				TD { "%s"=>$b }
+				TD { "%s"=>$c }
+				TD { "%s"=>$d }
+			}
+		}
+	}
+}

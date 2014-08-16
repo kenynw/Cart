@@ -1,0 +1,44 @@
+<div id="footer">
+  <div id="footer-contents">
+    <div class="footerNavlink">
+      <?php if($menu_list){?>
+      <?php foreach($menu_list as $list){?>
+      <ul class="footerNav">
+        <li>
+          <h5><?php echo $list['name']; ?></h5>
+        </li>
+        <?php if ($list['item']) {?>
+        <?php foreach($list['item'] as $item){?>
+        <li><a href="<?php echo $item['href']; ?>" title="<?php echo $item['name']; ?>" rel="nofollow"><?php echo $item['name']; ?></a></li>
+        <?php } ?>
+        <?php } ?>
+      </ul>
+      <?php } ?>
+      <?php } ?>
+      <ul class="footerNavSocials">
+        <li id="monetateFooterCol4" style="margin-left: -8px; padding-bottom: 0px;">
+          <div style="text-align: center;">
+            <div style="margin: 0px auto; position: relative; width: 195px;">
+              <div class="monetate_email_form_0" style="width: 100%; height: 0px; position: relative;">
+                <form action="/" method="post">
+                  <input type="text" name="email" style="width: 132px; height: 17px; background-color: transparent; border: none; position: absolute; top: 29px; left: 20px; color: rgb(153, 153, 153); padding: 0px; font-size: 13px; background-position: initial initial; background-repeat: initial initial;">
+                </form>
+                <a style="display: block; position: absolute; left: 159px; top: 27px; width: 22px; height: 20px; background-color: black; opacity: 0; cursor: pointer; background-position: initial initial; background-repeat: initial initial;"></a></div>
+              <img src="<?php echo $res; ?>image/signup.png"></div>
+          </div>
+        </li>
+        <li class="socialsHead"> <span>FOLLOW :</span> <a class="social-facebook" rel="nofollow" href="/" target="_blank" title="Facebook">Facebook</a> <a class="social-twitter" rel="nofollow" href="/" target="_blank" title="Twitter">Twitter</a> <a class="social-youtube" rel="nofollow" href="/" target="_blank" title="YouTube">YouTube</a> <a class="social-pinterest" rel="nofollow" href="/" target="_blank" title="Pinterest">Pinterest</a> </li>
+      </ul>
+    </div>
+    <div id="copy">版权所有&nbsp;&nbsp;&nbsp;&nbsp;2014&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $company; ?>&nbsp;&nbsp;&nbsp;&nbsp;
+      <div id="social">
+        <ul id="footerSocials">
+          <li class="socialsHead">FOLLOW US ON: </li>
+          <li><a class="social-facebook" href="/" title="Facebook">Facebook</a> <a class="social-twitter" href="/" title="Twitter">Twitter</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</body></html>

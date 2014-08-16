@@ -1,0 +1,21 @@
+<?php
+$_['lang_btn_status']           = 'ステータス変更';
+$_['lang_order_channel']        = '注文チャンネル';
+$_['lang_confirmed']            = '件の注文がマークされました:';
+$_['lang_no_orders']            = '注文情報が選択されていません';
+$_['lang_confirm_title']        = '確認 一括更新';
+$_['lang_confirm_change_text']  = '変更後のステータス';
+$_['lang_column_addtional']     = '追加情報';
+$_['lang_column_comments']      = 'コメント';
+$_['lang_column_notify']        = '顧客に通知する';
+$_['lang_carrier']              = 'キャリア';
+$_['lang_tracking']             = 'トラッキング';
+$_['lang_other']                = 'その他';
+$_['lang_refund_reason']        = '払い戻し理由';
+$_['lang_refund_message']       = '払い戻しメッセージ';
+$_['lang_update']               = '更新';
+$_['lang_cancel']               = 'キャンセル';
+$_['lang_e_ajax_1']             = 'A play order is missing a refund message!';
+$_['lang_e_ajax_2']             = 'A play order is missing tracking info!';
+$_['lang_e_ajax_3']             = 'An Amazon order is missing an "Other Carrier" entry!';
+$_['lang_title_order_update']   = '注文一括更新';

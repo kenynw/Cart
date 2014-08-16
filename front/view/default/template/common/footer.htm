@@ -1,0 +1,21 @@
+<div id="footer">
+  <?php if ($menu_list) { ?>
+  <?php foreach($menu_list as $list){?>
+  <div class="column">
+    <h3><?php echo $list['name']; ?></h3>
+    <ul>
+      <?php if ($list['item']) {?>
+      <?php foreach($list['item'] as $item){?>
+      <li><a href="<?php echo $item['href']; ?>"><?php echo $item['name']; ?></a></li>
+      <?php } ?>
+      <?php } ?>
+    </ul>
+  </div>
+  <?php } ?>
+  <?php } ?>
+  <div id="copyright"><?php echo $copyright; ?></div>
+</div>
+</div>
+</body>
+</html>
+

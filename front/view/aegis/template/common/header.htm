@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html dir="<?php echo $direction; ?>" lang="<?php echo $lang; ?>">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title><?php echo $title; ?></title>
+<?php if ($meta_keywords) { ?>
+<meta name="keywords" content="<?php echo $meta_keywords; ?>" />
+<?php } ?>
+<?php if ($meta_description) { ?>
+<meta name="description" content="<?php echo $meta_description; ?>" />
+<?php } ?>
+<link rel="stylesheet" type="text/css" href="<?php echo $res; ?>stylesheet/ecomSFR.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $res; ?>stylesheet/tab.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $res; ?>stylesheet/default.css" />
+<script type="text/javascript" src="<?php echo $res; ?>javascript/jquery/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="<?php echo $res; ?>javascript/common.js"></script>
+<script type="text/javascript" src="<?php echo $res; ?>javascript/product.js"></script>
+<?php if ($stores) { ?>
+<script type="text/javascript"><!--
+$(document).ready(function() {
+<?php foreach ($stores as $store) { ?>
+$('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></iframe>');
+<?php } ?>
+});
+//--></script>
+<?php } ?>
+</head>
+<body class="platform-default published" data-locale="en-US">
+
+<script type="text/javascript" src="<?php echo $res; ?>javascript/global.js"></script> 
+<script type="text/javascript" src="<?php echo $res; ?>javascript/application.js"></script>
+<div class="header">
+  <div id="toolbar">
+    <div class="row">
+      <div class="col-24">
+        <?php if ($logo) { ?>
+        <div class="logo"> <a href="/"><img width="69" height="69" src="<?php echo $logo; ?>" title="<?php echo $title; ?>" alt="<?php echo $title; ?>" /></a> </div>
+        <?php } ?>
+        <div id="search" class="search-box">
+          <input class="search-submit" type="image" src="<?php echo $res; ?>image/search-button.png" />
+          <input name="search" type="text" placeholder="<?php echo $text_search; ?>" class="search-input ui-autocomplete-input" value="<?php echo $search; ?>" />
+        </div>
+        <div class="util-nav">
+          <ul>
+            <li class="mini-cart"> ( <?php echo $cart_num; ?> ) <span></span></li>
+            <?php if ($languages) { ?>
+            <li class="locale-selector"><span></span> <a href="javascript:void(0);"><?php echo $text_language; ?><span></span></a>
+              <div class="util-dropdown countries">
+                <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
+                  <ul>
+                    <?php foreach ($languages as $language) { ?>
+                    <?php if ($language['code'] == $language_code) { ?>
+                    <li><a title="<?php echo $language['name']; ?>"> <img src="image/flags/<?php echo $language['image']; ?>" alt="<?php echo $language['name']; ?>" title="<?php echo $language['name']; ?>" border="0" /> <?php echo $language['name']; ?> </a></li>
+                    <?php }else{ ?>
+                    <li style="cursor:pointer;"><a href="javascript:void(0);" title="<?php echo $language['name']; ?>" onclick="$('input[name=\'language_code\']').attr('value', '<?php echo $language['code']; ?>'); $(this).parent().parent().submit();"> <img src="image/flags/<?php echo $language['image']; ?>" alt="<?php echo $language['name']; ?>" title="<?php echo $language['name']; ?>" border="0" /> <?php echo $language['name']; ?> </a></li>
+                    <?php }?>
+                    <?php } ?>
+                    <input type="hidden" name="language_code" value="" />
+                    <input type="hidden" name="redirect" value="<?php echo $redirect; ?>" />
+                  </ul>
+                </form>
+              </div>
+            </li>
+            <?php } ?>
+            <?php if ($currencies) { ?>
+            <li class="customer-service"> <span></span> <a><?php echo $text_currency; ?><span></span></a>
+              <div class="util-dropdown">
+                <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
+                  <ul>
+                    <?php foreach ($currencies as $currency) { ?>
+                    <?php if ($currency['code'] == $currency_code) { ?>
+                    <?php if ($currency['symbol_left']) { ?>
+                    <li><a title="<?php echo $currency['title']; ?>"><b><?php echo $currency['symbol_left']; ?> <?php echo $currency['code']; ?> </b></a></li>
+                    <?php } else { ?>
+                    <li><a title="<?php echo $currency['title']; ?>"><b><?php echo $currency['code']; ?> <?php echo $currency['symbol_right']; ?></b></a></li>
+                    <?php } ?>
+                    <?php } else { ?>
+                    <?php if ($currency['symbol_left']) { ?>
+                    <li style="cursor:pointer;"><a title="<?php echo $currency['title']; ?>" onclick="$('input[name=\'currency_code\']').attr('value', '<?php echo $currency['code']; ?>'); $(this).parent().parent().submit();"><?php echo $currency['symbol_left']; ?> <?php echo $currency['code']; ?></a></li>
+                    <?php } else { ?>
+                    <li style="cursor:pointer;"><a title="<?php echo $currency['title']; ?>" onclick="$('input[name=\'currency_code\']').attr('value', '<?php echo $currency['code']; ?>'); $(this).parent().parent().submit();"><?php echo $currency['code']; ?> <?php echo $currency['symbol_right']; ?></a></li>
+                    <?php } ?>
+                    <?php } ?>
+                    <?php } ?>
+                    <input type="hidden" name="currency_code" value="" />
+                    <input type="hidden" name="redirect" value="<?php echo $redirect; ?>" />
+                  </ul>
+                </form>
+              </div>
+            </li>
+            <?php } ?>
+            <?php if ($logged) { ?>
+            <li class="sign-in"> <span></span> <a href="<?php echo $register; ?>"><?php echo $text_register; ?></a></li>
+            <li class="sign-in"> <span></span> <a href="<?php echo $login; ?>"><?php echo $text_login; ?></a></li>
+            <?php } else { ?>
+            <li class="my-account" id="my-account"> <span></span> <a><?php echo $text_account; ?><span></span></a>
+              <div id="account-panel" class="util-dropdown">
+                <ul>
+                  <li class="greeting"><?php echo $text_welcome; ?></li>
+                  <li><a href="<?php echo $wishlist; ?>" id="wishlist-total"><?php echo $text_wishlist; ?></a> </li>
+                  <li><a href="<?php echo $shopping_cart; ?>"><?php echo $text_shopping_cart; ?></a></li>
+                  <li><a href="<?php echo $checkout; ?>"><?php echo $text_checkout; ?></a></li>
+                  <li><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a></li>
+                  <li><a href="<?php echo $logout; ?>"><?php echo $text_logout; ?></a></li>
+                </ul>
+              </div>
+            </li>
+            <?php } ?>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="nav">
+    <div id="nav-inner">
+      <ul class="main-menu">
+        <?php if($categories) {?>
+        <?php foreach($categories as $category){?>
+        <li> <a data-dropdown="<?php echo $category['category_id']; ?>" href="<?php echo $category['href']; ?>"> <?php echo $category['name']; ?> <span class="arrow"></span> </a> </li>
+        <?php } ?>        
+        <?php } ?>
+        <li class="header-promo"><img src="<?php echo $res; ?>image/05_DEC-FreeGoundOn50.PNG" alt="" width="167" height="45" /></li>
+      </ul>
+    </div>
+    <div id="nav-shadow"></div>
+  </div>
+  <div id="nav-dropdowns">
+    <div id="nav-dropdowns-inner">
+      <?php if($categories) {?>
+      <?php foreach($categories as $category){?>
+      <div class="dropdown <?php echo $category['category_id']; ?>">        
+        <?php if (count($category['item'])>1) { ?>
+        <div class="category">
+          <h3><a href="<?php echo $category['href']; ?>"> <?php echo $category['name']; ?> <span>All</span></a></h3>
+        </div>
+        <div class="col-container"> 
+        <?php for ($i = 0; $i < count($category['item']);) { ?>
+        <div class="sub-category-col">
+          <ul>
+          <?php $j = $i + ceil(count($category['item']) / $category['column']); ?>
+          <?php for (; $i < $j; $i++) { ?>
+          <?php if (isset($category['item'][$i])) { ?>
+          <li><a href="<?php echo $category['item'][$i]['href']; ?>"><?php echo $category['item'][$i]['name']; ?></a></li>          
+          <?php } ?>
+          <?php } ?>
+         </ul>
+        </div>
+        <?php } ?>
+        <div class="sub-category-col featured"> <a href="">
+            <div class="product">
+              <img alt="" src="<?php echo $res; ?>men-kilowatt-jacket-A9KF_H6F_hero.jpg">
+              <p></p>
+            </div>
+            </a> </div>
+        </div>
+      <?php } ?> 
+      </div>
+      <?php } ?>
+      <?php } ?>
+      
+      
+      <div class="dropdown exploration">
+        <div class="quarter-col"> <a href="#" class="item-img" >
+          <div class="img"> <img height="114" src="./Free Ground Shipping on Orders $50+   The North Face®_files/3573-undefined" width="213"> <span></span> </div>
+          <h3>CLIMBING &amp; HIKING</h3>
+          </a></div>
+        <div class="quarter-col"> <a href="#" class="item-img" >
+          <div class="img"> <img height="114" src="./Free Ground Shipping on Orders $50+   The North Face®_files/3578-undefined" width="213"> <span></span> </div>
+          <h3>SKIING &amp; SNOWBOARDING</h3>
+          </a></div>
+        <div class="quarter-col"> <a href="#" class="item-img" >
+          <div class="img"> <img height="114" src="./Free Ground Shipping on Orders $50+   The North Face®_files/3577-undefined" width="213"> <span></span> </div>
+          <h3>RUNNING &amp; YOGA</h3>
+          </a></div>
+        <div class="quarter-col"> <a href="#" class="item-img" >
+          <div class="img"> <img alt="" height="114" src="./Free Ground Shipping on Orders $50+   The North Face®_files/4098-undefined" width="213"> <span></span> </div>
+          <h3>MOUNTAIN ATHLETICS</h3>
+          </a></div>
+          
+          <div class="quarter-col"> <a href="#" class="item-img" >
+          <div class="img"> <img height="114" src="./Free Ground Shipping on Orders $50+   The North Face®_files/3573-undefined" width="213"> <span></span> </div>
+          <h3>CLIMBING &amp; HIKING</h3>
+          </a></div>
+        <div class="quarter-col"> <a href="#" class="item-img" >
+          <div class="img"> <img height="114" src="./Free Ground Shipping on Orders $50+   The North Face®_files/3578-undefined" width="213"> <span></span> </div>
+          <h3>SKIING &amp; SNOWBOARDING</h3>
+          </a></div>
+
+      </div>
+      
+    </div>
+  </div>
+</div>

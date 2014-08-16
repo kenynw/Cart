@@ -1,0 +1,43 @@
+<?php echo $header; ?>
+<div id="content">
+  <div id="wrapper" class="widget">
+    <div id="column-left">
+      <div id="wrapper-l">
+
+        <?php echo $column_left; ?>
+
+        
+        <div class="widget w-wordsOfUser">
+          <div class="widget page-heading"><h2>Customer Testimonials</h2></div>
+          <blockquote> 
+            <cite><span>I'm thrilled beyond belief. It fits perfectly and I look amazing. I'm so happy. Thank you light in the box!</span></cite>
+            <p><img src="<?php echo $res; ?>image/us.gif">Nicole Kachnik</p>
+          </blockquote>
+          <a class="clear right more" href="#" title="More Customer Testimonials">View more&nbsp;»</a> 
+        </div>
+        <div class="widget w-evidence">
+          <h4>Trustful</h4>
+          <p>A professional and reliable online shopping center providing a
+            variety of hot selling products at reasonable prices and shipping
+            them globally.</p>
+        </div>
+        <div class="widget w-popularTags">
+          <div class="widget page-heading">
+            <h2>Popular Searches</h2>
+          </div>
+          <p>
+            <?php if(isset($searches)) {?>
+            <?php foreach($searches as $searche) {?>
+            <a href="<?php echo $searche['href']; ?>"><?php echo $searche['name']; ?></a>,
+            <?php }?>
+            <?php }?>
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <div id="wrapper-r"><?php echo $content_top; ?></div>
+    
+  </div>
+</div>
+<?php echo $footer; ?>

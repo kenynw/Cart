@@ -1,0 +1,30 @@
+<div class="widget w-grid w-mini-featured-category-withsub w-bottom w-mini-productList ctrTrackA ctrTrackShow ctrInfo">
+  <div class="widget page-heading"><h4 class="heading-title title-big">Shopping by Category</h4></div> 
+  <?php if(isset($categories)) {?> <?php foreach($categories as $category) {?> <?php if($category['children']) {$j=0;?>
+  <dl class="fourth" style="height: 286px;">
+    <dt>
+      <a entity="c_image" href="<?php echo $category['href']; ?>" title="<?php echo $category['name']; ?>">
+        <img data-lazy="" alt="" width="144" height="144" src="" />
+      </a>
+    </dt>
+    <dd>
+      <h2 class="main-category"><a entity="c_name" href="<?php echo $category['href']?>" title="<?php echo $category['name']; ?>">
+          <?php echo $category['name']; ?>
+        </a></h2>
+      <ul>
+        <?php foreach($category['children'] as $item) {?>
+        <?php if($j<=5) {?>
+        <li>
+          <h3>
+            <a entity="c_name" href="<?php echo $item['href']; ?>" title="<?php echo $item['href']; ?>">
+              <span></span>
+              <?php echo $item['name']; ?>
+            </a>
+          </h3>
+        </li>
+        <?php }?>
+        <?php $j = $j + 1;} ?>
+      </ul>
+    </dd>
+  </dl> <?php }?> <?php }?> <?php }?>
+</div>

@@ -1,0 +1,67 @@
+<?php echo $header; ?>
+
+<div id="content"><?php echo $content_top; ?>
+  <div id="frame">
+    <div id="breadcrumbsH1Wrapper">
+      <div id="crumbs">
+        <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+        <?php echo $breadcrumb['separator']; ?><a href="<?php echo $breadcrumb['href']; ?>" class="breadcrumb"><?php echo $breadcrumb['text']; ?></a>
+        <?php } ?>
+      </div>
+    </div>
+    <div id="align"> <?php echo $column_right; ?>
+      <div id="rCol">
+        <?php if ($thumb || $images) { ?>
+        <div class="r1w secSpace">
+          <?php if ($thumb) { ?>
+          <div id="gal">
+            <div id="galImg" style="height:400px !important;"> <a href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>"><img src="./images/pDSP1-18330329p275w.jpg" alt="<?php echo $heading_title; ?>" title="<?php echo $heading_title; ?>" border="0" /></a> </div>
+          </div>
+          <?php } ?>
+        </div>
+        <?php } ?>
+        <div style="width:413px; float:left;margin-left:40px; margin-top:1px;">
+          <div>
+            <div id="imgDis">
+              <h1 class="productHeading"><?php echo $heading_title; ?></h1>
+              <span class="printBlock">Item&nbsp;Number:&nbsp;<?php echo $model; ?></span>
+              <div class="prodpad allowConfig" id="prodpad">
+                <ul style="line-height:30px; padding-bottom:10px;">
+                  <label>Name : </label>
+                  <input type="text" maxlength="80" value="" />
+                </ul>
+                <ul style="line-height:30px; padding-bottom:10px;">
+                  <label>E-mail : </label>
+                  <input type="text" maxlength="80" value="" />
+                </ul>
+                <ul style="line-height:30px; padding-bottom:10px;">
+                  <label>Title : </label>
+                  <input type="text" maxlength="200" value="" />
+                </ul>
+                <ul style="line-height:30px; padding-bottom:10px;">
+                  <label>Content : </label>
+                  <textarea rows="10"></textarea>
+                </ul>
+                <ul style="line-height:30px; padding-bottom:10px;">
+                  <input type="button" name="submit" value="submit" />
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="FieldsetProductInfo">
+          <h2 class="prodInfoHeading">Product Information</h2>
+          <br class="clear" />
+          <ul>
+            <li><?php echo $description; ?></li>
+          </ul>
+        </div>
+        <div id="galScroll"></div>
+      </div>
+      <div style="clear:both; height:20px;"></div>
+    </div>
+    <div style="clear:both"></div>
+  </div>
+  <?php echo $content_bottom; ?>
+</div>
+<?php echo $footer; ?>
