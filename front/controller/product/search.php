@@ -113,7 +113,7 @@ class ControllerProductSearch extends Controller {
 			$categories_2 = $rsc->getCategories ( $category_1 ['category_id'] );
 			foreach ( $categories_2 as $category_2 ) {
 				$level_3_data = array ();
-				$categories_3 = $this->$rsc->getCategories ( $category_2 ['category_id'] );
+				$categories_3 = $rsc->getCategories ( $category_2 ['category_id'] );
 				foreach ( $categories_3 as $category_3 ) {
 					$level_3_data [] = array ( 'category_id' => $category_3 ['category_id'], 'name' => $category_3 ['name'] );
 				}

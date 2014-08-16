@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	/* Search */
-	$('.button-search').bind('click', function() {
-		url = $('base').attr('href') + 'index.php?route=product/search';
+	$('.search-button').bind('click', function() {
+		url = 'index.php?route=product/search';
 				 
 		var search = $('input[name=\'search\']').attr('value');
 		

@@ -1275,7 +1275,7 @@ label {
 	display: block;
 	margin-bottom: 5px
 }
-select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="tel"], input[type="color"], .uneditable-input {
 	display: inline-block;
 	height: 20px;
 	padding: 4px 6px;
@@ -5729,7 +5729,7 @@ button.btn.btn-mini, input[type="submit"].btn.btn-mini {
 	background-color: #fefdf9;
 	border: 0;
 	outline: 0;
-	-webkit-border-radius: 4px 0 0 4px;
+	-webkit-box-sizing: content-box;
 	-moz-border-radius: 4px 0 0 4px;
 	border-radius: 4px 0 0 4px;
 	font-size: 14px

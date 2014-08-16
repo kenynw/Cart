@@ -24,6 +24,13 @@ $RECYCLE.BIN/
 .DS_Store
 .AppleDouble
 .LSOverride
+/.git/
+/.settings/
+.buildpath
+.gitattributes
+.gitignore
+.project
+.classpath
 
 # Icon must ends with two \r.
 Icon
@@ -35,8 +42,3 @@ Icon
 # Files that might appear on external disk
 .Spotlight-V100
 .Trashes
-/.settings/
-.buildpath
-.classpath
-.gitattributes
-.project

@@ -146,13 +146,13 @@
       </dd>
     </dl>
     <!-------下拉菜单----->
-    <form action="#" method="get" target="_parent" class="search-form">
-      <input type="hidden" name="main_page" value="advanced_search_result">
-      <input type="hidden" name="inc_subcat" value="1">
-      <input type="hidden" name="search_in_description" value="0">
-      <input class="search-input" type="search" name="keyword" alue="" tabindex="1" id="keywords" qs_url="/query_suggestion/qs_server.b" autocomplete="off" lang="1">
-      <button class="search-button" type="submit"><?php echo $text_search; ?></button>
-    </form>
+    
+  <!-- 搜索 -->
+  <div id="search" class="search-form">
+    <input class="search-input" type="text" name="search">
+    <div class="search-button"></div>
+  </div>
+  <!-- 搜索 -->
     
     <dl class="nav-cart nav-cart-with-list nav-menu">
         <dt class="nav-button"><a href="http://www.lightinthebox.com/index.php?main_page=shopping_cart"><span><em id="navCartCount">1</em>Cart<i></i></span></a></dt>
