@@ -55,7 +55,7 @@ class ControllerModuleCart extends Controller {
 		
 		$this->data ['totals'] = $total_data;
 		
-		$this->data ['text_items'] = sprintf ( $this->language->get ( 'text_items' ), $this->cart->countProducts () + (isset ( $this->session->data ['vouchers'] ) ? count ( $this->session->data ['vouchers'] ) : 0), $this->currency->format ( $total ) );
+		$this->data ['text_items'] = sprintf ( $this->language->get ( 'text_items' ), $this->cart->countProducts () );
 		
 		$this->load->model ( 'tool/image' );
 		

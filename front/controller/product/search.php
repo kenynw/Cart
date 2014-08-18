@@ -16,6 +16,7 @@ class ControllerProductSearch extends Controller {
 		$rsp = new ModelCatalogProduct ( $this->registry );
 		$this->loadModel ( 'tool/image' );
 		$rsi = new ModelToolImage ( $this->registry );
+		$this->load->model('tool/image');
 		if (isset ( $this->request->get ['search'] )) {
 			$search = $this->request->get ['search'];
 		} else {
@@ -262,7 +263,7 @@ class ControllerProductSearch extends Controller {
 		$this->data ['order'] = $order;
 		$this->data ['limit'] = $limit;
 		$this->initTpl ( $this->route );
-		$this->children = array ( 'common/column_left', 'common/column_right', 'common/content_top', 'common/content_bottom', 'common/footer', 'common/header' );
+		$this->children = array ( 'common/footer', 'common/header' );
 		$this->response->setOutput ( $this->render () );
 	}
 }
