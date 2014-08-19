@@ -111,40 +111,40 @@
     </ul>
   </div>
   <!-------下拉菜单----->
-  <div class="widget nav-bar ">
-    <dl class="nav-shop-all nav-menu hover-show">
-      <dt class="nav-button"><a>SHOP ALL CATEGORIES</a></dt>
-      <dd class="nav-categories ctr-info ctr-track-a"  page="index" style="display: none; height: 335px; overflow: hidden; width: 236px;">
-        <ul>
-          <?php if($categories) { ?>
-            <?php foreach($categories as $category) { ?>              
-              <li data-left="{}, " style="width: 988px;">          
-                <h2><a  href="<?php echo $category['href']?>"><?php echo $category['name']?><em class="solid-color-arrow" style="display: none;"></em></a></h2>
-                <div class="nav-sub-categories" style="width: 717px; min-height: 335px; display: none;">
-                  <div class="cate-menu-sub">
-                    <?php if($category['item']) { $i=0;?>
-                      <?php foreach($category['item'] as $child) {?>
-                        <?php if($i%4 == 0) {?>
-                          <br class="clear">
-                        <?php }?>
-                        <dl>
-                          <dt><h3><a href="<?php echo $child['href'];?>"><?php echo $child['name']; ?></a></h3></dt>
-                          <?php if($child['item']) {?>
-                            <?php foreach($child['item'] as $item) {?>
-                              <dd><a href="<?php echo $item['href']?>"><?php echo $item['name']; ?></a></dd>
-                            <?php }?>
+<div class="widget nav-bar ">
+  <dl class="nav-shop-all nav-menu hover-show">
+    <dt class="nav-button"><a>SHOP ALL CATEGORIES</a></dt>
+    <dd class="nav-categories" style=" height: 335px; width: 236px;">
+      <ul>
+        <?php if($categories) { ?>
+          <?php foreach($categories as $category) { ?>              
+            <li data-left="{}, " style="width: 988px;">          
+              <h2><a  href="<?php echo $category['href']?>"><?php echo $category['name']?><em class="solid-color-arrow" style="display: none;"></em></a></h2>
+              <div class="nav-sub-categories" style="width: 717px; min-height: 335px; display: none;">
+                <div class="cate-menu-sub">
+                  <?php if($category['item']) { $i=0;?>
+                    <?php foreach($category['item'] as $child) {?>
+                      <?php if($i%4 == 0) {?>
+                        <br class="clear">
+                      <?php }?>
+                      <dl>
+                        <dt><h3><a href="<?php echo $child['href'];?>"><?php echo $child['name']; ?></a></h3></dt>
+                        <?php if($child['item']) {?>
+                          <?php foreach($child['item'] as $item) {?>
+                            <dd><a href="<?php echo $item['href']?>"><?php echo $item['name']; ?></a></dd>
                           <?php }?>
-                        </dl>
-                      <?php $i=$i+1;}?>
-                    <?php }?>
-                  </div>                  
-                </div>
-              </li>              
-            <?php } ?>
+                        <?php }?>
+                      </dl>
+                    <?php $i=$i+1;}?>
+                  <?php }?>
+                </div>                  
+              </div>
+            </li>              
           <?php } ?>
-        </ul>
-      </dd>
-    </dl>
+        <?php } ?>
+      </ul>
+    </dd>
+  </dl>
     <!-------下拉菜单----->
     
   <!-- 搜索 -->
@@ -159,4 +159,5 @@
     
   </div>  
 <script type= "text/javascript"src="<?php echo $res; ?>javascript/main_684f06b2d3f5e1c9.js" ></script>
+<div id="notification"></div>
 </header>

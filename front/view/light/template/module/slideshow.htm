@@ -1,7 +1,74 @@
-<?php foreach ($banners as $banner) { ?>
-  <?php if ($banner['link']) { ?>
-    <div><a href="<?php echo $banner['link']; ?>"><img src="<?php echo $banner['image']; ?>" width="736" height="300" ></a></div>
-  <?php } else { ?>
-    <div><img src="<?php echo $banner['image']; ?>" width="736" height="300" ></div>
-  <?php } ?>
-<?php } ?>
+<script type="text/javascript" src="<?php echo $res; ?>javascript/koala.min.1.5.js"></script>
+<style>
+.focus{ position:relative; background-color: #000; float: left;margin-bottom:10px;}  
+.focus .shadow .title{width: 260px; height: 65px;padding-left: 30px;padding-top: 20px;}
+.focus .shadow .title a{ text-decoration:none; color:#fff; font-size:14px; font-weight:bolder; overflow:hidden; }
+.focus .btn{ position:absolute; bottom:34px; left:510px; overflow:hidden; zoom:1;} 
+.focus .btn a{position:relative; display:inline; width:13px; height:13px; border-radius:7px; margin:0 5px;color:#B0B0B0;font:12px/15px "\5B8B\4F53"; text-decoration:none; text-align:center; outline:0; float:left; background:#D9D9D9; }  
+.focus .btn a:hover,.focus .btn a.current{  cursor:pointer;background:#fc114a;}  
+.focus .fPic{ position:absolute; left:0px; top:0px; }  
+.focus .D1fBt{ overflow:hidden; zoom:1;  height:16px; z-index:10;  }  
+.focus .shadow{ width:100%; position:absolute; bottom:0; left:0px; z-index:10; height:80px; line-height: 80px; background:rgba(0,0,0,0.6);    
+filter:progid:DXImageTransform.Microsoft.gradient( GradientType = 0,startColorstr = '#80000000',endColorstr = '#80000000')\9;  display:block;  text-align:left; }  
+.focus .shadow a{ text-decoration:none; color:#fff; font-size:20px; overflow:hidden; margin-left:10px; font-family: "\5FAE\8F6F\96C5\9ED1";}  
+.focus .fcon{ position:relative; width:100%; float:left;  display:none; background:#000  }  
+.focus .fcon img{ display:block; }  
+.focus .fbg{bottom:10px; left:50%; position:absolute; height:21px; text-align:center; z-index: 200;}  
+.focus .fbg div{margin:4px auto 0;overflow:hidden;zoom:1;height:14px}    
+.focus .D1fBt a{position:relative; display:inline; width:9px; height:9px; border-radius:7px; margin:0 5px;color:#B0B0B0;font:12px/15px "\5B8B\4F53"; text-decoration:none; text-align:center; outline:0; float:left; background:#D9D9D9; }    
+.focus .D1fBt .current,.focus .D1fBt a:hover{background:#fc114a;}    
+.focus .D1fBt img{display:none}    
+.focus .D1fBt i{display:none; font-style:normal; }    
+.focus .prev,.focus .next{position:absolute;width:40px;height:74px;background: url(<?php echo $res; ?>/image/focus_btn.png) no-repeat;}
+.focus .prev{top: 50%;margin-top: -37px; left: 0;background-position:0 -74px; cursor:pointer; }  
+.focus .next{top: 50%;margin-top: -37px; right: 0;  background-position:-40px -74px;  cursor:pointer;}  
+.focus .prev:hover{  background-position:0 0; }  
+.focus .next:hover{  background-position:-40px 0;}
+</style>
+<!-- 代码 开始 -->
+<div id="fsD1" class="focus" style=" width:<?php echo $width; ?>px; height:<?php echo $height; ?>px;" >  
+    <div id="D1pic1" class="fPic">
+    
+      <?php foreach ($banners as $banner) { ?>
+        <?php if ($banner['link']) { ?>
+          <div class="fcon" style="display: none;"><a  href="<?php echo $banner['link']; ?>"><img src="<?php echo $banner['image']; ?>" width="<?php echo $width; ?>" height="<?php echo $height; ?>" style="opacity: 1; "></a></div>
+        <?php } else { ?>
+          <div class="fcon" style="display: none;"><img src="<?php echo $banner['image']; ?>" style="opacity: 1; "></div>
+        <?php } ?>
+      <?php } ?>
+
+    </div>
+    <div class="fbg">  
+    <div class="D1fBt" id="D1fBt">
+      <?php for($i=1; $i<=count($banners); $i++) {?>
+        <a href="javascript:void(0)" hidefocus="true" target="_self" class=""><i><?php echo $i; ?></i></a>
+      <?php } ?>
+    </div>  
+    </div>  
+    <span class="prev"></span>   
+    <span class="next"></span>    
+</div>  
+<script type="text/javascript">
+  Qfast.add('widgets', { path: "<?php echo $res; ?>javascript/terminator2.2.min.js", type: "js", requires: ['fx'] });  
+  Qfast(false, 'widgets', function () {
+    K.tabs({
+      id: 'fsD1',   //焦点图包裹id  
+      conId: "D1pic1",  //** 大图域包裹id  
+      tabId:"D1fBt",  
+      tabTn:"a",
+      conCn: '.fcon', //** 大图域配置class       
+      auto: 1,   //自动播放 1或0
+      effect: 'fade',   //效果配置
+      eType: 'click', //** 鼠标事件
+      pageBt:true,//是否有按钮切换页码
+      bns: ['.prev', '.next'],//** 前后按钮配置class                          
+      interval: 3000  //** 停顿时间  
+    }) 
+  })  
+</script>
+<!-- 代码 结束 -->
+
+<div style="text-align:center;clear:both;">
+<script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>
+<script src="/follow.js" type="text/javascript"></script>
+</div>

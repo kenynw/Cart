@@ -5793,22 +5793,13 @@ button.btn.btn-mini, input[type="submit"].btn.btn-mini {
 }
 .nav-bar .nav-cart .nav-cart-desc {
 	display: none;
+	padding: 8px;
 	position: absolute;
 	right: -1px;
 	background-color: #fff;
 	-webkit-border-radius: 4px 0 4px 4px;
 	-moz-border-radius: 4px 0 4px 4px;
 	border-radius: 4px 0 4px 4px
-}
-.nav-bar .nav-cart .nav-cart-desc#navCartInfoNote {
-	width: 280px;
-	padding: 10px 0;
-	text-align: center;
-	font-size: 12px;
-	font-weight: bold
-}
-.nav-bar .nav-cart .nav-cart-desc#navCartInfoNote.loading {
-	color: #999
 }
 .nav-bar .nav-cart.nav-cart-with-list:hover .nav-button {
 	background-color: #fff;
@@ -15172,7 +15163,7 @@ body {
 body {
 	margin:0;
 	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size:14px;
+	font-size:12px;
 	line-height:20px;
 	color:#333;
 	background-color:#fff
