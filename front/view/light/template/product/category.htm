@@ -30,7 +30,7 @@
 	
 	<?php echo $column_left; ?>
 		
-		<div class="pull-right litb-span47">
+		<div class="litb-span47">
 			<div class="widget title-bar">
 				<h1 class="title"><?php echo $heading_title; ?></h1>
 			</div>
@@ -39,7 +39,7 @@
 
 
 
-<?php if($products) {?>
+<?php if($products) {$i=0; ?>
 <div class="pagelet">
 	<div class="title-bar clearfix"><h2 class="title title-border">Products</h2></div>
 	<div id="recProds">
@@ -47,7 +47,8 @@
 			<div
 				class="widget w-productList w-grid w-grid-752-5cols w-mini-productList w-mini-reletedProdGrid">
 
-				<?php foreach($products as $product) {?>
+				<?php foreach($products as $product) { ?>
+                  <?php if($i%5 == 0) { ?><br class="clear"><?php } ?>
 				<dl>
 					<dt>
 						<a href="<?php echo $product['href']; ?>"> 
@@ -58,7 +59,7 @@
 					<dd class="prodName"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></dd>
 					<?php if ($product['price']) { ?>
 					  <dd class="prodPrice">
-						<?php if($product['special']) {?>
+						<?php if($product['special']) { ?>
 						  <span class="oldPrice"><?php echo $product['price']; ?></span>
 						  <a class="price" href="<?php echo $product['href']; ?>"><?php echo $product['special']; ?></a>
 						<?php } else { ?>
@@ -74,12 +75,12 @@
                     <?php } ?>				                
                     <a onclick="addToCart('<?php echo $product['product_id']; ?>');" class="button"><?php echo $button_cart; ?></a>
 				</dl>
-				<?php }?>
+				<?php $i++; } ?>
 			</div>
 		</div>
 	</div>
 </div>
-<?php }?>
+<?php } ?>
 
 
 <?php if($description) {?>

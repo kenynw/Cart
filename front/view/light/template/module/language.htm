@@ -1,11 +1,26 @@
-<?php if (count($languages) > 1) { ?>
-<form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
-  <div id="language"><?php echo $text_language; ?><br />
-    <?php foreach ($languages as $language) { ?>
-    <img src="image/flags/<?php echo $language['image']; ?>" alt="<?php echo $language['name']; ?>" title="<?php echo $language['name']; ?>" onclick="$('input[name=\'language_code\']').attr('value', '<?php echo $language['code']; ?>'); $(this).parent().parent().submit();" />
-    <?php } ?>
+  <li>
+    <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form">
+      <div class="widget helv-11  ctr-info" >
+        <?php foreach ($languages as $language) { ?>
+          <?php if ($language['code'] == $language_code) { ?>
+            <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown">
+              <span class="cur-currency"><?php echo $language['name']; ?></span> <span class="caret"></span>
+            </a>
+          <?php } ?>
+        <?php } ?>
+        <div class="dropdown-menu">
+          <ul class="currency-list">
+
+            <?php foreach($languages as $language) { ?>
+              <?php if ($language['code'] != $language_code) { ?>
+                <li><a onclick="$('input[name=\'language_code\']').attr('value', '<?php echo $language['code']; ?>'); $('#form').submit();"><span><?php echo $language['name'];?></span></a></li>
+              <?php } ?>
+            <?php } ?>
+           
+          </ul>
+        </div>
+      </div>
     <input type="hidden" name="language_code" value="" />
     <input type="hidden" name="redirect" value="<?php echo $redirect; ?>" />
-  </div>
-</form>
-<?php } ?>
+    </form>
+  </li>

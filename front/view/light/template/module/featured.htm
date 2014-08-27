@@ -4,9 +4,9 @@
     <div class="widget w-productList w-grid w-grid-752-5cols w-mini-productList w-mini-reletedProdGrid">
       <?php if(isset($products)) { $i=0; ?>
       <?php foreach($products as $product) {
-            if($i%5 == 0) { ?>
-      <br class="clear">
-      <?php } ?>
+        if($i%6 == 0) { ?>
+        <br class="clear">
+        <?php } ?>
       <dl>
         <?php if ($product['thumb']) {?>
           <dt> 
@@ -34,8 +34,8 @@
         <?php } ?>
         <div class="cart"><input type="button" value="<?php echo $button_cart; ?>" onclick="addToCart('<?php echo $product['product_id']; ?>');" class="button" /></div>
       </dl>
-      <?php $i++;}?>
-      <?php }?>
+      <?php $i++;} ?>
+      <?php } ?>
     </div>
   </div>
 </div>

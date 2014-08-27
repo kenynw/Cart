@@ -1,6 +1,41 @@
 <?php echo $header; ?>
 <script type="text/javascript">
 $(document).ready(function () {
+	$("#button-cart").click(function(){
+		alert("success");
+		$.ajax({
+			url: 'index.php?route=checkout/cart/add',
+			type: 'post',
+			data: $('.pull-right input[type=\'text\'], .pull-right input[type=\'hidden\'], .pull-right input[type=\'radio\']:checked, .pull-right input[type=\'checkbox\']:checked, .pull-right select, .pull-right textarea'),
+			dataType: 'json',
+			alert("success");
+			success: function(json) {
+				$('.success, .warning, .attention, information, .error').remove();
+				
+				if (json['error']) {
+					if (json['error']['option']) {
+						for (i in json['error']['option']) {
+							$('#option-' + i).after('<span class="error">' + json['error']['option'][i] + '</span>');
+						}
+					}
+	                
+	                if (json['error']['profile']) {
+	                    $('select[name="profile_id"]').after('<span class="error">' + json['error']['profile'] + '</span>');
+	                }
+				} 
+				
+				if (json['success']) {
+					$('#notification').html('<div class="success" style="display: none;">' + json['success'] + '<img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>');
+						
+					$('.success').fadeIn('slow');
+						
+					$('#cart-total').html(json['total']);
+					
+					$('html, body').animate({ scrollTop: 0 }, 'slow'); 
+				}	
+			}
+		});
+	});
   //点击小图切换大图
   $("#thumbnail li a").click(function(){
     $(".zoompic img").hide().attr({ "src": $(this).attr("href"), "title": $("img", this).attr("alt") });
@@ -62,12 +97,66 @@ $(document).ready(function () {
   }
   
 });
+
+window.onload=function ()
+{
+	
+	var oDiv=document.getElementById('zoompic');
+	var oShow=oDiv.getElementsByTagName('div')[0];
+	var oSpan=oDiv.getElementsByTagName('span')[0];
+	
+	var oImg=document.getElementById('large');
+	oShow.onmouseover=function()
+	{
+		oSpan.style.display='block';
+		oImg.parentNode.style.display='block';
+	};
+	oShow.onmouseout=function()
+	{
+		oSpan.style.display='none';
+		oImg.parentNode.style.display='none';
+	};
+	oShow.onmousemove=function(ev)
+	{
+		var oEvent=ev||event;
+		var x=event.offsetX-oSpan.offsetWidth/2;
+		var y=event.offsetY-oSpan.offsetHeight/2;
+		
+		if(x<0)
+		{
+			x=0;
+		}
+		else if(x>oShow.offsetWidth-oSpan.offsetWidth)
+		{
+			x=oShow.offsetWidth-oSpan.offsetWidth;
+		}
+		if(y<0)
+		{
+			y=0;
+		}
+		else if(y>oShow.offsetHeight-oSpan.offsetHeight)
+		{
+			y=oShow.offsetHeight-oSpan.offsetHeight
+		}
+		
+		oSpan.style.left=x+'px';
+		oSpan.style.top=y+'px';
+		var percentX=x/(oShow.offsetWidth-oSpan.offsetWidth);
+		var percentY=y/(oShow.offsetHeight-oSpan.offsetHeight);
+		var oImgparent=oImg.parentNode;
+		oImg.style.left=-percentX*(oImg.offsetWidth-oImgparent.offsetWidth)+'px';
+		oImg.style.top=-percentY*(oImg.offsetHeight-oImgparent.offsetHeight)+'px';
+	};
+};
 </script>
 <style>
 /* zoombox */
 .zoombox{width:686px;margin:20px auto 0 auto;}
-.zoompic{width:684px;height:394px;background:url(images/loading.gif) no-repeat 50% 50%;}
-
+.zoompic{width:374px;height:374px;position:relative;background:url(images/loading.gif) no-repeat 50% 50%;}
+#zoompic span { width:151px; height:150px; background-image:url(<?php echo $res; ?>image/magnifier.png); left:0px;top:0px; position:absolute; display:none;}
+.show { width:100%; height:100%; position:absolute;filter:alpha(opacity:10); opacity:0.1; left:0px; top:0px; }
+.imageviewer {width:374px; height:374px; position:absolute; left:600px; top:156px; z-index:1000; display:none; overflow:hidden; border:1px solid #CCC;}
+#large { position:absolute;}
 /* sliderbox */
 .sliderbox{height:60px;overflow:hidden;margin:6px 0 0 0;}
 .sliderbox .arrow-btn{width:38px;height:60px;background:url(<?php echo $res; ?>image/arrow-btn.png) no-repeat;cursor:pointer;}
@@ -84,6 +173,19 @@ $(document).ready(function () {
 .sliderbox .slider li.current{border:0px;padding-top:5px;}
 .sliderbox .slider li.current a{padding: 2px;width: 50px;height: 50px;background-color: #ad3231;}
 .sliderbox .slider li.current img{border:0px;}
+/* description */
+.prod_description p {
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+.prod_description ul {
+  list-style-type: disc;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-start: 40px;
+}
 </style>
 
 <div id="breadcrumb" class="widget ctr-info ctr-track-a" >
@@ -108,14 +210,17 @@ $(document).ready(function () {
   <div class="clearfix">
   
     <div class="pull-left">
-      <div class="pagelet prod-gallery-h" >
+
         <?php if ($thumb) { ?>
-          <div class="zoompic">
+          <div class="zoompic" id="zoompic">
             <a target="_blank" href="<?php echo $popup; ?>">
               <img class="normal" src="<?php echo $thumb; ?>" alt="<?php echo $heading_title; ?>" width="374" height="374" id="image" />
             </a>
+            <span></span>
+            <div class="show"></div>
           </div>
-        <?php }?>       
+          <div class="imageviewer"><img id="large" src="<?php echo $popup; ?>" /></div>
+        <?php }?>
         
         <div class="sliderbox">
         <div id="btn-left" class="arrow-btn dasabled"></div>
@@ -135,20 +240,23 @@ $(document).ready(function () {
         </div>
         
         <div id="btn-right" class="arrow-btn"></div>
-      </div>
-        
-      </div>
+      </div>        
+
     </div>
 
-    <div class="pull-right litb-span36">
-      <div class="pagelet product-info clearfix">
+    
+
+
+    <div class="pull-right">
+
         <div class="widget prod-info-title">
           <h1><?php echo $heading_title; ?><span class="item-id">#<?php echo $model; ?></span> </h1>
         </div><br/>
         <div class="widget prod-info-price">
           <div class="price-left">
-            <div class="current-price clearfix">              
+            <div class="current-price clearfix">
               <div class="left">
+              
                 <dl class="widget prod_info_currency_selector">
                   <dt> <a href="#" rel="nofollow">USD<div class="stroked-arrow"><em></em><i></i></div></a></dt>
                   <dd>
@@ -161,6 +269,7 @@ $(document).ready(function () {
                     </ul>
                   </dd>
                 </dl>
+                
                 <?php if ($price) { ?>
                   <?php if ($special) { ?>
                     <strong class="sale-price"><?php echo $special; ?></strong>
@@ -194,11 +303,31 @@ $(document).ready(function () {
         <form id="prod-info-order" data-id="431608" action="" class="widget prod-info-order ctr-info" method="post"  name="cart_quantity_frm" enctype="multipart/form-data" onsubmit="_gaq.push([&#39;_trackPageview&#39;, &#39;/action/add-to-cart/item/c5331/431608&#39;]);">
           <input type="hidden" name="products_id" value="431608">
           <input type="hidden" name="check_slave" value="1">
-          <div class="prod-info-form-right">
-            <div class="icon100 litb-icon-percent">Satisfaction Guaranteed</div>
-          </div>
+          <div class="prod-info-form-right"><div class="icon100 litb-icon-percent">Satisfaction Guaranteed</div></div>
+          
           <?php foreach ($options as $option) { ?>
-          <?php if ($option['type'] == 'radio') { ?>
+          
+          <?php if ($option['type'] == 'select') { ?>
+          <div id="option-<?php echo $option['product_option_id']; ?>" class="option">
+            <?php if ($option['required']) { ?>
+            <span class="required">*</span>
+            <?php } ?>
+            <b><?php echo $option['name']; ?>:</b><br />
+            <select name="option[<?php echo $option['product_option_id']; ?>]">
+              <option value=""><?php echo $text_select; ?></option>
+              <?php foreach ($option['option_value'] as $option_value) { ?>
+              <option value="<?php echo $option_value['product_option_value_id']; ?>"><?php echo $option_value['name']; ?>
+              <?php if ($option_value['price']) { ?>
+              (<?php echo $option_value['price_prefix']; ?><?php echo $option_value['price']; ?>)
+              <?php } ?>
+              </option>
+              <?php } ?>
+            </select>
+          </div>
+          <br />
+          <?php } ?>
+
+          <?php if ($option['type'] == 'select') { ?>
             <ul class="widget attributes ">
               <li>
                 <select name="id[2]" id="attr_431608_2">
@@ -210,20 +339,149 @@ $(document).ready(function () {
               </li>
             </ul>
           <?php } ?>
+          
+          
+          <?php if ($option['type'] == 'radio') { ?>
+          <div id="option-<?php echo $option['product_option_id']; ?>" class="option">
+            <?php if ($option['required']) { ?>
+            <span class="required">*</span>
+            <?php } ?>
+            <b><?php echo $option['name']; ?>:</b><br />
+            <?php foreach ($option['option_value'] as $option_value) { ?>
+            <input type="radio" name="option[<?php echo $option['product_option_id']; ?>]" value="<?php echo $option_value['product_option_value_id']; ?>" id="option-value-<?php echo $option_value['product_option_value_id']; ?>" />
+            <label for="option-value-<?php echo $option_value['product_option_value_id']; ?>"><?php echo $option_value['name']; ?>
+              <?php if ($option_value['price']) { ?>
+              (<?php echo $option_value['price_prefix']; ?><?php echo $option_value['price']; ?>)
+              <?php } ?>
+            </label>
+            <br />
+            <?php } ?>
+          </div>
+          <br />
           <?php } ?>
-                  
+          
+          <?php if ($option['type'] == 'checkbox') { ?>
+          <div id="option-<?php echo $option['product_option_id']; ?>" class="option">
+          <?php if ($option['required']) { ?>
+          <span class="required">*</span>
+          <?php } ?>
+          <b><?php echo $option['name']; ?>:</b><br />
+          <?php foreach ($option['option_value'] as $option_value) { ?>
+          <input type="checkbox" name="option[<?php echo $option['product_option_id']; ?>][]" value="<?php echo $option_value['product_option_value_id']; ?>" id="option-value-<?php echo $option_value['product_option_value_id']; ?>" />
+          <label for="option-value-<?php echo $option_value['product_option_value_id']; ?>"><?php echo $option_value['name']; ?>
+            <?php if ($option_value['price']) { ?>
+            (<?php echo $option_value['price_prefix']; ?><?php echo $option_value['price']; ?>)
+            <?php } ?>
+          </label>
+          <br />
+          <?php } ?>
+          </div>
+          <br />
+          <?php } ?>
+          
+          <?php if ($option['type'] == 'image') { ?>
+          <div id="option-<?php echo $option['product_option_id']; ?>" class="option">
+            <?php if ($option['required']) { ?>
+            <span class="required">*</span>
+            <?php } ?>
+            <b><?php echo $option['name']; ?>:</b><br />
+            <table class="option-image">
+              <?php foreach ($option['option_value'] as $option_value) { ?>
+              <tr>
+                <td style="width: 1px;"><input type="radio" name="option[<?php echo $option['product_option_id']; ?>]" value="<?php echo $option_value['product_option_value_id']; ?>" id="option-value-<?php echo $option_value['product_option_value_id']; ?>" /></td>
+                <td><label for="option-value-<?php echo $option_value['product_option_value_id']; ?>"><img src="<?php echo $option_value['image']; ?>" alt="<?php echo $option_value['name'] . ($option_value['price'] ? ' ' . $option_value['price_prefix'] . $option_value['price'] : ''); ?>" /></label></td>
+                <td><label for="option-value-<?php echo $option_value['product_option_value_id']; ?>"><?php echo $option_value['name']; ?>
+                    <?php if ($option_value['price']) { ?>
+                    (<?php echo $option_value['price_prefix']; ?><?php echo $option_value['price']; ?>)
+                    <?php } ?>
+                  </label></td>
+              </tr>
+              <?php } ?>
+            </table>
+          </div>
+          <br />
+          <?php } ?>
+          
+          <?php if ($option['type'] == 'text') { ?>
+          <div id="option-<?php echo $option['product_option_id']; ?>" class="option">
+            <?php if ($option['required']) { ?>
+            <span class="required">*</span>
+            <?php } ?>
+            <b><?php echo $option['name']; ?>:</b><br />
+            <input type="text" name="option[<?php echo $option['product_option_id']; ?>]" value="<?php echo $option['option_value']; ?>" />
+          </div>
+          <br />
+          <?php } ?>
+          
+          <?php if ($option['type'] == 'textarea') { ?>
+          <div id="option-<?php echo $option['product_option_id']; ?>" class="option">
+            <?php if ($option['required']) { ?>
+            <span class="required">*</span>
+            <?php } ?>
+            <b><?php echo $option['name']; ?>:</b><br />
+            <textarea name="option[<?php echo $option['product_option_id']; ?>]" cols="40" rows="5"><?php echo $option['option_value']; ?></textarea>
+          </div>
+          <br />
+          <?php } ?>
+          
+          <?php if ($option['type'] == 'file') { ?>
+          <div id="option-<?php echo $option['product_option_id']; ?>" class="option">
+            <?php if ($option['required']) { ?>
+            <span class="required">*</span>
+            <?php } ?>
+            <b><?php echo $option['name']; ?>:</b><br />
+            <input type="button" value="<?php echo $button_upload; ?>" id="button-option-<?php echo $option['product_option_id']; ?>" class="button">
+            <input type="hidden" name="option[<?php echo $option['product_option_id']; ?>]" value="" />
+          </div>
+          <br />
+          <?php } ?>
+          
+          <?php if ($option['type'] == 'date') { ?>
+          <div id="option-<?php echo $option['product_option_id']; ?>" class="option">
+            <?php if ($option['required']) { ?>
+            <span class="required">*</span>
+            <?php } ?>
+            <b><?php echo $option['name']; ?>:</b><br />
+            <input type="text" name="option[<?php echo $option['product_option_id']; ?>]" value="<?php echo $option['option_value']; ?>" class="date" />
+          </div>
+          <br />
+          <?php } ?>
+          
+          <?php if ($option['type'] == 'datetime') { ?>
+          <div id="option-<?php echo $option['product_option_id']; ?>" class="option">
+            <?php if ($option['required']) { ?>
+            <span class="required">*</span>
+            <?php } ?>
+            <b><?php echo $option['name']; ?>:</b><br />
+            <input type="text" name="option[<?php echo $option['product_option_id']; ?>]" value="<?php echo $option['option_value']; ?>" class="datetime" />
+          </div>
+          <br />
+          <?php } ?>
+          
+          <?php if ($option['type'] == 'time') { ?>
+          <div id="option-<?php echo $option['product_option_id']; ?>" class="option">
+            <?php if ($option['required']) { ?>
+            <span class="required">*</span>
+            <?php } ?>
+            <b><?php echo $option['name']; ?>:</b><br />
+            <input type="text" name="option[<?php echo $option['product_option_id']; ?>]" value="<?php echo $option['option_value']; ?>" class="time" />
+          </div>
+          <br />
+          <?php } ?>
+          
+          <?php } ?>
+
+
           <div class="order-quantity">
             <label for="quantity_431608"><?php echo $text_qty; ?></label>
             <input type="text" name="quantity" size="2" value="<?php echo $minimum; ?>" />
             <input type="hidden" name="product_id" size="2" value="<?php echo $product_id; ?>" />
           </div>
           <div id="prodLadderDiscount" class="widget prod-ladder-discount" style="display: none;"></div>
-          <div class="order-actions">
-            <input type="button" value="<?php echo $button_cart; ?>" id="button-cart" class="litb-btn add-to-cart-pending" />
-          </div>
+          <div class="order-actions"><input type="button" value="<?php echo $button_cart; ?>" id="button-cart" class="litb-btn add-to-cart-pending" /></div>
         </form>
         
-      </div>
+
     </div>
   </div>
 </div>
@@ -233,7 +491,7 @@ $(document).ready(function () {
   <div class="pagelet bought-ultimately ctr-track-show clearfix ctr-info" >
     <div class="title-bar clearfix"><h2 class="title title-border"><?php echo $tab_related; ?></h2></div>
     
-    <ul class="product-list clearfix" style="height: 213px;">
+    <ul class="product-list clearfix">
       <?php foreach ($products as $product) { ?>
       <li class="item">
         <?php if ($product['thumb']) { ?>
@@ -268,23 +526,7 @@ $(document).ready(function () {
     <?php echo $description; ?>
   </div>
 </div>
-<!-- 
-<div class="pagelet same-supplier ctr-track-show clearfix ctr-info" >
-  <div class="title-bar clearfix">
-    <h2 class="title title-border">Other Products From This Category</h2>
-    <a class="see-all" href="#">See All &gt;&gt; </a> </div>
-  <ul class="product-list clearfix">
-    <li class="item"><a class="img-box"  title="" href="#"> <img width="128" height="128" title=" " alt="" data-lazy="" src="<?php echo $res; ?>image/orsswv1382431066392.jpg"> <img class="image-hover" src="<?php echo $res; ?>image/imageHover128.png" title=""></a>
-      <p class="list-price"> </p>
-      <p> <a  class="price" title="" href="" rel="nofollow"> <em>USD </em>$69.99 </a> </p>
-    </li>
-    <li class="item"><a class="img-box"  title="" href="#"> <img width="128" height="128" title=" " alt=" " data-lazy="" src="<?php echo $res; ?>image/vccazb1364543224383.jpg"> <img class="image-hover" src="<?php echo $res; ?>image/imageHover128.png" title=""></a>
-      <p class="list-price"> </p>
-      <p> <a  class="price" title="" href="" rel="nofollow"> <em>USD </em>$54.99 </a> </p>
-    </li>
-  </ul>
-</div>
- -->
+
 <div class="container">
   <div class="pagelet prod_reviews clearfix" id="have_reviews">
     <div class="widget prod_write_review">
@@ -304,12 +546,13 @@ $(document).ready(function () {
 
 <?php echo $content_bottom; ?>
 
-<script>
-$('input[name="quantity"]').change(function(){
+<script type="text/javascript">
+
+$('select[name="profile_id"], input[name="quantity"]').change(function(){
     $.ajax({
 		url: 'index.php?route=product/product/getRecurringDescription',
 		type: 'post',
-		data: $('input[name="product_id"], input[name="quantity"]'),
+		data: $('input[name="product_id"], input[name="quantity"], select[name="profile_id"]'),
 		dataType: 'json',
         beforeSend: function() {
             $('#profile-description').html('');
@@ -323,81 +566,107 @@ $('input[name="quantity"]').change(function(){
 		}
 	});
 });
-$('#button-cart').bind('click', function() {
-	$.ajax({
-		url: 'index.php?route=checkout/cart/add',
-		type: 'post',
-		data: $('.product-info input[type=\'hidden\'], .product-info input[type=\'radio\']:checked'),
-		dataType: 'json',
-		success: function(json) {
-			$('.success, .warning, .attention, information, .error').remove();
-			
-			if (json['error']) {
-				if (json['error']['option']) {
-					for (i in json['error']['option']) {
-						$('#option-' + i).after('<span class="error">' + json['error']['option'][i] + '</span>');
-					}
-				}               
-               
-			}
-			
-			if (json['success']) {
-				$('#notification').html('<div class="success" style="display: none;">' + json['success'] + '<img src="<?php echo $res; ?>image/close.png" alt="" class="close" /></div>');
-					
-				$('.success').fadeIn('slow');
-					
-				$('#cart-total').html(json['total']);
-				
-				$('html, body').animate({ scrollTop: 0 }, 'slow'); 
-			}	
-		}
-	});
-});
 </script>
 
+  
+<script type="text/javascript">
+
+</script>
+<?php if ($options) { ?>
+<script type="text/javascript" src="<?php echo $res; ?>javascript/jquery/ajaxupload.js"></script>
+<?php foreach ($options as $option) { ?>
+<?php if ($option['type'] == 'file') { ?>
+<script type="text/javascript"><!--
+new AjaxUpload('#button-option-<?php echo $option['product_option_id']; ?>', {
+	action: 'index.php?route=product/product/upload',
+	name: 'file',
+	autoSubmit: true,
+	responseType: 'json',
+	onSubmit: function(file, extension) {
+		$('#button-option-<?php echo $option['product_option_id']; ?>').after('<img src="catalog/view/theme/default/image/loading.gif" class="loading" style="padding-left: 5px;" />');
+		$('#button-option-<?php echo $option['product_option_id']; ?>').attr('disabled', true);
+	},
+	onComplete: function(file, json) {
+		$('#button-option-<?php echo $option['product_option_id']; ?>').attr('disabled', false);
+		
+		$('.error').remove();
+		
+		if (json['success']) {
+			alert(json['success']);
+			
+			$('input[name=\'option[<?php echo $option['product_option_id']; ?>]\']').attr('value', json['file']);
+		}
+		
+		if (json['error']) {
+			$('#option-<?php echo $option['product_option_id']; ?>').after('<span class="error">' + json['error'] + '</span>');
+		}
+		
+		$('.loading').remove();	
+	}
+});
+//--></script>
+<?php } ?>
+<?php } ?>
+<?php } ?>
 <script type="text/javascript"><!--
 $('#review .pagination a').live('click', function() {
-  $('#review').fadeOut('slow');
-    
-  $('#review').load(this.href);
-  
-  $('#review').fadeIn('slow');
-  
-  return false;
-});     
+	$('#review').fadeOut('slow');
+		
+	$('#review').load(this.href);
+	
+	$('#review').fadeIn('slow');
+	
+	return false;
+});			
 
 $('#review').load('index.php?route=product/product/review&product_id=<?php echo $product_id; ?>');
 
 $('#button-review').bind('click', function() {
-  $.ajax({
-    url: 'index.php?route=product/product/write&product_id=<?php echo $product_id; ?>',
-    type: 'post',
-    dataType: 'json',
-    data: 'name=' + encodeURIComponent($('input[name=\'name\']').val()) + '&text=' + encodeURIComponent($('textarea[name=\'text\']').val()) + '&rating=' + encodeURIComponent($('input[name=\'rating\']:checked').val() ? $('input[name=\'rating\']:checked').val() : '') + '&captcha=' + encodeURIComponent($('input[name=\'captcha\']').val()),
-    beforeSend: function() {
-      $('.success, .warning').remove();
-      $('#button-review').attr('disabled', true);
-      $('#review-title').after('<div class="attention"><img src="catalog/view/theme/default/image/loading.gif" alt="" /> <?php echo $text_wait; ?></div>');
-    },
-    complete: function() {
-      $('#button-review').attr('disabled', false);
-      $('.attention').remove();
-    },
-    success: function(data) {
-      if (data['error']) {
-        $('#review-title').after('<div class="warning">' + data['error'] + '</div>');
-      }
-      
-      if (data['success']) {
-        $('#review-title').after('<div class="success">' + data['success'] + '</div>');
-                
-        $('input[name=\'name\']').val('');
-        $('textarea[name=\'text\']').val('');
-        $('input[name=\'rating\']:checked').attr('checked', '');
-        $('input[name=\'captcha\']').val('');
-      }
-    }
-  });
+	$.ajax({
+		url: 'index.php?route=product/product/write&product_id=<?php echo $product_id; ?>',
+		type: 'post',
+		dataType: 'json',
+		data: 'name=' + encodeURIComponent($('input[name=\'name\']').val()) + '&text=' + encodeURIComponent($('textarea[name=\'text\']').val()) + '&rating=' + encodeURIComponent($('input[name=\'rating\']:checked').val() ? $('input[name=\'rating\']:checked').val() : '') + '&captcha=' + encodeURIComponent($('input[name=\'captcha\']').val()),
+		beforeSend: function() {
+			$('.success, .warning').remove();
+			$('#button-review').attr('disabled', true);
+			$('#review-title').after('<div class="attention"><img src="catalog/view/theme/default/image/loading.gif" alt="" /> <?php echo $text_wait; ?></div>');
+		},
+		complete: function() {
+			$('#button-review').attr('disabled', false);
+			$('.attention').remove();
+		},
+		success: function(data) {
+			if (data['error']) {
+				$('#review-title').after('<div class="warning">' + data['error'] + '</div>');
+			}
+			
+			if (data['success']) {
+				$('#review-title').after('<div class="success">' + data['success'] + '</div>');
+								
+				$('input[name=\'name\']').val('');
+				$('textarea[name=\'text\']').val('');
+				$('input[name=\'rating\']:checked').attr('checked', '');
+				$('input[name=\'captcha\']').val('');
+			}
+		}
+	});
 });
-</script> 
+//--></script> 
+
+<script type="text/javascript" src="<?php echo $res; ?>javascript/jquery/ui/jquery-ui-timepicker-addon.js"></script> 
+<script type="text/javascript"><!--
+$(document).ready(function() {
+  if ($.browser.msie && $.browser.version == 6) {
+    $('.date, .datetime, .time').bgIframe();
+  }
+
+  $('.date').datepicker({dateFormat: 'yy-mm-dd'});
+  $('.datetime').datetimepicker({
+    dateFormat: 'yy-mm-dd',
+    timeFormat: 'h:m'
+  });
+  $('.time').timepicker({timeFormat: 'h:m'});
+});
+//--></script> 
 <?php echo $footer; ?>

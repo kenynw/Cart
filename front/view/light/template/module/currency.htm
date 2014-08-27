@@ -1,23 +1,45 @@
 <?php if (count($currencies) > 1) { ?>
-<form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
-  <div id="currency"><?php echo $text_currency; ?><br />
+<li>
+<form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form">
+  <div class="widget currency-selector helv-11  ctr-info" > 
     <?php foreach ($currencies as $currency) { ?>
-    <?php if ($currency['code'] == $currency_code) { ?>
-    <?php if ($currency['symbol_left']) { ?>
-    <a title="<?php echo $currency['title']; ?>"><b><?php echo $currency['symbol_left']; ?></b></a>
-    <?php } else { ?>
-    <a title="<?php echo $currency['title']; ?>"><b><?php echo $currency['symbol_right']; ?></b></a>
+      <?php if ($currency['code'] == $currency_code) { ?>
+        <?php if ($currency['symbol_left']) { ?>
+          <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown"> <em><?php echo $currency['symbol_left']; ?></em> 
+            <span class="cur-currency"><?php echo $currency['code']; ?></span> <span class="caret"></span>
+          </a>
+        <?php } else {?>
+          <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown"> <em><?php echo $currency['symbol_right']; ?></em> 
+            <span class="cur-currency"><?php echo $currency['code']; ?></span> <span class="caret"></span>
+          </a>          
+        <?php } ?>
+      <?php } ?>
     <?php } ?>
-    <?php } else { ?>
-    <?php if ($currency['symbol_left']) { ?>
-    <a title="<?php echo $currency['title']; ?>" onclick="$('input[name=\'currency_code\']').attr('value', '<?php echo $currency['code']; ?>'); $(this).parent().parent().submit();"><?php echo $currency['symbol_left']; ?></a>
-    <?php } else { ?>
-    <a title="<?php echo $currency['title']; ?>" onclick="$('input[name=\'currency_code\']').attr('value', '<?php echo $currency['code']; ?>'); $(this).parent().parent().submit();"><?php echo $currency['symbol_right']; ?></a>
-    <?php } ?>
-    <?php } ?>
-    <?php } ?>
-    <input type="hidden" name="currency_code" value="" />
-    <input type="hidden" name="redirect" value="<?php echo $redirect; ?>" />
-  </div>
+    
+    <div class="dropdown-menu">
+      <ul class="currency-list">
+        <?php foreach($currencies as $currency) { ?>
+          <?php if ($currency['code'] != $currency_code) { ?>
+            <?php if ($currency['symbol_left']) { ?>
+              <li>
+                <a  onclick="$('input[name=\'currency_code\']').attr('value', '<?php echo $currency['code']; ?>'); $('#form').submit();">
+                  <em><?php echo $currency['symbol_left']; ?></em><span><?php echo $currency['code']; ?></span>
+                </a>
+              </li>
+            <?php } else {?>
+              <li>
+                <a  onclick="$('input[name=\'currency_code\']').attr('value', '<?php echo $currency['code']; ?>'); $('#form').submit();">
+                  <em><?php echo $currency['symbol_right']; ?></em><span><?php echo $currency['code']; ?></span>
+                </a>
+              </li>
+            <?php } ?>
+          <?php } ?>
+        <?php } ?>        
+      </ul>
+    </div>
+  </div>  
+  <input type="hidden" name="currency_code" value="" />
+  <input type="hidden" name="redirect" value="<?php echo $redirect; ?>" />
 </form>
+</li>
 <?php } ?>
