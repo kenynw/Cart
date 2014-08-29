@@ -41,7 +41,7 @@
   }
 </style>
     
-<dl class="nav-cart nav-cart-with-list nav-menu">
+<dl class="nav-cart">
   <dt class="nav-button"><a href="<?php echo $cart; ?>"><span><em id="navCartCount"><?php echo $text_items; ?></em><?php echo $heading_title; ?><i></i></span></a></dt>
   <dd id="navCartInfoNote" class="nav-cart-desc" style="display: none;">          
     <?php if ($products || $vouchers) { ?>
@@ -76,7 +76,7 @@
             <td class="name"><?php echo $voucher['description']; ?></td>
             <td class="quantity">x&nbsp;1</td>
             <td class="total"><?php echo $voucher['amount']; ?></td>
-            <td class="remove"><img src="<?php echo $res; ?>image/remove-small.png" alt="<?php echo $button_remove; ?>" title="<?php echo $button_remove; ?>" onclick="(getURLVar('route') == 'checkout/cart' || getURLVar('route') == 'checkout/checkout') ? location = 'index.php?route=checkout/cart&remove=<?php echo $voucher['key']; ?>' : $('#cart').load('index.php?route=module/cart&remove=<?php echo $voucher['key']; ?>' + ' #cart > *');" /></td>
+            <td class="remove"><img src="<?php echo $res; ?>image/remove-small.png" alt="<?php echo $button_remove; ?>" title="<?php echo $button_remove; ?>" onclick="(getURLVar('route') == 'checkout/cart' || getURLVar('route') == 'checkout/checkout') ? location = 'index.php?route=checkout/cart&remove=<?php echo $voucher['key']; ?>' : $('#navCartInfoNote').load('index.php?route=module/cart&remove=<?php echo $voucher['key']; ?>' + ' #navCartInfoNote > *');" /></td>
           </tr>
           <?php } ?>
         </table>
@@ -91,9 +91,7 @@
           <?php } ?>
         </table>
       </div>
-      <div class="checkout"><a href="<?php echo $cart; ?>"><?php echo $text_cart; ?></a> | <a href="<?php echo $checkout; ?>"><?php echo $text_checkout; ?></a></div>
-
-      
+      <div class="checkout"><a href="<?php echo $cart; ?>"><?php echo $text_cart; ?></a> | <a href="<?php echo $checkout; ?>"><?php echo $text_checkout; ?></a></div>      
       
       <?php } else { ?>
         <div class="empty"><?php echo $text_empty; ?></div>

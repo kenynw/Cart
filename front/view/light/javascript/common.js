@@ -37,6 +37,15 @@ $(document).ready(function() {
 		});
 	});
 	
+	$('.nav-cart').live('hover', function() {
+		$('#navCartInfoNote').show();
+		
+		$('.nav-cart').live('mouseleave', function() {
+			$('#navCartInfoNote').hide();
+		});
+	});
+
+	
 	/* Mega Menu */
 	$('#menu ul > li > a + div').each(function(index, element) {
 		// IE6 & IE7 Fixes
@@ -126,11 +135,13 @@ function addToCart(product_id, quantity) {
 			}
 			
 			if (json['success']) {
-				$('#notification').html('<div class="success" style="display: none;">' + json['success'] + '<img src="<?php echo $res; ?>image/close.png" alt="" class="close" /></div>');
+				$('#notification').html('<div class="success" style="display: none;">' + json['success'] + '<img src="front/view/light/image/close.png" alt="" class="close" /></div>');
 				
 				$('.success').fadeIn('slow');
 				
 				$('#navCartCount').html(json['total']);
+
+				$('#navCartInfoNote').load('index.php?route=module/cart #navCartInfoNote > *');
 				
 				$('html, body').animate({ scrollTop: 0 }, 'slow'); 
 			}	

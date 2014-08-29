@@ -9,6 +9,7 @@
 <?php if ($meta_description) { ?>
 <meta name="description" content="<?php echo $meta_description; ?>" />
 <?php } ?>
+<link rel="stylesheet" type="text/css" href="<?php echo $res; ?>stylesheet/mycss.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo $res; ?>stylesheet/default.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo $res; ?>stylesheet/style_en_default.css" />
 <script type="text/javascript" src="<?php echo $res; ?>javascript/jquery/jquery-1.7.1.min.js"></script>
@@ -95,13 +96,13 @@
   </div>
   <!-------下拉菜单----->
 <div class="widget nav-bar ">
-  <dl class="nav-shop-all nav-menu hover-show">
+  <dl class="nav-shop-all hover-show">
     <dt class="nav-button"><a>SHOP ALL CATEGORIES</a></dt>
     <dd class="nav-categories" style=" height: 335px; width: 236px;">
       <ul>
         <?php if($categories) { ?>
           <?php foreach($categories as $category) { ?>              
-            <li data-left="{}, " style="width: 988px;">          
+            <li data-left="{}, " style="width: 990px;">          
               <h2><a  href="<?php echo $category['href']?>"><?php echo $category['name']?><em class="solid-color-arrow" style="display: none;"></em></a></h2>
               <div class="nav-sub-categories" style="width: 717px; min-height: 335px; display: none;">
                 <div class="cate-menu-sub">

@@ -1,8 +1,4 @@
 @charset "utf-8";
-body, html, li, gloabl, h2, th, nav, td, h1, embed, blockquote, ol, xml, div, dl, dt, dd, ul, h3, h4, h5, h6, pre, form, fieldset, abbr, p {
-	margin:0;
-	padding:0;
-}
 fieldset, body, html {
 	border:none;
 }
@@ -18,9 +14,6 @@ ol, ul {
 }
 caption, th {
 	text-align:left;
-}
-h1, h2, h3, h4, h5, h6 {
-	font-size:100%;
 }
 q:before, q:after {
 	content:'';
@@ -41,21 +34,6 @@ a {
 a:hover {
 	text-decoration:underline;
 	color:#A72D2C;
-}
-h1 {
-	font-size:100%;
-}
-h2, .h2 {
-	font-size:16px;
-}
-h3, .h3 {
-	font-size:14px;
-}
-h4, .h4 {
-	font-size:12px;
-}
-h5, .h5 {
-	font-size:11px;
 }
 .seoH {
 	font-size:100%;
@@ -1513,26 +1491,6 @@ table.table_all {
 .masked-hidden {
 	visibility: hidden;
 }
-.error, .success, .warning, .caution {
-	background:url(http://litbimg6.rightinthebox.com/resource_853a1f5ba6d1b71adee5618ea83a57f76b074763_litb/dev_v2/base-images/notification.png) no-repeat;
-	padding:10px 10px 10px 33px;
-	line-height:150%;
-}
-.error {
-	background-color:#FEF2F2;
-	background-position:-16px -57px;
-	border:1px solid #Fb817E;
-}
-.success {
-	background-color:#D9FED9;
-	background-position:-71px 0px;
-	border:1px solid #66CC66;
-}
-.warning {
-	background-color:#FEF8E0;
-	background-position:-44px -29px;
-	border:1px solid #F9B336;
-}
 .caution {
 	background-color:#D8EBFE;
 	background-position:10px -86px;
@@ -1543,71 +1501,6 @@ table.table_all {
 }
 .elmbBlur:focus {
 	border:1px solid #666;
-}
-.GlobalCollect1, .GlobalCollect2, .GlobalCollect3, .cybersourcecard11, .GlobalCollect118, .GlobalCollect130, .GlobalCollect125, .GlobalCollect836, .GlobalCollect856, .GlobalCollect, .GlobalCollect809, .GlobalCollect114, .GlobalCollect119, .boletoIcon, .GlobalCollect1503, .GlobalCollect111, .GlobalCollect117, .GlobalCollect122, .GlobalCollect816, .GlobalCollect845, .GlobalCollect841, .GlobalCollect849, .carte_bleue_worldpayIcon, .diners_clubIcon, .qiwiIconSmall, .AstropayBD, .AstropayDC, .AstropayDI, .AstropayEL, .AstropayBD, .AstropayBL, .AstropayVI, .AstropayMC, .AstropayVD, .AstropayI, .AstropayB, .AstropayBB, .AstropayH, .AstropayTE, .Ebanx-visa, .Ebanx-mastercard, .Ebanx-amex, .Ebanx-elo, .Ebanx-discover, .Ebanx-diners, .Ebanx-aura {
-	background:url(http://litbimg7.rightinthebox.com/resource_853a1f5ba6d1b71adee5618ea83a57f76b074763_litb/dev_v2/base-images/GlobalCollect.jpg) no-repeat;
-	width:51px;
-	height:32px;
-	display:inline-block;
-}
-.GlobalCollect1 {
-	background-position:0 0;
-}
-.GlobalCollect2, .Ebanx-amex {
-	background-position:0 -42px;
-}
-.GlobalCollect3 {
-	background-position:0 -84px;
-}
-.GlobalCollect118 {
-}
-.GlobalCollect130 {
-	background-position:0 -168px;
-}
-.GlobalCollect125, .cybersourcecard11 {
-	background-position:0 -210px;
-}
-.GlobalCollect836 {
-	background-position:0 -253px;
-}
-.GlobalCollect836.banking {
-	background-position:0 -672px;
-}
-.GlobalCollect856 {
-	background-position:0 -294px;
-}
-.GlobalCollect809 {
-	background-position:0 -420px;
-}
-.GlobalCollect114 {
-	background-position:0 -462px;
-}
-.GlobalCollect119 {
-	background-position:0 -504px;
-}
-.boletoIcon, .GlobalCollect1503 {
-	background-position:0 -546px;
-}
-.GlobalCollect111 {
-	background-position:0 -588px;
-}
-.GlobalCollect117 {
-	background-position:0 -126px;
-}
-.GlobalCollect122 {
-	background-position:0 -378px;
-}
-.GlobalCollect816 {
-	background-position:0 -630px;
-}
-.GlobalCollect845 {
-	background-position:0 -720px;
-}
-.GlobalCollect849 {
-	background-position:0 -762px;
-}
-.GlobalCollect841 {
-	background-position:0 -804px;
 }
 .carte_bleue_worldpayIcon {
 	background-position:0 -846px;
